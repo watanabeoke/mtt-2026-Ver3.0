@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Medical Tourism Thai · 5 Group Mapping 004 — Policy 8 Steps Dual Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#153B6D;--blue:#2F80ED;--green:#2E9E5B;--orange:#F2994A;--red:#D64545;--purple:#8E63CE;--teal:#18A0A8;
+  --bg:#f8fafc;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#d1d5db;
+  --c1:#D85A30;--c2:#2E9E5B;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Kanit',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.container{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#eef5ff,#ffffff);border:1px solid #d7e6ff;border-radius:24px;padding:36px;box-shadow:0 10px 30px rgba(21,59,109,.06)}
+h1{font-size:clamp(28px,4vw,48px);line-height:1.15;margin:0;color:var(--navy)}
+.sub{font-size:17px;color:var(--muted);max-width:880px;margin-top:10px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chip{padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;background:#fff;border:1px solid #cfe0ff;color:var(--navy)}
+.chip.c1-chip{background:#fff3ef;border-color:#f5c4b3;color:#7a2e15}
+.chip.c2-chip{background:#edfbf3;border-color:#a7dfc0;color:#1a5c35}
+
+/* ── SECTION ── */
+.section{margin-top:36px}
+.section h2{font-size:26px;margin:0 0 10px;color:var(--navy)}
+.section p.lead{margin:0 0 16px;color:var(--muted);font-size:16px}
+
+/* ── CASE SWITCHER ── */
+.case-switcher{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.csw-btn{border-radius:18px;padding:18px 20px;cursor:pointer;border:2px solid var(--line);background:var(--card);transition:all .2s;user-select:none;text-align:left}
+.csw-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,23,42,.08)}
+.csw-btn.sel-c1{border-color:var(--c1);background:#fff3ef}
+.csw-btn.sel-c2{border-color:var(--c2);background:#edfbf3}
+.csw-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.csw-num.n1{color:var(--c1)}
+.csw-num.n2{color:var(--c2)}
+.csw-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.csw-desc{font-size:12px;color:var(--muted);line-height:1.4}
+.csw-tag{display:inline-block;margin-top:8px;font-size:11px;font-family:'IBM Plex Mono',monospace;padding:2px 9px;border-radius:999px;font-weight:500}
+.t1{background:#fff3ef;color:var(--c1);border:1px solid #f5c4b3}
+.t2{background:#edfbf3;color:var(--c2);border:1px solid #a7dfc0}
+
+/* ── STEP GRID ── */
+.step-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0}
+.step-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(15,23,42,.1)}
+.step-card:hover .open-hint{opacity:1}
+.step-card.active-c1{border-color:var(--c1);box-shadow:0 0 0 3px rgba(216,90,48,.15)}
+.step-card.active-c2{border-color:var(--c2);box-shadow:0 0 0 3px rgba(46,158,91,.15)}
+.step-card[data-step="1"]::before{background:var(--blue)}
+.step-card[data-step="2"]::before{background:var(--green)}
+.step-card[data-step="3"]::before{background:var(--purple)}
+.step-card[data-step="4"]::before{background:var(--orange)}
+.step-card[data-step="5"]::before{background:var(--red)}
+.step-card[data-step="6"]::before{background:var(--teal)}
+.step-card[data-step="7"]::before{background:var(--navy)}
+.step-card[data-step="8"]::before{background:#6D28D9}
+.snum{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
+.snum-1{background:var(--blue)}
+.snum-2{background:var(--green)}
+.snum-3{background:var(--purple)}
+.snum-4{background:var(--orange)}
+.snum-5{background:var(--red)}
+.snum-6{background:var(--teal)}
+.snum-7{background:var(--navy)}
+.snum-8{background:#6D28D9}
+.step-th{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.step-en{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-bottom:6px}
+.step-prev{font-size:12px;color:var(--muted);line-height:1.45}
+.open-hint{position:absolute;bottom:10px;right:12px;font-size:10px;font-family:'IBM Plex Mono',monospace;opacity:0;transition:opacity .2s}
+.hint-c1{color:var(--c1)}
+.hint-c2{color:var(--c2)}
+
+/* ── DETAIL PANEL ── */
+.detail-wrap{display:none;margin-top:20px}
+.detail-wrap.open{display:block}
+.detail-panel{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;animation:slideIn .22s ease;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+@keyframes slideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.dp-head{padding:24px 28px 20px;border-bottom:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.dp-case-pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.pill-c1{background:#fff3ef;color:var(--c1);border:1px solid #f5c4b3}
+.pill-c2{background:#edfbf3;color:var(--c2);border:1px solid #a7dfc0}
+.dp-step-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-left:8px}
+.dp-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.2}
+.dp-subtitle{font-size:13px;color:var(--muted)}
+.dp-close{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 14px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'Kanit',sans-serif;white-space:nowrap;flex-shrink:0}
+.dp-close:hover{background:#e5e7eb}
+
+.dp-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.dp-col{padding:22px 28px}
+.dp-col:first-child{border-right:1px solid #f3f4f6}
+.dp-col-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.dp-col-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.dp-items{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.dp-items li{font-size:12.5px;color:var(--muted);padding-left:16px;position:relative;line-height:1.55}
+.dp-items li::before{content:'';position:absolute;left:3px;top:8px;width:5px;height:5px;border-radius:50%;background:#d1d5db}
+.dp-items li strong{color:var(--text);font-weight:600}
+
+.dp-box{border-radius:12px;padding:13px 15px;margin-top:14px}
+.dp-box-label{font-size:10px;font-family:'IBM Plex Mono',monospace;font-weight:500;margin-bottom:5px}
+.dp-box-text{font-size:12.5px;line-height:1.6}
+.box-c1{background:#fff3ef;border:1px solid #f5c4b3}
+.box-c1 .dp-box-label{color:var(--c1)}
+.box-c1 .dp-box-text{color:#7a2e15}
+.box-c2{background:#edfbf3;border:1px solid #a7dfc0}
+.box-c2 .dp-box-label{color:var(--c2)}
+.box-c2 .dp-box-text{color:#1a5c35}
+.box-blue{background:#eef5ff;border:1px solid #cfe0ff}
+.box-blue .dp-box-label{color:var(--navy)}
+.box-blue .dp-box-text{color:#1e3a5f}
+.box-amber{background:#fffbef;border:1px solid #fde68a}
+.box-amber .dp-box-label{color:#92400e}
+.box-amber .dp-box-text{color:#78350f}
+
+.dp-output{background:#f8fafc;border-top:1px solid #f3f4f6;padding:14px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dp-out-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);flex-shrink:0}
+.dp-tags{display:flex;gap:6px;flex-wrap:wrap}
+.out-tag{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500}
+.ot-c1{background:#fff3ef;color:var(--c1);border:1px solid #f5c4b3}
+.ot-c2{background:#edfbf3;color:var(--c2);border:1px solid #a7dfc0}
+
+.step-nav{display:flex;justify-content:space-between;align-items:center;padding:12px 28px;border-top:1px solid #f3f4f6}
+.nav-btn{background:transparent;border:1px solid var(--line);border-radius:10px;padding:5px 14px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'Kanit',sans-serif}
+.nav-btn:hover{background:var(--bg)}
+.nav-btn:disabled{opacity:.3;cursor:default}
+.nav-dots{display:flex;gap:5px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:#d1d5db;cursor:pointer;transition:background .15s}
+.dot-c1{background:var(--c1)}
+.dot-c2{background:var(--c2)}
+
+/* ── 5 GROUPS ── */
+.grid-5{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.gcard h3{margin:0 0 6px;font-size:18px;color:var(--navy)}
+.gcard .en{margin:0 0 8px;color:var(--muted);font-size:13px}
+.tag{display:inline-block;padding:5px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:12px;margin-bottom:8px}
+.span-4{grid-column:span 4}
+.span-6{grid-column:span 6}
+ul{padding-left:18px;margin:8px 0 0}
+li{font-size:14px;margin-bottom:3px}
+
+/* ── TABLE ── */
+.table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.table th,.table td{padding:13px 12px;border-bottom:1px solid #e5e7eb;vertical-align:top;text-align:left;font-size:14px}
+.table th{background:#f8fafc;color:var(--navy);font-weight:600}
+.small{font-size:13px;color:var(--muted)}
+
+/* ── COMPARE STRIP ── */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.banner{background:#eef5ff;border:1px solid #cfe0ff;border-radius:18px;padding:15px 18px;font-weight:600;color:var(--navy);margin-top:16px;font-size:15px}
+
+/* ── PROCESS REF ── */
+.process-ref{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pstep{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+
+footer{margin-top:36px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:900px){
+  .grid-5,.process,.process-ref,.twocol,.case-switcher,.dp-body{grid-template-columns:1fr}
+  .span-4,.span-6{grid-column:span 1}
+  .dp-col:first-child{border-right:none;border-bottom:1px solid #f3f4f6}
+}
+@media(max-width:540px){.process{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>โครงการผู้นำยุทธศาสตร์นวัตกรรมสุขภาพ<br>Medical Tourism Thai</h1>
+  <div class="sub">5 กลุ่มยุทธศาสตร์ + กระบวนการนโยบาย 8 ขั้นตอน — <strong>2 กรณีศึกษาแบบ Interactive</strong><br>เลือกกรณีศึกษา แล้วคลิกที่ขั้นตอนเพื่อดูการวิเคราะห์ฉบับภาษาไทยเต็มรูปแบบ</div>
+  <div class="chips">
+    <div class="chip">5 Strategic Groups</div>
+    <div class="chip c1-chip">Case 1 · Medical Hub Thailand</div>
+    <div class="chip c2-chip">Case 2 · Lifestyle Medicine · NCD</div>
+    <div class="chip">Policy Process 8 Steps</div>
+    <div class="chip">Interactive · Thai Language</div>
+  </div>
+</section>
+
+<!-- ── CASE SWITCHER ── -->
+<section class="section">
+  <h2>เลือกกรณีศึกษา</h2>
+  <p class="lead">คลิกเพื่อสลับระหว่าง 2 กรณีศึกษา — เนื้อหาทั้ง 8 ขั้นตอนจะเปลี่ยนตามกรณีที่เลือก</p>
+  <div class="case-switcher">
+    <div class="csw-btn sel-c1" id="btnC1" onclick="selectCase(1)">
+      <p class="csw-num n1">CASE 01</p>
+      <p class="csw-title">Medical Hub Thailand</p>
+      <p class="csw-desc">ยกระดับประเทศไทยสู่ศูนย์กลางการแพทย์ระดับโลก เจาะกลุ่ม HNWI ด้วย Sandbox Policy + JCI + BOI Incentives</p>
+      <span class="csw-tag t1">Medical Tourism · Healthcare Destination</span>
+    </div>
+    <div class="csw-btn" id="btnC2" onclick="selectCase(2)">
+      <p class="csw-num n2">CASE 02</p>
+      <p class="csw-title">Lifestyle Medicine · ป้องกัน NCD</p>
+      <p class="csw-desc">ส่งเสริมการปรับเปลี่ยนวิถีชีวิต (โภชนาการ + ออกกำลังกาย) เพื่อลดโรคไม่ติดต่อเรื้อรังในประชาชนไทย</p>
+      <span class="csw-tag t2">Pantapong Tangteerasunun · 6674804753</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 8-STEP INTERACTIVE GRID ── -->
+<section class="section">
+  <p class="step-label" id="stepsLabel">กรณีที่ 1 · Medical Hub Thailand — คลิกที่ขั้นตอนเพื่อดูรายละเอียด</p>
+  <h2>กระบวนการนโยบาย 8 ขั้นตอน</h2>
+  <div class="process" id="stepsGrid">
+    <div class="step-card" data-step="1" onclick="openStep(1)">
+      <div class="snum snum-1">1</div>
+      <p class="step-th">ทำความเข้าใจองค์กร</p>
+      <p class="step-en">Understanding Organization</p>
+      <p class="step-prev" id="prev1"></p>
+      <span class="open-hint hint-c1" id="hint1">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="2" onclick="openStep(2)">
+      <div class="snum snum-2">2</div>
+      <p class="step-th">กระบวนการนโยบาย</p>
+      <p class="step-en">Policy Process</p>
+      <p class="step-prev" id="prev2"></p>
+      <span class="open-hint hint-c1" id="hint2">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="3" onclick="openStep(3)">
+      <div class="snum snum-3">3</div>
+      <p class="step-th">ตัวแบบนโยบาย</p>
+      <p class="step-en">Policy Model</p>
+      <p class="step-prev" id="prev3"></p>
+      <span class="open-hint hint-c1" id="hint3">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="4" onclick="openStep(4)">
+      <div class="snum snum-4">4</div>
+      <p class="step-th">การตัดสินใจ / การรับรอง</p>
+      <p class="step-en">Decision &amp; Adoption</p>
+      <p class="step-prev" id="prev4"></p>
+      <span class="open-hint hint-c1" id="hint4">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="5" onclick="openStep(5)">
+      <div class="snum snum-5">5</div>
+      <p class="step-th">การประเมินผล</p>
+      <p class="step-en">Evaluation</p>
+      <p class="step-prev" id="prev5"></p>
+      <span class="open-hint hint-c1" id="hint5">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="6" onclick="openStep(6)">
+      <div class="snum snum-6">6</div>
+      <p class="step-th">จริยธรรม</p>
+      <p class="step-en">Ethics &amp; Equity</p>
+      <p class="step-prev" id="prev6"></p>
+      <span class="open-hint hint-c1" id="hint6">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="7" onclick="openStep(7)">
+      <div class="snum snum-7">7</div>
+      <p class="step-th">การอภิปราย</p>
+      <p class="step-en">Discussion &amp; Debate</p>
+      <p class="step-prev" id="prev7"></p>
+      <span class="open-hint hint-c1" id="hint7">เปิด →</span>
+    </div>
+    <div class="step-card" data-step="8" onclick="openStep(8)">
+      <div class="snum snum-8">8</div>
+      <p class="step-th">รายงานฉบับสมบูรณ์</p>
+      <p class="step-en">Final Report</p>
+      <p class="step-prev" id="prev8"></p>
+      <span class="open-hint hint-c1" id="hint8">เปิด →</span>
+    </div>
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div class="detail-wrap" id="detailWrap">
+    <div class="detail-panel" id="detailPanel"></div>
+  </div>
+</section>
+
+<!-- ── COMPARISON STRIP ── -->
+<section class="section">
+  <h2>เปรียบเทียบ 2 กรณีศึกษา</h2>
+  <div class="twocol">
+    <div class="gcard" style="border-top:4px solid var(--c1)">
+      <div class="tag" style="background:var(--c1)">Case 1</div>
+      <h3>Medical Hub Thailand</h3>
+      <ul>
+        <li><b>กลุ่มเป้าหมาย:</b> ผู้รับบริการต่างชาติ HNWI ตลาดพรีเมียม</li>
+        <li><b>กลไกหลัก:</b> Sandbox Zone, Medical Visa, BOI Incentive</li>
+        <li><b>ผลลัพธ์:</b> รายได้ Medical Tourism + GDP Health Sector</li>
+        <li><b>ความเสี่ยง:</b> Two-tier Healthcare, Brain Drain แพทย์ไทย</li>
+        <li><b>ระยะเวลา:</b> Phase 1 ใน 18 เดือน, เต็มรูปแบบ 5 ปี</li>
+      </ul>
+    </div>
+    <div class="gcard" style="border-top:4px solid var(--c2)">
+      <div class="tag" style="background:var(--c2)">Case 2</div>
+      <h3>Lifestyle Medicine · NCD</h3>
+      <ul>
+        <li><b>กลุ่มเป้าหมาย:</b> ประชาชนไทย ผู้สูงอายุ กลุ่มเสี่ยง NCD</li>
+        <li><b>กลไกหลัก:</b> 6 Pillars Lifestyle Medicine + Health Coach</li>
+        <li><b>ผลลัพธ์:</b> ลด NCD, ลด Healthcare Cost, เพิ่ม Life Expectancy</li>
+        <li><b>ความเสี่ยง:</b> งบจำกัด, Behavior Change ยาก, Digital Divide</li>
+        <li><b>ระยะเวลา:</b> Short 1–2 ปี (2 Pillars) → Long 3+ ปี (6 Pillars)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5 STRATEGIC GROUPS ── -->
+<section class="section">
+  <h2>สรุป 5 กลุ่มยุทธศาสตร์ Medical Hub</h2>
+  <p class="lead">มองทั้งระบบในหน้าเดียว: แบรนด์ประเทศ บริการแพทย์ ประสบการณ์ธุรกิจ โครงสร้างพื้นฐาน และกำลังคนดิจิทัล ต้องเดินไปพร้อมกัน</p>
+  <div class="grid-5">
+    <article class="gcard span-4" style="border-color:#2F80ED"><div class="tag" style="background:#2F80ED">Group 1</div><h3>การตลาดและภาพลักษณ์จุดหมายปลายทาง</h3><div class="en">Destination &amp; Global Branding</div><ul><li>กำหนด Brand Positioning ประเทศไทย</li><li>เจาะตลาด HNWI ทั่วโลก</li><li>สื่อสารความปลอดภัยและคุณภาพ</li><li>เชื่อม Tourism กับ Medical Experience</li></ul></article>
+    <article class="gcard span-4" style="border-color:#2E9E5B"><div class="tag" style="background:#2E9E5B">Group 2</div><h3>บริการทางการแพทย์และนวัตกรรมสุขภาพ</h3><div class="en">Medical Hub &amp; Health Innovation</div><ul><li>กำหนด Medical Service Model</li><li>ผลักดัน Regenerative / Personalized Medicine</li><li>ยกระดับมาตรฐาน JCI / HA</li><li>เสริม Wellness และ Preventive Care</li></ul></article>
+    <article class="gcard span-4" style="border-color:#F2994A"><div class="tag" style="background:#F2994A">Group 3</div><h3>โมเดลธุรกิจและประสบการณ์ครบวงจร</h3><div class="en">Business &amp; Experience Ecosystem</div><ul><li>ออกแบบ Customer Journey</li><li>สร้าง Medical Tourism Package</li><li>เพิ่มรายได้และ Spending per Capita</li><li>ยกระดับ Hospitality ไทย</li></ul></article>
+    <article class="gcard span-6" style="border-color:#D64545"><div class="tag" style="background:#D64545">Group 4</div><h3>โครงสร้างพื้นฐานและกลไกสนับสนุนนโยบาย</h3><div class="en">Infrastructure &amp; Strategic Enablers</div><ul><li>พัฒนา Connectivity และ Medical Visa</li><li>เสนอปรับ Regulation + BOI</li><li>ดึงดูดการลงทุนและสิทธิประโยชน์</li><li>รองรับการชำระเงินและประกันสุขภาพระหว่างประเทศ</li></ul></article>
+    <article class="gcard span-6" style="border-color:#8E63CE"><div class="tag" style="background:#8E63CE">Group 5</div><h3>กำลังคนและโครงสร้างพื้นฐานดิจิทัล</h3><div class="en">Future Talent &amp; Digital Transformation</div><ul><li>พัฒนาทักษะกำลังคน Medical Hub</li><li>สร้าง Data Exchange และ AI Analytics</li><li>พัฒนา Digital Product Passport / Platform</li><li>Executive Education และ Network Leaders</li></ul></article>
+  </div>
+  <div class="banner">แกนร่วมของทั้ง 5 กลุ่ม: สร้าง Medical Hub ไทยที่มีแบรนด์ระดับโลก บริการมาตรฐานสูง ประสบการณ์ไร้รอยต่อ มีกลไกสนับสนุน และมีคน + ข้อมูลรองรับอย่างยั่งยืน</div>
+</section>
+
+<!-- ── GROUPS × 8-STEP RELATION ── -->
+<section class="section">
+  <h2>เชื่อม 5 กลุ่ม กับ กระบวนการนโยบาย 8 ขั้นตอน</h2>
+  <table class="table">
+    <thead><tr><th style="width:22%">กลุ่ม</th><th style="width:28%">บทบาทหลัก</th><th style="width:25%">ขั้นตอนที่เกี่ยวข้อง</th><th>ผลลัพธ์หลัก</th></tr></thead>
+    <tbody>
+      <tr><td><b style="color:#2F80ED">Group 1</b><br><span class="small">Destination &amp; Branding</span></td><td class="small">กำหนดทิศทางตลาด สร้างแบรนด์ความเชื่อมั่น</td><td class="small">ขั้นตอน 1 (Stakeholder), 4 (Options), 7 (Debate)</td><td class="small">Brand Positioning, Market Penetration Plan</td></tr>
+      <tr><td><b style="color:#2E9E5B">Group 2</b><br><span class="small">Medical Hub &amp; Innovation</span></td><td class="small">มาตรฐานการรักษา นวัตกรรม R&amp;D</td><td class="small">ขั้นตอน 3 (Model), 5 (KPIs), 8 (Report)</td><td class="small">JCI Accreditation, Clinical R&amp;D Output</td></tr>
+      <tr><td><b style="color:#F2994A">Group 3</b><br><span class="small">Business &amp; Experience</span></td><td class="small">Customer Journey, Package, Revenue</td><td class="small">ขั้นตอน 2 (Process), 4 (Options), 5 (Evaluation)</td><td class="small">Seamless Journey, Revenue per Head</td></tr>
+      <tr><td><b style="color:#D64545">Group 4</b><br><span class="small">Infrastructure &amp; Enablers</span></td><td class="small">Regulation, Visa, BOI, Connectivity</td><td class="small">ขั้นตอน 4 (Decision), 6 (Ethics), 7 (Debate)</td><td class="small">Medical Visa Law, BOI Package, Sandbox</td></tr>
+      <tr><td><b style="color:#8E63CE">Group 5</b><br><span class="small">Talent &amp; Digital</span></td><td class="small">HRD, Data Exchange, Digital Tools</td><td class="small">ขั้นตอน 1 (Context), 3 (Model), 8 (Report)</td><td class="small">Digital Health Passport, AI Platform</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── SYSTEM INTEGRATION ── -->
+<section class="section">
+  <h2>ภาพรวมการบูรณาการทั้งระบบ</h2>
+  <div class="twocol">
+    <div class="gcard"><h3>โมเดลนวัตกรรมคู่ขนาน</h3><ul><li><b>แบบจีน:</b> เน้นความเร็ว สเกล และการใช้แพลตฟอร์มดิจิทัล</li><li><b>แบบเยอรมนี:</b> เน้นความแม่นยำ มาตรฐานสากล JCI และการวิจัยเชิงลึก</li><li><b>ผลลัพธ์:</b> สร้างประสบการณ์การแพทย์ระดับโลกที่เติบโตเร็วและยั่งยืน</li></ul></div>
+    <div class="gcard"><h3>การเชื่อมงานทั้ง 5 กลุ่ม</h3><ul><li><b>Demand Side:</b> Group 1 สร้างตลาด → Group 2 สร้างความเชื่อมั่น → Group 3 เปลี่ยนเป็น Revenue</li><li><b>Backbone:</b> Group 4 ทำให้กฎ กติกา พร้อม → Group 5 ทำให้คน ข้อมูล ดิจิทัล พร้อม</li></ul></div>
+  </div>
+</section>
+
+<footer>
+  <p>Medical Tourism Thai · 5 Group Mapping 004 · Policy 8 Steps Dual Case Interactive</p>
+  <p>Case 2 ref: Pantapong Tangteerasunun 6674804753 · Chulalongkorn CPHS · นพท. Program</p>
+</footer>
+</div>
+
+<script>
+/* ─── DATA ─────────────────────────────── */
+const D = {
+1:{label:'กรณีที่ 1 · Medical Hub Thailand',pillClass:'pill-c1',activeClass:'active-c1',dotClass:'dot-c1',hintClass:'hint-c1',boxH:'box-c1',boxO:'box-blue',tagClass:'ot-c1',
+previews:['วิเคราะห์บริบทระบบ Medical Hub กระทรวงสาธารณสุข รพ.เอกชน และ BOI','ระบุจุดที่นโยบาย Medical Hub อยู่ใน Policy Cycle ปัจจุบัน','เลือก Rational + Institutional Model วิเคราะห์กรอบ Medical Hub','วิเคราะห์ Decision Makers และเส้นทางอนุมัติผ่านระบบราชการไทย','กำหนด KPIs วัดผล: รายได้ จำนวนผู้รับบริการ และมาตรฐาน JCI','วิเคราะห์ Two-tier Healthcare, Brain Drain และสิทธิผู้ป่วยไทย','เปรียบเทียบ Option A/B/C และ Recommendation สำหรับ Sandbox Zone','สรุปรายงาน Medical Hub พร้อม Policy Brief และ Slide Deck 20 หน้า'],
+steps:{
+1:{th:'ทำความเข้าใจองค์กร',en:'Understanding Organization',sub:'บริบท ผู้มีส่วนได้ส่วนเสีย โครงสร้างอำนาจ',ll:'สิ่งที่ต้องวิเคราะห์',lt:'โครงสร้างและบริบทระบบ Medical Hub',li:['<strong>พันธกิจ/วิสัยทัศน์</strong> — กระทรวงสาธารณสุข, กรมสนับสนุนบริการสุขภาพ, สภาหอการค้าไทย','<strong>ผู้มีส่วนได้ส่วนเสีย</strong> — รพ.เอกชน (BDMS, Bumrungrad), TAT, BOI, กองทุนลงทุน','<strong>โครงสร้างอำนาจ</strong> — คณะกรรมการ Medical Hub ระดับชาติ','<strong>ปัญหา/โอกาส</strong> — ขาดมาตรฐาน JCI ครอบคลุม ภาษาสื่อสารจำกัด','<strong>ข้อมูลพื้นฐาน</strong> — รายได้ Medical Tourism 2567 ≈ 1.4 แสนล้านบาท/ปี'],rl:'เครื่องมือและกิจกรรม',rt:'วิธีการวิเคราะห์บริบท Medical Hub',ri:['อ่านแผนยุทธศาสตร์ Medical Hub แห่งชาติ 2566–2570','จัดทำ Stakeholder Map ด้วย Power-Interest Grid','สัมภาษณ์ผู้บริหาร รพ.เอกชนและ รพ.รัฐ','ทบทวนสถิติ: จำนวนผู้ป่วยต่างชาติ ประเทศต้นทาง Spending per Visit','วิเคราะห์ Gap ระหว่าง Policy Intent กับ Implementation จริง'],hl:'ข้อสังเกตสำคัญ',h:'Stakeholder Map พบว่า รพ.เอกชนรายใหญ่อยู่กลุ่ม High Power/High Interest ขณะที่ผู้ป่วยไทยรายได้น้อยอยู่กลุ่ม Low Power/High Interest เสี่ยงถูกมองข้ามในกระบวนการนโยบาย',ol:'ผลลัพธ์ที่ควรได้',o:'Stakeholder Map, Org Context, Policy Issue Statement',tags:['Stakeholder Map','Org Context','Policy Issue']},
+2:{th:'กระบวนการนโยบาย',en:'Policy Process',sub:'วงจรนโยบาย Policy Window และผู้ขับเคลื่อน',ll:'การวิเคราะห์วงจรนโยบาย',lt:'Medical Hub อยู่ในช่วงใดของ Policy Cycle',li:['<strong>Agenda Setting</strong> — ประเด็น Medical Hub เข้าวาระชาติตั้งแต่ปี 2559','<strong>Policy Formulation</strong> — กำลังพัฒนา Digital Health Passport มาตรฐานใหม่','<strong>Adoption</strong> — รอการอนุมัติกฎหมาย Medical Visa ฉบับปรับปรุง','<strong>Implementation</strong> — Sandbox Zone นำร่องกรุงเทพฯ และเชียงใหม่','<strong>Evaluation</strong> — ยังขาดระบบติดตามผลที่ครอบคลุม'],rl:'Policy Window และแรงผลักดัน',rt:'โอกาสผลักดันนโยบาย Medical Hub',ri:['<strong>Problem Stream</strong> — Post-COVID ฟื้นฟูรายได้ท่องเที่ยวและ Healthcare','<strong>Policy Stream</strong> — แผน Thailand 4.0 และ BCG Economy','<strong>Politics Stream</strong> — รัฐบาลมีนโยบายส่งเสริม Soft Power สุขภาพ','<strong>Policy Window</strong> — เปิดช่วง 2568–2570 เหมาะผลักดัน Medical Visa','<strong>Policy Entrepreneur</strong> — BDMS, สมาคมโรงพยาบาลเอกชน, อว.'],hl:'สถานะนโยบายปัจจุบัน',h:'Medical Hub Policy อยู่ใน Implementation + Evaluation Phase พร้อมกัน ยังสามารถปรับแก้นโยบายได้โดยใช้หลักฐานจาก Pilot Zone ก่อนขยายระดับชาติ',ol:'ผลลัพธ์ที่ควรได้',o:'แผนภาพ Policy Process, ความเข้าใจว่านโยบายอยู่ตรงไหน, Policy Window และ Entrepreneur',tags:['Policy Cycle Map','Window Analysis','Actor Mapping']},
+3:{th:'ตัวแบบนโยบาย',en:'Policy Model',sub:'กรอบทฤษฎีวิเคราะห์ Medical Hub',ll:'ตัวแบบที่เลือกใช้',lt:'Rational + Institutional + Political Model',li:['<strong>Rational Model</strong> — ประเมิน Policy Options บน Cost-Benefit Analysis ของ Medical Hub','<strong>Institutional Model</strong> — วิเคราะห์ว่ากฎระเบียบรัฐเป็น Enabler หรือ Barrier','<strong>Mixed Scanning</strong> — ตัดสินใจ Big Picture เชิงกลยุทธ์ + ปรับ Incremental รายละเอียด','<strong>Political Model</strong> — วิเคราะห์ผลประโยชน์ทับซ้อน รพ.รัฐ vs. รพ.เอกชน'],rl:'การประยุกต์ใช้',rt:'ใช้กรอบนี้กับ Medical Hub อย่างไร',ri:['Rational Model: วิเคราะห์ ROI ของ Medical Visa Policy เทียบ Status Quo','Institutional: ตรวจสอบว่ากฎหมายสุขภาพรองรับ Telemedicine ข้ามชาติหรือไม่','Mixed Scanning: ตัดสินว่า Sandbox ควรขยาย หรือยกเว้นกฎหมายทั้งประเทศ','Political: วิเคราะห์ปรากฏการณ์แพทย์รัฐออกไป รพ.เอกชน'],hl:'ข้อควรระวัง',h:'Rational Model ต้องระวัง: ข้อมูล Medical Tourism ไทยยังขาดการรวบรวมที่ครอบคลุม ควรเสริม Institutional Analysis เพื่อเข้าใจว่า "ทำไมนโยบายดีถึงไม่ถูก Implement"',ol:'ผลลัพธ์ที่ควรได้',o:'Analytical Framework, เหตุผลเชิงวิชาการรองรับการเลือกตัวแบบ, กรอบวิเคราะห์บริบทจริง',tags:['Analytical Framework','Model Justification','Analysis Grid']},
+4:{th:'การตัดสินใจ / การรับรอง',en:'Decision & Adoption',sub:'ผู้มีอำนาจ Policy Options และเส้นทางอนุมัติ',ll:'โครงสร้างการตัดสินใจ',lt:'ใครมีอำนาจอนุมัติ Medical Hub Policy',li:['<strong>คณะรัฐมนตรี</strong> — อนุมัติแผน Medical Hub ระดับชาติและงบประมาณ','<strong>กระทรวงสาธารณสุข</strong> — ออกระเบียบมาตรฐาน JCI, Telemedicine, Medical Visa','<strong>BOI</strong> — ให้สิทธิประโยชน์ภาษีและสนับสนุนการลงทุนต่างชาติ','<strong>กรมการแพทย์</strong> — กำกับมาตรฐานและใบอนุญาตแพทย์ต่างชาติ','<strong>สภากาชาด / กรมสุขภาพจิต</strong> — ดูแลจริยธรรมและความปลอดภัย'],rl:'Policy Options ที่วิเคราะห์',rt:'3 ทางเลือกสำหรับ Medical Hub',ri:['<strong>Option A (Status Quo)</strong> — คงนโยบายเดิม ความเสี่ยงต่ำแต่โตช้า ไม่สู้ Singapore','<strong>Option B (Sandbox Zone)</strong> — Special Medical Zone กรุงเทพ+เชียงใหม่ ยืดหยุ่นกฎหมาย ✓','<strong>Option C (National Reform)</strong> — ปฏิรูปกฎหมายทั้งระบบ ผลดีระยะยาวแต่เสี่ยงสูง','<strong>Recommended: Option B</strong> — โอกาสผ่านสูงสุด ไม่กระทบระบบ สธ. ทั่วประเทศ'],hl:'Policy Option ที่แนะนำ',h:'Option B (Sandbox Zone) มีโอกาสได้รับการรับรองสูงที่สุด เพราะสอดคล้องกับแนวทางรัฐบาล ไม่ต้องแก้กฎหมายหลัก มีหลักฐานจาก Singapore และ Dubai Healthcare City รองรับ',ol:'ผลลัพธ์ที่ควรได้',o:'Policy Options ที่ชัดเจน, Feasibility Analysis, ความเห็นว่า Option ใดมีโอกาสผ่านมากสุด',tags:['Policy Options','Feasibility Analysis','Decision Pathway']},
+5:{th:'การประเมินผล',en:'Evaluation',sub:'KPIs ผลลัพธ์ และกรอบการประเมิน',ll:'กรอบการประเมินผล',lt:'Short / Intermediate / Long-term Outcomes',li:['<strong>Short-term Outputs</strong> — จำนวน Medical Visa ที่ออก, รพ. JCI เพิ่ม','<strong>Intermediate Outcomes</strong> — รายได้ Medical Tourism เพิ่ม 15% ใน 3 ปี','<strong>Long-term Impact</strong> — ไทยติด Top 5 Medical Tourism Destination โลก','<strong>Negative Outcomes</strong> — ติดตาม Brain Drain แพทย์ไทย, ผลกระทบผู้ป่วยรายได้น้อย'],rl:'ตัวชี้วัดหลัก (KPIs)',rt:'KPI Framework สำหรับ Medical Hub',ri:['<strong>KPI 1</strong> — ผู้รับบริการต่างชาติ: เป้า 3.5 ล้านคน/ปี ภายใน 2570','<strong>KPI 2</strong> — รายได้ Medical Tourism: เป้า 2 แสนล้านบาท/ปี','<strong>KPI 3</strong> — รพ. JCI: เพิ่มจาก 62 เป็น 100 แห่ง','<strong>KPI 4</strong> — เวลารอคิวผู้ป่วยไทย: ไม่เพิ่มเกิน 10% จาก Baseline','<strong>KPI 5</strong> — Digital Health Passport Adoption: 80% รพ. ใน Sandbox'],hl:'KPI ที่ต้องติดตามเป็นพิเศษ',h:'KPI ที่สำคัญที่สุดคือ "เวลารอคิวผู้ป่วยไทย" เป็นตัวชี้วัดว่า Medical Hub Policy สร้างความเหลื่อมล้ำหรือไม่ ควรรายงานต่อสาธารณะทุกไตรมาส',ol:'ผลลัพธ์ที่ควรได้',o:'ตาราง KPI, Logic Model, เกณฑ์เปรียบเทียบแต่ละ Policy Option',tags:['KPI Table','Logic Model','Evaluation Framework']},
+6:{th:'จริยธรรม',en:'Ethics & Equity',sub:'ความเสมอภาค สิทธิผู้ป่วย ผลกระทบที่ไม่ตั้งใจ',ll:'ประเด็นจริยธรรมหลัก',lt:'Ethics Analysis ระบบ Medical Hub',li:['<strong>Equity</strong> — การลงทุน รพ.เอกชนเสี่ยงเบียดทรัพยากร รพ.รัฐ','<strong>Two-tier Healthcare</strong> — เสี่ยงสร้างระบบ 2 ชั้น: ต่างชาติ vs. คนไทยทั่วไป','<strong>Brain Drain</strong> — แพทย์พยาบาลย้ายสู่ รพ.เอกชน ทิ้งระบบสาธารณสุข','<strong>Data Privacy</strong> — Health Data ผู้ป่วยใน Digital Passport เสี่ยง PDPA','<strong>Informed Consent</strong> — ผู้ป่วยต่างชาติเข้าใจสิทธิ์ในไทยเพียงพอหรือไม่'],rl:'มาตรการป้องกัน',rt:'Ethical Safeguards ที่ควรบรรจุในนโยบาย',ri:['Ring-fenced Budget 20% จากรายได้ Medical Hub เพื่อ รพ.ชุมชน','Retention Bonus สำหรับแพทย์ที่อยู่ในระบบสาธารณสุขไทย','จัดตั้ง Medical Hub Ombudsman รับเรื่องร้องเรียนจากผู้ป่วยทุกกลุ่ม','มาตรฐาน PDPA เฉพาะ Health Data Tourism เข้มข้นกว่า GDPR','Transparency Dashboard แสดงผลกระทบต่อผู้ป่วยไทย Real-time'],hl:'ประเด็นวิกฤต',h:'Brain Drain คือประเด็นวิกฤต: ไทยผลิตแพทย์ปีละ ~3,000 คน แต่ความต้องการ รพ.เอกชนสูงมาก หากไม่มีมาตรการ Retention ระบบ สธ. จะขาดแพทย์อย่างรุนแรงใน 10 ปี',ol:'ผลลัพธ์ที่ควรได้',o:'Ethical Analysis Report, Equity Assessment, ข้อเสนอมาตรการป้องกัน',tags:['Ethics Analysis','Equity Assessment','Safeguard Proposals']},
+7:{th:'การอภิปราย',en:'Discussion & Debate',sub:'เปรียบเทียบทางเลือก ข้อดีข้อเสีย Recommendation',ll:'เปรียบเทียบ Policy Options',lt:'ข้อดีและข้อจำกัดแต่ละทางเลือก',li:['<strong>Option A</strong> ✓ ความเสี่ยงต่ำ ✗ โตช้า ไม่สู้ Singapore/Malaysia','<strong>Option B</strong> ✓ ยืดหยุ่น มีหลักฐาน ✗ ต้องการ Coordination ข้ามกระทรวง','<strong>Option C</strong> ✓ ผลดีระยะยาว ✗ ความเสี่ยงทางการเมืองและกฎหมายสูง','<strong>Recommendation</strong> — Option B + Ethics Safeguards + Digital Infrastructure','<strong>เงื่อนไข</strong> — ต้องมี Independent Monitoring Body ที่ไม่ขึ้นกับ รพ.เอกชน'],rl:'ทำไม Option B ดีที่สุด',rt:'เหตุผลที่แนะนำ Sandbox Zone',ri:['หลักฐาน: Singapore Special Economic Zone เพิ่มรายได้ Healthcare 300% ใน 10 ปี','ความเป็นไปได้การเมือง: ไม่ต้องแก้กฎหมายหลัก ใช้ Regulatory Sandbox','ความเป็นไปได้บริหาร: BOI มีกลไกพร้อม, MoPH มีประสบการณ์ Pilot','Equity: ออกแบบ Revenue Sharing เพื่อ Cross-subsidize รพ.รัฐได้','Timeline: เริ่ม Phase 1 ได้ใน 18 เดือน ไม่ต้องรอปฏิรูปกฎหมายใหญ่'],hl:'Key Argument',h:'ข้อโต้แย้งที่สำคัญที่สุดคือ "คนไทยได้อะไร?" ต้องตอบด้วยหลักฐานว่า Revenue จาก Medical Tourism จะ Reinvest กลับสู่ระบบสาธารณสุขอย่างไร มิเช่นนั้นนโยบายจะขาด Political Legitimacy',ol:'ผลลัพธ์ที่ควรได้',o:'Option Comparison Table, Final Recommendation, ประเด็นสำหรับ Policy Debate',tags:['Option Comparison','Final Recommendation','Q&A Prep']},
+8:{th:'รายงานฉบับสมบูรณ์',en:'Final Report',sub:'โครงสร้างรายงาน Policy Brief และ Deliverables',ll:'โครงสร้างรายงาน',lt:'องค์ประกอบรายงาน Medical Hub Policy',li:['<strong>บทที่ 1 บทนำ</strong> — ที่มาปัญหา, ขอบเขต, วัตถุประสงค์','<strong>บทที่ 2 บริบทและองค์กร</strong> — Stakeholder Map, โครงสร้างระบบ','<strong>บทที่ 3 Policy Process & Model</strong> — Rational + Institutional Framework','<strong>บทที่ 4 Policy Options</strong> — ตาราง A/B/C พร้อม Feasibility Matrix','<strong>บทที่ 5 Evaluation & Ethics</strong> — KPI Framework, Ethics Analysis','<strong>บทที่ 6 Discussion & Recommendation</strong> — Option B Justification, Action Plan'],rl:'Deliverables',rt:'เอกสารที่ต้องส่งมอบ',ri:['<strong>รายงานหลัก</strong> — 40–60 หน้า APA 7th, Thai/English bilingual','<strong>Policy Brief</strong> — 2 หน้า Executive Summary สำหรับผู้บริหาร','<strong>Slide Deck</strong> — 20 สไลด์ นำเสนอต่อคณะกรรมการ Medical Hub','<strong>Infographic</strong> — สรุปนโยบายสำหรับ Public Communication','<strong>Annexes</strong> — Stakeholder Map, KPI Table, Ethics Checklist'],hl:'หลักการเขียน Policy Brief',h:'Policy Brief ที่ดีต้องตอบ 3 คำถามในหน้าแรก: (1) ปัญหาคืออะไร? (2) เราเสนออะไร? (3) ถ้าไม่ทำจะเกิดอะไร? ผู้อ่านระดับรัฐมนตรีต้องเข้าใจใน 90 วินาที',ol:'ผลลัพธ์ที่ต้องส่งมอบ',o:'Full Report, Policy Brief 2 หน้า, Slide Deck 20 หน้า, Infographic, Annexes',tags:['Full Report','Policy Brief','Slide Deck','Infographic','Annexes']}
+}},
+2:{label:'กรณีที่ 2 · Lifestyle Medicine · NCD',pillClass:'pill-c2',activeClass:'active-c2',dotClass:'dot-c2',hintClass:'hint-c2',boxH:'box-c2',boxO:'box-amber',tagClass:'ot-c2',
+previews:['วิเคราะห์บริบท กระทรวงสาธารณสุข สปสช. รพสต. และผู้มีส่วนได้ส่วนเสียด้าน NCD','ระบุจุดที่นโยบาย Lifestyle Medicine อยู่ใน Policy Cycle และ Policy Window','เลือก Institutional + Incremental Model วิเคราะห์กรอบ Lifestyle Medicine','วิเคราะห์ Decision Makers สปสช. กรมอนามัย และเส้นทางอนุมัติงบประมาณ','กำหนด KPIs: อัตรา NCD ลดลง, BMI, ค่า BP, Fasting Blood Sugar','วิเคราะห์ Equity ระหว่างกลุ่มรายได้ต่าง สิทธิ์เข้าถึง Digital Health','เปรียบเทียบ Short-term vs. Long-term Options 6 Pillars Lifestyle Medicine','สรุปรายงาน Logic Model, Policy Brief และ Implementation Plan'],
+steps:{
+1:{th:'ทำความเข้าใจองค์กร',en:'Understanding Organization',sub:'บริบทระบบสาธารณสุขไทยและ NCD Burden',ll:'สิ่งที่ต้องวิเคราะห์',lt:'บริบทและปัญหา NCD ในระบบสุขภาพไทย',li:['<strong>ขนาดปัญหา</strong> — ชาวไทย 14 ล้านคนป่วย NCD, เสียชีวิต 400,000 คน/ปี (>70% ของการตายทั้งหมด)','<strong>ภาระการเงิน</strong> — ค่าใช้จ่ายจาก NCD รวม 198,152 ล้านบาท/ปี','<strong>ผู้มีส่วนได้ส่วนเสีย</strong> — กระทรวงสาธารณสุข, สปสช., กรมอนามัย, รพสต., อสม.','<strong>สังคมผู้สูงอายุ</strong> — ปี 2566 ผู้สูงอายุ 20.66% กว่าครึ่งมีปัญหาสุขภาพ','<strong>6 Pillars</strong> — โภชนาการ, ออกกำลังกาย, นอนหลับ, จัดการความเครียด, ลดสารอันตราย, สัมพันธภาพ'],rl:'กิจกรรมที่ต้องทำ',rt:'เครื่องมือวิเคราะห์บริบท Lifestyle Medicine',ri:['ทบทวนสถิติ NCD ของ WHO และกระทรวงสาธารณสุข 2565–2567','จัดทำ Stakeholder Map ตาม Power-Interest Grid (MOPH, สปสช., รพสต., อสม.)','วิเคราะห์ Gap ระหว่างนโยบาย Lifestyle Medicine และ Coverage จริงของ สปสช.','ประเมิน Capacity ของบุคลากร: ทักษะ Nutrition Counseling และ Physical Activity Coaching','สำรวจความพร้อม Digital Health Platform สำหรับ Lifestyle Monitoring'],hl:'ข้อสังเกตสำคัญ',h:'อสม. 1.04 ล้านคนทั่วประเทศคือกลไกสำคัญสุดในการขับเคลื่อน Lifestyle Medicine ระดับชุมชน แต่ขาดการฝึกอบรมด้าน Nutrition และ Physical Activity อย่างเป็นระบบ',ol:'ผลลัพธ์ที่ควรได้',o:'Stakeholder Map NCD System, NCD Burden Profile, Policy Issue Statement',tags:['NCD Burden Profile','Stakeholder Map','Policy Issue']},
+2:{th:'กระบวนการนโยบาย',en:'Policy Process',sub:'วงจรนโยบาย Lifestyle Medicine ในระบบสุขภาพไทย',ll:'การวิเคราะห์วงจรนโยบาย',lt:'นโยบาย Lifestyle Medicine อยู่ในช่วงใด',li:['<strong>Agenda Setting</strong> — NCD เป็นวาระชาติมาตั้งแต่ พ.ร.บ. สุขภาพแห่งชาติ 2550','<strong>Policy Formulation</strong> — กรมอนามัยพัฒนา Guideline Lifestyle Medicine 2566','<strong>Adoption</strong> — สปสช. กำลังพิจารณา Reimbursement Lifestyle Intervention','<strong>Implementation</strong> — Pilot Nutrition + Physical Activity ใน รพสต. 12 แห่ง','<strong>Evaluation</strong> — ยังไม่มีระบบ Outcome Tracking ครอบคลุมระดับชาติ'],rl:'Policy Window',rt:'โอกาสผลักดัน Lifestyle Medicine Policy',ri:['<strong>Problem Stream</strong> — NCD Burden พุ่งสูง หลัง COVID ทำ Lifestyle แย่ลง','<strong>Policy Stream</strong> — แผนพัฒนาสุขภาพแห่งชาติ ฉบับที่ 13 (2566–2570)','<strong>Politics Stream</strong> — กระทรวงสาธารณสุขผลักดันนโยบาย Preventive Health','<strong>Policy Window</strong> — การปฏิรูป สปสช. เปิดโอกาสเพิ่ม Coverage Preventive Services','<strong>Policy Entrepreneur</strong> — กรมอนามัย, สถาบันวิจัยระบบสาธารณสุข (สวรส.)'],hl:'สถานะและจุดวิกฤต',h:'นโยบาย Lifestyle Medicine อยู่ในช่วง Formulation → Adoption ซึ่งเป็นจุดวิกฤตที่ต้องผลักดันให้ สปสช. บรรจุ Reimbursement สำหรับ Lifestyle Intervention ก่อนงบประมาณปีหน้าจะถูกจัดสรรไปแล้ว',ol:'ผลลัพธ์ที่ควรได้',o:'Policy Cycle Map, ระบุ Policy Window, ผู้ขับเคลื่อนและแรงต้านหลัก',tags:['Policy Cycle Map','Window Analysis','Champion Mapping']},
+3:{th:'ตัวแบบนโยบาย',en:'Policy Model',sub:'กรอบทฤษฎีวิเคราะห์ Lifestyle Medicine',ll:'ตัวแบบที่เลือกใช้',lt:'Institutional + Incremental + Behavioral Model',li:['<strong>Institutional Model</strong> — วิเคราะห์ว่าระบบ สปสช., กรมอนามัย, รพสต. รองรับ Lifestyle Medicine หรือไม่','<strong>Incremental Model</strong> — เริ่มจาก 2 Pillars (Nutrition + Physical Activity) → ขยายสู่ 6 Pillars','<strong>Behavioral / Health Belief Model</strong> — วิเคราะห์อะไรขัดขวาง Behavior Change ในประชากรไทย','<strong>Social Ecological Model</strong> — มองปัจจัยระดับ Individual, Community, Policy'],rl:'การประยุกต์ใช้',rt:'ใช้กรอบนี้กับ Lifestyle Medicine อย่างไร',ri:['Institutional: ตรวจสอบว่า สปสช. มีกลไก Reimbursement สำหรับ Preventive Service หรือไม่','Incremental: วางแผน Short-term (1-2 ปี) → Long-term (3+ ปี) ค่อยๆ ขยาย Coverage','Behavioral: วิเคราะห์ Perceived Severity, Benefits, Barriers ของชาวไทยต่อ Lifestyle Change','Social Ecological: ออกแบบ Community-based Program ผ่าน อสม. และสภาชุมชน'],hl:'เหตุผลที่เลือก Incremental Model',h:'Incremental Model เหมาะที่สุด เพราะระบบสุขภาพไทยยังไม่พร้อม Implement ทั้ง 6 Pillars พร้อมกัน การเริ่มจากโภชนาการและออกกำลังกายก่อน (ปีที่ 1-2) จะมีโอกาสสำเร็จสูงกว่า',ol:'ผลลัพธ์ที่ควรได้',o:'Analytical Framework, เหตุผลเลือก Incremental + Behavioral, กรอบวิเคราะห์ชุมชน',tags:['Analytical Framework','Incremental Rationale','Behavioral Analysis']},
+4:{th:'การตัดสินใจ / การรับรอง',en:'Decision & Adoption',sub:'ผู้มีอำนาจ ทางเลือกนโยบาย และเส้นทาง Reimbursement',ll:'โครงสร้างการตัดสินใจ',lt:'ใครมีอำนาจอนุมัติ Lifestyle Medicine Policy',li:['<strong>สปสช.</strong> — กำหนด Benefit Package และ Reimbursement สำหรับ Preventive Services','<strong>กรมอนามัย</strong> — ออก Clinical Guideline และมาตรฐาน Lifestyle Medicine Intervention','<strong>กองทุนสุขภาพตำบล</strong> — งบ PP (Promotion & Prevention) ระดับ รพสต.','<strong>กระทรวงศึกษา</strong> — ออกแบบ Health Literacy Curriculum ในโรงเรียน','<strong>สวรส. / มหาวิทยาลัย</strong> — ให้หลักฐานเชิงวิชาการรองรับ Policy Options'],rl:'Policy Options (Short & Long Term)',rt:'4 ทางเลือกนโยบาย Lifestyle Medicine',ri:['<strong>Option 1</strong> — Reimbursement กลไกการเงินส่งเสริม Behavior Modification (1-2 ปี)','<strong>Option 2</strong> — ออกแบบ Lifestyle Insurance Program ครอบคลุม Nutrition + Physical Activity','<strong>Option 3</strong> — ฝึกอบรม Health Coach 3,000 คน ในชุมชน (Short) → 100,000 คน (Long)','<strong>Option 4</strong> — เชื่อม e-Claim System รองรับ Nationwide Reimbursement (3+ ปี)'],hl:'Policy Options ที่แนะนำ (Short-term)',h:'Option 1 + 3 เหมาะที่สุดสำหรับ Short-term เพราะ Reimbursement ผ่าน สปสช. มีกลไกอยู่แล้ว และการสร้าง Health Coach จาก อสม. ใช้ต้นทุนต่ำแต่ขยายผลได้กว้าง',ol:'ผลลัพธ์ที่ควรได้',o:'Policy Options Short/Long-term, Feasibility Matrix, Decision Pathway ผ่าน สปสช.',tags:['Policy Options','Feasibility Matrix','Reimbursement Pathway']},
+5:{th:'การประเมินผล',en:'Evaluation',sub:'KPIs ผลลัพธ์ และ Logic Model Lifestyle Medicine',ll:'กรอบการประเมินผล',lt:'Outputs / Outcomes / Impact ของ Lifestyle Medicine',li:['<strong>Short-term Outputs</strong> — จำนวน Health Coach ที่ฝึกอบรม, จำนวน รพสต. ที่ Implement','<strong>Intermediate Outcomes</strong> — BMI ลดลง, FBS ลดลง, BP ควบคุมได้ดีขึ้น ใน Pilot Area','<strong>Long-term Impact</strong> — อัตราป่วย NCD ลดลง 15% ใน 5 ปี, Healthcare Cost ลดลง','<strong>Negative Outcomes</strong> — ติดตาม Digital Divide ในผู้สูงอายุ, Dropout จาก Program'],rl:'ตัวชี้วัดหลัก (KPIs)',rt:'KPI Framework สำหรับ Lifestyle Medicine Policy',ri:['<strong>KPI 1</strong> — % ประชากรกลุ่มเสี่ยง NCD เข้าถึง Program ≥ 30%','<strong>KPI 2</strong> — BMI ประชากร 35–60 ปี ลดลง ≥ 0.5 kg/m² ใน 2 ปี','<strong>KPI 3</strong> — Physical Inactivity ลดจาก 47% → 35% ภายใน 3 ปี','<strong>KPI 4</strong> — Health Coach ที่ผ่านการรับรอง ≥ 3,000 คน ใน 2 ปี','<strong>KPI 5</strong> — Healthcare Cost ลดลงจาก NCD ≥ 10% ใน 5 ปี'],hl:'หลักฐาน Cost-Benefit',h:'ทุกการลงทุน 1 บาทใน Preventive Lifestyle Program ประหยัดค่ารักษา NCD ได้ 3–7 บาทในระยะ 5 ปี (WHO, 2022) ซึ่งเป็นหลักฐานสำคัญสนับสนุนการจัดสรรงบ',ol:'ผลลัพธ์ที่ควรได้',o:'KPI Table, Logic Model, Cost-Benefit Analysis, Evaluation Framework',tags:['KPI Table','Logic Model','Cost-Benefit Analysis']},
+6:{th:'จริยธรรม',en:'Ethics & Equity',sub:'ความเสมอภาค สิทธิ และผลกระทบต่อกลุ่มเปราะบาง',ll:'ประเด็นจริยธรรมหลัก',lt:'Ethics Analysis สำหรับ Lifestyle Medicine Policy',li:['<strong>Equity</strong> — กลุ่มรายได้ต่ำเข้าถึง Healthy Food และสถานที่ออกกำลังกายน้อยกว่ามาก','<strong>Socioeconomic Barriers</strong> — อาหารสุขภาพราคาแพงกว่าอาหารแปรรูปในพื้นที่ยากจน','<strong>Digital Divide</strong> — ผู้สูงอายุและผู้มีรายได้น้อยใช้ Digital Health Tools ได้จำกัด','<strong>Autonomy vs. Paternalism</strong> — นโยบายบังคับ Lifestyle Change เสี่ยงขัดสิทธิ์ส่วนบุคคล','<strong>Privacy</strong> — ข้อมูล Lifestyle และ Biometric เสี่ยงถูกนำไปใช้ผิดวัตถุประสงค์'],rl:'มาตรการป้องกัน',rt:'Safeguards ที่ควรบรรจุในนโยบาย',ri:['Subsidize ผลิตภัณฑ์อาหารสุขภาพราคาถูกใน รพสต. และตลาดชุมชน','สร้าง Public Exercise Space ฟรี ในทุกตำบลภายใน 3 ปี','ออกแบบ Non-digital Option ควบคู่กับ Digital Platform เสมอ','กำหนดว่า Lifestyle Program ต้องเป็น Voluntary ไม่ใช่ Mandatory','ออกมาตรฐาน Data Governance เฉพาะ Health Behavior Data'],hl:'ประเด็นจริยธรรมเชิงโครงสร้าง',h:'ความเสี่ยงสูงสุด: หากนโยบายเน้นแต่ "ความรับผิดชอบส่วนบุคคล" โดยไม่แก้ปัจจัยโครงสร้าง (ราคาอาหาร, พื้นที่ออกกำลังกาย, ชั่วโมงทำงาน) จะกลายเป็นการ Blame ผู้ป่วยแทนที่จะแก้ปัญหาจริง',ol:'ผลลัพธ์ที่ควรได้',o:'Ethical Analysis, Equity Impact Assessment, Structural Safeguards',tags:['Ethics Analysis','Equity Assessment','Structural Safeguards']},
+7:{th:'การอภิปราย',en:'Discussion & Debate',sub:'เปรียบเทียบ Short vs. Long-term Options',ll:'เปรียบเทียบ Policy Options',lt:'Short-term vs. Long-term Lifestyle Medicine',li:['<strong>Short-term (1-2 ปี)</strong> ✓ ผลเร็ว วัดได้ ✗ ครอบคลุมแค่ 2 ใน 6 Pillars','<strong>Long-term (3+ ปี)</strong> ✓ ครอบคลุม 6 Pillars ✗ ต้องการทรัพยากรและ Coordination สูง','<strong>Reimbursement-based</strong> ✓ สร้าง Incentive ✗ ระบบ สปสช. ซับซ้อน ใช้เวลาออกแบบ','<strong>Community Coach Model</strong> ✓ Low cost, High Reach ✗ คุณภาพไม่สม่ำเสมอ','<strong>Recommendation</strong> — เริ่ม Option 1+3 ระยะสั้น → ขยายสู่ Option 2+4 ระยะยาว'],rl:'ทำไม Phased Approach ดีที่สุด',rt:'เหตุผลสนับสนุน Incremental Strategy',ri:['หลักฐาน: WHO พบ Community-based Physical Activity Program ลด NCD ได้ 20-30%','ความเป็นไปได้: อสม. 1.04 ล้านคนมีอยู่แล้ว ต้องแค่ Upskill ด้าน Lifestyle Medicine','งบประมาณ: เริ่ม Pilot ใน 77 จังหวัด ต้องการงบเพียง 50 ล้านบาท/ปี','Equity: ชุมชนรากหญ้าได้รับผลประโยชน์โดยตรง ไม่ใช่แค่กลุ่มที่ใช้ Technology','Scalability: 3,000 Health Coach ปีที่ 1 → 100,000 ปีที่ 5 ขยายผลได้จริง'],hl:'หลักฐาน RCT ที่ต้องอ้างอิง',h:'DPP Trial (NEJM): Diet + Exercise Intervention ลด Diabetes Risk ได้ 58% ดีกว่ายา Metformin ที่ลดได้ 31% นี่คือหลักฐานที่แข็งแกร่งที่สุดสนับสนุน Lifestyle Medicine Policy',ol:'ผลลัพธ์ที่ควรได้',o:'Option Comparison Table, Final Recommendation, Evidence Brief',tags:['Option Comparison','Evidence Brief','Final Recommendation']},
+8:{th:'รายงานฉบับสมบูรณ์',en:'Final Report',sub:'โครงสร้างรายงาน Logic Model และ Implementation Plan',ll:'โครงสร้างรายงาน (13 หัวข้อ)',lt:'ตามโครงสร้าง Term Paper Pantapong T.',li:['<strong>1-2 Description & Background</strong> — 14 ล้านคน NCD, 198,152 ล้านบาท, 6 Pillars','<strong>3-4 Key Issues & Stakeholders</strong> — Economic Burden, Integration Gap, MOPH-สปสช.-อสม.','<strong>5-7 Constraints / Goal / Objectives</strong> — Financial, Infrastructure, Behavioral Barriers','<strong>8-9 Evaluation Criteria / Options</strong> — Short 1-2 ปี และ Long 3+ ปี Strategy','<strong>10-11 Risks / Recommendations</strong> — 5 มาตรการหลัก: Collab, Evidence, Finance, Digital, Eval','<strong>12-13 Implementation / References</strong> — Logic Model + Care Pathway + APA Citations'],rl:'Deliverables',rt:'เอกสารที่ต้องส่งมอบ',ri:['<strong>Term Paper</strong> — 28 หน้า ภาษาอังกฤษ ครบ 13 หัวข้อ','<strong>Logic Model Diagram</strong> — Input → Activity → Output → Outcome → Impact','<strong>Integrated Care Pathway</strong> — LM Coach → Vital Sign → Personalized Care → Options','<strong>Policy Brief</strong> — 2 หน้า สำหรับผู้บริหาร กรมอนามัย / สปสช.','<strong>Implementation Plan</strong> — Short-term (1-2 ปี) และ Long-term (3+ ปี)'],hl:'จุดเด่นที่ต้องมี',h:'ต้องแสดง Integrated Care Pathway ที่เชื่อม Lifestyle Medicine Coach → Health/Vital Sign → Personalized Care → Community Options อย่างชัดเจน ไม่ใช่แค่อธิบาย 6 Pillars แบบทฤษฎี',ol:'ผลลัพธ์ที่ต้องส่งมอบ',o:'Term Paper 28 หน้า, Logic Model, Care Pathway, Policy Brief, Implementation Plan',tags:['Term Paper','Logic Model','Care Pathway','Policy Brief','Implementation Plan']}
+}}
+};
+
+/* ─── STATE ─────── */
+let cc=1, cs=null;
+
+/* ─── SELECT CASE ─── */
+function selectCase(n){
+  cc=n; cs=null;
+  document.getElementById('btnC1').className='csw-btn'+(n===1?' sel-c1':'');
+  document.getElementById('btnC2').className='csw-btn'+(n===2?' sel-c2':'');
+  const d=D[n];
+  document.getElementById('stepsLabel').textContent=d.label+' — คลิกที่ขั้นตอนเพื่อดูรายละเอียด';
+  for(let i=1;i<=8;i++){
+    document.getElementById('prev'+i).textContent=d.previews[i-1];
+    const h=document.getElementById('hint'+i);
+    h.className='open-hint '+d.hintClass;
+  }
+  document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active-c1','active-c2'));
+  document.getElementById('detailWrap').classList.remove('open');
+}
+
+/* ─── OPEN STEP ─── */
+function openStep(n){
+  cs=n;
+  const d=D[cc], s=d.steps[n];
+  document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active-c1','active-c2'));
+  document.querySelector('[data-step="'+n+'"]').classList.add(d.activeClass);
+
+  document.getElementById('detailPanel').innerHTML=`
+    <div class="dp-head">
+      <div>
+        <div><span class="dp-case-pill ${d.pillClass}">${d.label}</span><span class="dp-step-tag">ขั้นตอนที่ ${String(n).padStart(2,'0')} / 08</span></div>
+        <p class="dp-title">${s.th}</p>
+        <p class="dp-subtitle">${s.en} — ${s.sub}</p>
+      </div>
+      <button class="dp-close" onclick="closePanel()">✕ ปิด</button>
+    </div>
+    <div class="dp-body">
+      <div class="dp-col">
+        <p class="dp-col-label">${s.ll}</p>
+        <p class="dp-col-title">${s.lt}</p>
+        <ul class="dp-items">${s.li.map(i=>`<li>${i}</li>`).join('')}</ul>
+        <div class="dp-box ${d.boxH}"><p class="dp-box-label">${s.hl}</p><p class="dp-box-text">${s.h}</p></div>
+      </div>
+      <div class="dp-col">
+        <p class="dp-col-label">${s.rl}</p>
+        <p class="dp-col-title">${s.rt}</p>
+        <ul class="dp-items">${s.ri.map(i=>`<li>${i}</li>`).join('')}</ul>
+        <div class="dp-box ${d.boxO}"><p class="dp-box-label">${s.ol}</p><p class="dp-box-text">${s.o}</p></div>
+      </div>
+    </div>
+    <div class="dp-output">
+      <span class="dp-out-label">Deliverables:</span>
+      <div class="dp-tags">${s.tags.map(t=>`<span class="out-tag ${d.tagClass}">${t}</span>`).join('')}</div>
+    </div>
+    <div class="step-nav">
+      <button class="nav-btn" onclick="openStep(${n-1})" ${n===1?'disabled':''}>← ก่อนหน้า</button>
+      <div class="nav-dots">${[1,2,3,4,5,6,7,8].map(i=>`<span class="nav-dot ${i===n?d.dotClass:''}" onclick="openStep(${i})"></span>`).join('')}</div>
+      <button class="nav-btn" onclick="openStep(${n+1})" ${n===8?'disabled':''}>ถัดไป →</button>
+    </div>`;
+
+  const w=document.getElementById('detailWrap');
+  w.classList.add('open');
+  setTimeout(()=>w.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
+
+function closePanel(){
+  document.getElementById('detailWrap').classList.remove('open');
+  document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active-c1','active-c2'));
+  cs=null;
+}
+
+selectCase(1);
+</script>
+</body>
+</html>

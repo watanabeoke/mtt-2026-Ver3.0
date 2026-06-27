@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>นพท. Innovation Ecosystem · Medical Hub Thailand</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+html { font-size: 18px; /* Base relative font scale */ }
+
+:root {
+  --coral-50:#FAECE7;--coral-100:#F5C4B3;--coral-400:#D85A30;--coral-600:#993C1D;--coral-800:#712B13;
+  --teal-50:#E1F5EE;--teal-100:#9FE1CB;--teal-400:#1D9E75;--teal-600:#0F6E56;--teal-800:#085041;
+  --purple-50:#EEEDFE;--purple-100:#CECBF6;--purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;
+  --amber-50:#FAEEDA;--amber-100:#FAC775;--amber-400:#BA7517;--amber-600:#854F0B;--amber-800:#633806;
+  --gray-50:#F1EFE8;--gray-100:#D3D1C7;--gray-400:#888780;--gray-600:#5F5E5A;--gray-800:#2C2C2A;
+  --ink:#1a1916;--muted:#6b6966;--faint:#b4b2a9;
+  --bg:#fafaf7;--surface:#ffffff;
+  --radius:10px;
+  --font:'Sarabun',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.0000rem;line-height:1.65}
+
+/* ── LAYOUT ── */
+.page{max-width:1100px;margin:0 auto;padding:0 28px 80px}
+
+/* ── HERO ── */
+.hero{padding:60px 0 48px;border-bottom:0.5px solid var(--gray-100);margin-bottom:56px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.badge{font-family:var(--mono);font-size:0.7333rem;font-weight:500;letter-spacing:.06em;padding:3px 10px;border-radius:20px;background:var(--coral-50);color:var(--coral-600);border:0.5px solid var(--coral-100)}
+.badge.b2{background:var(--teal-50);color:var(--teal-600);border-color:var(--teal-100)}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.18;letter-spacing:-.02em;color:var(--ink);margin-bottom:14px}
+.hero h1 span{color:var(--coral-600)}
+.hero-sub{font-size:1.0667rem;color:var(--muted);max-width:680px;line-height:1.7}
+.hero-meta{margin-top:24px;display:flex;gap:24px;flex-wrap:wrap}
+.meta-pill{font-size:0.8000rem;color:var(--muted);background:var(--gray-50);border:0.5px solid var(--gray-100);border-radius:20px;padding:4px 12px;font-family:var(--mono)}
+
+/* ── SECTION HEADERS ── */
+.sec-header{margin-bottom:32px}
+.sec-label{font-family:var(--mono);font-size:0.7333rem;letter-spacing:.08em;color:var(--faint);text-transform:uppercase;margin-bottom:6px}
+.sec-title{font-size:1.4667rem;font-weight:600;color:var(--ink)}
+
+/* ── ECO GRID (German model) ── */
+.eco-wrap{margin-bottom:72px}
+.eco-grid{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:var(--gray-100);border-radius:12px;overflow:hidden;border:0.5px solid var(--gray-100)}
+.eco-cell{background:var(--surface);padding:26px 22px;position:relative}
+.eco-cell.knowledge{display:flex;flex-direction:column;justify-content:center;gap:32px;padding:20px 18px;background:var(--gray-50)}
+.eco-cell.knowledge .knode{background:var(--teal-400);color:#fff;border-radius:8px;padding:10px 14px;font-size:0.8000rem;font-weight:600;text-align:center;letter-spacing:.02em;white-space:nowrap;writing-mode:horizontal-tb}
+.eco-cell-title{font-size:0.8667rem;font-weight:700;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.eco-cell-en{font-size:0.7333rem;color:var(--faint);font-family:var(--mono);margin-bottom:12px}
+.eco-items{list-style:none;display:flex;flex-direction:column;gap:5px}
+.eco-items li{font-size:0.8000rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.45}
+.eco-items li::before{content:'';position:absolute;left:4px;top:7px;width:4px;height:4px;border-radius:50%;background:var(--faint)}
+.eco-cell.c-blue .eco-cell-title{color:var(--purple-800)}
+.eco-cell.c-blue .eco-items li::before{background:var(--purple-400)}
+.eco-cell.c-green .eco-cell-title{color:var(--teal-800)}
+.eco-cell.c-green .eco-items li::before{background:var(--teal-400)}
+.eco-cell.c-orange .eco-cell-title{color:var(--coral-800)}
+.eco-cell.c-orange .eco-items li::before{background:var(--coral-400)}
+.eco-cell.c-teal .eco-cell-title{color:var(--teal-800)}
+.eco-cell.c-teal .eco-items li::before{background:var(--teal-600)}
+
+/* sector bars */
+.sector-row{display:grid;grid-template-columns:auto 1fr 1fr;gap:2px;background:var(--gray-100);margin-top:2px}
+.sector-bar{padding:12px 22px;font-size:0.8000rem;font-weight:700;text-align:center;color:#fff;letter-spacing:.04em}
+.sector-bar.pub{background:var(--teal-600)}
+.sector-bar.priv{background:var(--coral-600)}
+.sector-bar.gap{background:var(--gray-50)}
+
+/* connector arrows */
+.eco-arrow{display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--gray-400);font-size:1.2000rem;padding:0 4px;writing-mode:vertical-lr}
+
+/* ── GROUP CARDS ── */
+.groups-wrap{margin-bottom:72px}
+.group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+
+.gcard{background:var(--surface);border:0.5px solid var(--gray-100);border-radius:var(--radius);padding:24px;transition:box-shadow .2s,transform .2s;cursor:default;position:relative;overflow:hidden}
+.gcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0}
+.gcard:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.07)}
+
+.gcard.g1::before{background:var(--coral-400)}
+.gcard.g2::before{background:var(--teal-400)}
+.gcard.g3::before{background:var(--purple-400)}
+.gcard.g4::before{background:var(--amber-400)}
+.gcard.g5::before{background:var(--gray-400)}
+
+.gcard-num{font-family:var(--mono);font-size:0.7333rem;color:var(--faint);margin-bottom:8px}
+.gcard-title{font-size:1.0000rem;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.gcard-thai{font-size:0.8000rem;color:var(--muted);margin-bottom:14px;line-height:1.4}
+.gcard-roles{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.gcard-roles li{font-size:0.8333rem;color:var(--muted);padding-left:16px;position:relative;line-height:1.45}
+.gcard-roles li::before{content:'→';position:absolute;left:0;color:var(--faint);font-size:0.7333rem;top:1px}
+.gcard-tag{display:inline-block;margin-top:14px;font-size:0.7333rem;font-family:var(--mono);padding:3px 10px;border-radius:20px;font-weight:500}
+.g1 .gcard-tag{background:var(--coral-50);color:var(--coral-600)}
+.g2 .gcard-tag{background:var(--teal-50);color:var(--teal-600)}
+.g3 .gcard-tag{background:var(--purple-50);color:var(--purple-600)}
+.g4 .gcard-tag{background:var(--amber-50);color:var(--amber-600)}
+.g5 .gcard-tag{background:var(--gray-50);color:var(--gray-600)}
+
+/* ── MAPPING TABLE ── */
+.mapping-wrap{margin-bottom:72px}
+.map-table{width:100%;border-collapse:collapse;font-size:0.8667rem}
+.map-table th{font-size:0.7333rem;font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:10px 14px;border-bottom:1px solid var(--gray-100);text-align:left;background:var(--gray-50)}
+.map-table td{padding:14px;border-bottom:0.5px solid var(--gray-50);vertical-align:top;line-height:1.5}
+.map-table tr:last-child td{border-bottom:none}
+.map-table tr:hover td{background:var(--gray-50)}
+.eco-tag{display:inline-block;font-size:0.7333rem;padding:2px 8px;border-radius:20px;margin-bottom:3px;line-height:1.5}
+.eco-tag.blue{background:var(--purple-50);color:var(--purple-600)}
+.eco-tag.green{background:var(--teal-50);color:var(--teal-600)}
+.eco-tag.orange{background:var(--coral-50);color:var(--coral-600)}
+.eco-tag.teal{background:var(--teal-50);color:var(--teal-800)}
+.group-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.dot-g1{background:var(--coral-400)}
+.dot-g2{background:var(--teal-400)}
+.dot-g3{background:var(--purple-400)}
+.dot-g4{background:var(--amber-400)}
+.dot-g5{background:var(--gray-400)}
+
+/* ── 8-STEP PROCESS ── */
+.steps-wrap{margin-bottom:72px}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{background:var(--surface);border:0.5px solid var(--gray-100);border-radius:var(--radius);padding:18px 16px;position:relative}
+.step-num{font-family:var(--mono);font-size:1.6000rem;font-weight:700;color:var(--gray-100);position:absolute;top:10px;right:14px;line-height:1}
+.step-label{font-family:var(--mono);font-size:0.6667rem;letter-spacing:.06em;color:var(--faint);text-transform:uppercase;margin-bottom:6px}
+.step-title{font-size:0.8667rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.step-desc{font-size:0.7667rem;color:var(--muted);line-height:1.5}
+.step.active{border-color:var(--coral-100);background:var(--coral-50)}
+.step.active .step-num{color:var(--coral-100)}
+.step.active .step-title{color:var(--coral-800)}
+
+/* ── INNOVATION MODEL COMPARISON ── */
+.compare-wrap{margin-bottom:72px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.compare-card{background:var(--surface);border:0.5px solid var(--gray-100);border-radius:var(--radius);padding:24px}
+.compare-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:0.5px solid var(--gray-50)}
+.flag{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.2000rem}
+.compare-title{font-size:1.0000rem;font-weight:700;color:var(--ink)}
+.compare-sub{font-size:0.7333rem;color:var(--muted);font-family:var(--mono)}
+.attr-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.attr-item{display:flex;align-items:flex-start;gap:10px}
+.attr-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.attr-text{font-size:0.8667rem;color:var(--muted);line-height:1.45}
+.attr-text strong{color:var(--ink);font-weight:600}
+
+/* ── FOOTER ── */
+footer{border-top:0.5px solid var(--gray-100);padding-top:24px;margin-top:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-size:0.8000rem;color:var(--faint);font-family:var(--mono)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .eco-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .eco-cell.knowledge{flex-direction:row;justify-content:flex-start;gap:12px}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .group-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">
+    <span class="badge">นพท. Program</span>
+    <span class="badge b2">Medical Hub Thailand</span>
+  </div>
+  <h1>Functional Models of<br><span>Innovation Eco-System</span><br>Group Mapping</h1>
+  <p class="hero-sub">การแบ่งกลุ่มยุทธศาสตร์ผ่านโมเดลนวัตกรรมคู่ขนาน (เยอรมนี–จีน) เพื่อขับเคลื่อนประเทศไทยสู่การเป็นศูนย์กลางทางการแพทย์ระดับโลก</p>
+  <div class="hero-meta">
+    <span class="meta-pill">Micro Level · Germany Model</span>
+    <span class="meta-pill">5 Strategic Groups</span>
+    <span class="meta-pill">8-Step Policy Process</span>
+    <span class="meta-pill">Bernd Kadura Framework</span>
+  </div>
+</header>
+
+<!-- SECTION 1: German Eco-System Model -->
+<section class="eco-wrap">
+  <div class="sec-header">
+    <p class="sec-label">Section 01</p>
+    <h2 class="sec-title">Functional Innovation Eco-System · Micro Level (Germany)</h2>
+  </div>
+
+  <div style="border:0.5px solid var(--gray-100);border-radius:12px;overflow:hidden">
+    <!-- Main grid -->
+    <div style="display:grid;grid-template-columns:90px 1fr 1fr;gap:1px;background:var(--gray-100)">
+
+      <!-- Knowledge nodes -->
+      <div style="grid-row: span 2; display:flex;flex-direction:column;justify-content:space-around;gap:1px;background:var(--gray-100)">
+        <div style="background:var(--gray-50);display:flex;align-items:center;justify-content:center;padding:18px 10px">
+          <div style="background:var(--teal-400);color:#fff;border-radius:8px;padding:10px 8px;font-size:0.7333rem;font-weight:700;text-align:center;line-height:1.3">Knowledge<br>User</div>
+        </div>
+        <div style="background:var(--gray-50);display:flex;align-items:center;justify-content:center;padding:18px 10px">
+          <div style="background:var(--teal-600);color:#fff;border-radius:8px;padding:10px 8px;font-size:0.7333rem;font-weight:700;text-align:center;line-height:1.3">Knowledge<br>Producer</div>
+        </div>
+      </div>
+
+      <!-- Top-left: Social & Human Capital -->
+      <div style="background:var(--surface);padding:22px 20px">
+        <p style="font-size:0.8000rem;font-weight:700;color:var(--purple-800);margin-bottom:3px">Social and Human Capital &amp; Educational</p>
+        <p style="font-size:0.6667rem;color:var(--faint);font-family:var(--mono);margin-bottom:12px">Group 5 · Future Talent</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--purple-400);display:block"></span>
+            มหาวิทยาลัยสำหรับศึกษาถ่ายทอดองค์ความรู้</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--purple-400);display:block"></span>
+            การศึกษา วิทยาศาสตร์ เทคโนโลยีและนวัตกรรม</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--purple-400);display:block"></span>
+            Digital Product Passport · AI Data Exchange</li>
+        </ul>
+      </div>
+
+      <!-- Top-right: Absorptive Capacity -->
+      <div style="background:var(--surface);padding:22px 20px">
+        <p style="font-size:0.8000rem;font-weight:700;color:var(--coral-800);margin-bottom:3px">Absorptive Capacity and Corporate Venture</p>
+        <p style="font-size:0.6667rem;color:var(--faint);font-family:var(--mono);margin-bottom:12px">Group 1 · Destination &amp; Branding</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--coral-400);display:block"></span>
+            บริษัทองค์กรเพื่อรับการถ่ายทอดและขยายผล</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--coral-400);display:block"></span>
+            กองทุนและบริษัทลงทุน · ตลาดนวัตกรรม</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--coral-400);display:block"></span>
+            Global Branding · HNWI Target Market</li>
+        </ul>
+      </div>
+
+      <!-- Bottom-left: Research Capacity -->
+      <div style="background:var(--surface);padding:22px 20px">
+        <p style="font-size:0.8000rem;font-weight:700;color:var(--teal-800);margin-bottom:3px">Research Capacity: Basic / Applied Research</p>
+        <p style="font-size:0.6667rem;color:var(--faint);font-family:var(--mono);margin-bottom:12px">Group 2 · Medical Hub &amp; Innovation</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--teal-400);display:block"></span>
+            มหาวิทยาลัยวิจัย · โครงสร้างพื้นฐาน</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--teal-400);display:block"></span>
+            ห้องปฏิบัติการภาครัฐ · JCI/HA Standards</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--teal-400);display:block"></span>
+            Regenerative &amp; Personalized Medicine</li>
+        </ul>
+      </div>
+
+      <!-- Bottom-right: Technology & Innovation -->
+      <div style="background:var(--surface);padding:22px 20px">
+        <p style="font-size:0.8000rem;font-weight:700;color:var(--amber-800);margin-bottom:3px">Technology &amp; Innovation Performance</p>
+        <p style="font-size:0.6667rem;color:var(--faint);font-family:var(--mono);margin-bottom:12px">Groups 3 &amp; 4 · Business + Enablers</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--amber-400);display:block"></span>
+            การวิจัยในภาคอุตสาหกรรม · New Products</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--amber-400);display:block"></span>
+            การพัฒนากระบวนการใหม่ · Medical Visa</li>
+          <li style="font-size:0.8000rem;color:var(--muted);padding-left:12px;position:relative">
+            <span style="position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--amber-400);display:block"></span>
+            Seamless Journey · BOI Incentives</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sector row -->
+    <div style="display:grid;grid-template-columns:90px 1fr 1fr;gap:1px;background:var(--gray-100)">
+      <div style="background:var(--gray-50)"></div>
+      <div style="background:var(--teal-600);padding:12px 20px;text-align:center;color:#fff;font-size:0.8000rem;font-weight:700;letter-spacing:.04em">Public Sector</div>
+      <div style="background:var(--coral-600);padding:12px 20px;text-align:center;color:#fff;font-size:0.8000rem;font-weight:700;letter-spacing:.04em">Private Sector</div>
+    </div>
+  </div>
+
+  <p style="margin-top:12px;font-size:0.7333rem;color:var(--faint);font-family:var(--mono)">Source: Strengthening Innovation Systems — Foundation, Concept and Strategic Approach · Bernd Kadura</p>
+</section>
+
+<!-- SECTION 2: 5 Strategic Groups -->
+<section class="groups-wrap">
+  <div class="sec-header">
+    <p class="sec-label">Section 02</p>
+    <h2 class="sec-title">5 Strategic Groups · นพท. Medical Tourism</h2>
+  </div>
+
+  <div class="group-grid">
+
+    <div class="gcard g1">
+      <p class="gcard-num">GROUP 01</p>
+      <p class="gcard-title">Destination &amp; Global Branding</p>
+      <p class="gcard-thai">กลุ่มยุทธศาสตร์การตลาดและภาพลักษณ์จุดหมายปลายทางระดับโลก</p>
+      <ul class="gcard-roles">
+        <li>กำหนด Brand Positioning โดดเด่นจาก Singapore, South Korea</li>
+        <li>วิเคราะห์ Target Market กลุ่ม HNWI จากทั่วโลก</li>
+        <li>วางกลยุทธ์สื่อสารเชิงรุกระดับสากล</li>
+        <li>เชื่อมโยง Tourism + Medical Experience</li>
+      </ul>
+      <span class="gcard-tag">Absorptive Capacity</span>
+    </div>
+
+    <div class="gcard g2">
+      <p class="gcard-num">GROUP 02</p>
+      <p class="gcard-title">Medical Hub &amp; Health Innovation</p>
+      <p class="gcard-thai">กลุ่มยุทธศาสตร์บริการทางการแพทย์และนวัตกรรมสุขภาพขั้นสูง</p>
+      <ul class="gcard-roles">
+        <li>Medical Service Model: Regenerative &amp; Personalized Medicine</li>
+        <li>นำงานวิจัยสู่เชิงพาณิชย์ มาตรฐาน JCI/HA</li>
+        <li>พัฒนาระบบ Wellness &amp; Preventive Care</li>
+      </ul>
+      <span class="gcard-tag">Research Capacity</span>
+    </div>
+
+    <div class="gcard g3">
+      <p class="gcard-num">GROUP 03</p>
+      <p class="gcard-title">Business &amp; Experience Ecosystem</p>
+      <p class="gcard-thai">กลุ่มยุทธศาสตร์โมเดลธุรกิจและประสบการณ์ผู้รับบริการแบบครบวงจร</p>
+      <ul class="gcard-roles">
+        <li>ออกแบบ Customer Journey ตั้งแต่ก่อนเดินทางจนพักฟื้น</li>
+        <li>พัฒนา Medical Tourism Package รวม รักษา + โรงแรม + ไลฟ์สไตล์</li>
+        <li>ยกระดับ Hospitality เป็นเอกลักษณ์ไทย</li>
+      </ul>
+      <span class="gcard-tag">Tech &amp; Innovation</span>
+    </div>
+
+    <div class="gcard g4">
+      <p class="gcard-num">GROUP 04</p>
+      <p class="gcard-title">Infrastructure &amp; Strategic Enablers</p>
+      <p class="gcard-thai">กลุ่มยุทธศาสตร์โครงสร้างพื้นฐานและกลไกสนับสนุนเชิงนโยบาย</p>
+      <ul class="gcard-roles">
+        <li>พัฒนา Connectivity: การบิน, Medical Visa, การเดินทาง</li>
+        <li>ปรับ Regulation เพื่ออำนวยความสะดวก + BOI</li>
+        <li>วางระบบการชำระเงินและประกันสุขภาพระหว่างประเทศ</li>
+      </ul>
+      <span class="gcard-tag">Tech &amp; Innovation</span>
+    </div>
+
+    <div class="gcard g5">
+      <p class="gcard-num">GROUP 05</p>
+      <p class="gcard-title">Future Talent &amp; Digital Transformation</p>
+      <p class="gcard-thai">กลุ่มยุทธศาสตร์กำลังคนและโครงสร้างพื้นฐานดิจิทัลแห่งอนาคต</p>
+      <ul class="gcard-roles">
+        <li>วางแผนผลิต Skill Development สำหรับ Medical Hub</li>
+        <li>ออกแบบ Digital Infrastructure: Health Data Exchange, AI</li>
+        <li>พัฒนา Digital Product Passport + Executive Education</li>
+      </ul>
+      <span class="gcard-tag">Social &amp; Human Capital</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: Group ↔ Eco-System Mapping -->
+<section class="mapping-wrap">
+  <div class="sec-header">
+    <p class="sec-label">Section 03</p>
+    <h2 class="sec-title">Group ↔ Eco-System Function Mapping</h2>
+  </div>
+
+  <div style="border:0.5px solid var(--gray-100);border-radius:var(--radius);overflow:hidden">
+    <table class="map-table">
+      <thead>
+        <tr>
+          <th style="width:22%">Strategic Group</th>
+          <th style="width:28%">Eco-System Function</th>
+          <th style="width:25%">Primary Actors</th>
+          <th style="width:25%">Key Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="group-dot dot-g1"></span><strong>G1 Destination &amp; Branding</strong></td>
+          <td><span class="eco-tag orange">Absorptive Capacity</span><br><span class="eco-tag orange">Corporate Venture</span></td>
+          <td style="font-size:0.8000rem;color:var(--muted)">TAT, Private hospitals, Investment funds</td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Brand positioning, Market penetration</td>
+        </tr>
+        <tr>
+          <td><span class="group-dot dot-g2"></span><strong>G2 Medical Hub &amp; Innovation</strong></td>
+          <td><span class="eco-tag green">Research Capacity</span><br><span class="eco-tag green">Basic / Applied</span></td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Research universities, MoPH, BDMS</td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Clinical R&amp;D, JCI accreditation</td>
+        </tr>
+        <tr>
+          <td><span class="group-dot dot-g3"></span><strong>G3 Business &amp; Experience</strong></td>
+          <td><span class="eco-tag orange">Tech &amp; Innovation</span><br><span class="eco-tag orange">Performance</span></td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Hospitality, Airlines, FinTech, Wellness</td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Seamless Journey, Package revenue</td>
+        </tr>
+        <tr>
+          <td><span class="group-dot dot-g4"></span><strong>G4 Infrastructure &amp; Enablers</strong></td>
+          <td><span class="eco-tag orange">Tech &amp; Innovation</span><br><span class="eco-tag green">Policy &amp; Regulation</span></td>
+          <td style="font-size:0.8000rem;color:var(--muted)">BOI, Immigration, MoF, Insurance</td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Medical Visa, Sandbox regulation</td>
+        </tr>
+        <tr>
+          <td><span class="group-dot dot-g5"></span><strong>G5 Future Talent &amp; Digital</strong></td>
+          <td><span class="eco-tag blue">Social &amp; Human Capital</span><br><span class="eco-tag blue">Educational</span></td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Universities, NIA, NSTDA, Tech firms</td>
+          <td style="font-size:0.8000rem;color:var(--muted)">Data Exchange, Digital leaders</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 4: Dual Innovation Model -->
+<section class="compare-wrap">
+  <div class="sec-header">
+    <p class="sec-label">Section 04</p>
+    <h2 class="sec-title">Dual Innovation Model · Germany × China</h2>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-header">
+        <div class="flag" style="background:#E8F4FD;font-size:1.3333rem">🇩🇪</div>
+        <div>
+          <p class="compare-title">Germany Model</p>
+          <p class="compare-sub">Precision · Quality · Research-led</p>
+        </div>
+      </div>
+      <ul class="attr-list">
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--purple-400)"></span>
+          <p class="attr-text"><strong>ความแม่นยำสูง</strong> — มาตรฐานคุณภาพสากล JCI/HA และการวิจัยเชิงลึก</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--purple-400)"></span>
+          <p class="attr-text"><strong>Functional Eco-System</strong> — ระบบนวัตกรรม 4 ส่วน: Social, Research, Absorptive, Tech</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--purple-400)"></span>
+          <p class="attr-text"><strong>Public-Private Balance</strong> — Knowledge User + Producer ขับเคลื่อนร่วมกัน</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--purple-400)"></span>
+          <p class="attr-text"><strong>Long-term Credibility</strong> — Governance และ Legitimacy ของนโยบาย</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-header">
+        <div class="flag" style="background:#FDF3F0;font-size:1.3333rem">🇨🇳</div>
+        <div>
+          <p class="compare-title">China Model</p>
+          <p class="compare-sub">Speed · Scale · Platform-driven</p>
+        </div>
+      </div>
+      <ul class="attr-list">
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--coral-400)"></span>
+          <p class="attr-text"><strong>ความรวดเร็ว</strong> — ขยายสเกลผ่านแพลตฟอร์มดิจิทัลเข้าถึงตลาดกว้าง</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--coral-400)"></span>
+          <p class="attr-text"><strong>Digital First</strong> — WeChat, Alipay ecosystem สำหรับ Medical Tourism</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--coral-400)"></span>
+          <p class="attr-text"><strong>Volume-based Growth</strong> — เน้นจำนวนและ Revenue per Head ที่สูงขึ้น</p>
+        </li>
+        <li class="attr-item">
+          <span class="attr-dot" style="background:var(--coral-400)"></span>
+          <p class="attr-text"><strong>State-led Incentives</strong> — นโยบายรัฐ + BOI ดึงดูด FDI ในอุตสาหกรรมสุขภาพ</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;background:var(--teal-50);border:0.5px solid var(--teal-100);border-radius:var(--radius);padding:20px 24px">
+    <p style="font-size:0.8667rem;font-weight:600;color:var(--teal-800);margin-bottom:6px">Thailand Integration Strategy</p>
+    <p style="font-size:0.8667rem;color:var(--teal-600);line-height:1.6">นำจุดแข็งแบบเยอรมนี (ความแม่นยำ + Research) บูรณาการกับแบบจีน (ความเร็ว + Platform) เพื่อสร้าง Medical Hub ที่เจาะกลุ่ม HNWI ระดับโลกด้วยประสบการณ์ Seamless Journey และ Regenerative Medicine ที่มีมาตรฐาน JCI ระดับสากล</p>
+  </div>
+</section>
+
+<!-- SECTION 5: 8-Step Policy Process -->
+<section class="steps-wrap">
+  <div class="sec-header">
+    <p class="sec-label">Section 05</p>
+    <h2 class="sec-title">กระบวนการนโยบาย 8 ขั้นตอน</h2>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step active">
+      <span class="step-num">01</span>
+      <p class="step-label">Foundation</p>
+      <p class="step-title">ทำความเข้าใจองค์กร</p>
+      <p class="step-desc">Stakeholder mapping, mandate, context, burden &amp; service gaps</p>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <p class="step-label">Process</p>
+      <p class="step-title">กระบวนการนโยบาย</p>
+      <p class="step-desc">Policy cycle, windows, agenda setting, timeline</p>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <p class="step-label">Model</p>
+      <p class="step-title">ตัวแบบนโยบาย</p>
+      <p class="step-desc">Rational / Incremental / Institutional / Political model</p>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <p class="step-label">Decision</p>
+      <p class="step-title">การตัดสินใจ / การรับรอง</p>
+      <p class="step-desc">Decision makers, policy options, rationale, feasibility</p>
+    </div>
+    <div class="step">
+      <span class="step-num">05</span>
+      <p class="step-label">Evaluation</p>
+      <p class="step-title">การประเมินผล</p>
+      <p class="step-desc">KPIs, outputs, outcomes, impacts, logic model</p>
+    </div>
+    <div class="step">
+      <span class="step-num">06</span>
+      <p class="step-label">Ethics</p>
+      <p class="step-title">จริยธรรม</p>
+      <p class="step-desc">Equity, rights, vulnerable groups, privacy concerns</p>
+    </div>
+    <div class="step">
+      <span class="step-num">07</span>
+      <p class="step-label">Discussion</p>
+      <p class="step-title">การอภิปราย</p>
+      <p class="step-desc">Compare options, pros/cons, evidence synthesis, recommendation</p>
+    </div>
+    <div class="step">
+      <span class="step-num">08</span>
+      <p class="step-label">Output</p>
+      <p class="step-title">รายงานฉบับสมบูรณ์</p>
+      <p class="step-desc">Full report: intro → analysis → options → ethics → recommendation</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>นพท. · โครงการผู้นำยุทธศาสตร์นวัตกรรมสุขภาพ Medical Tourism Thai</p>
+  <p>Framework: Bernd Kadura · Strengthening Innovation Systems</p>
+</footer>
+
+</div>
+</body>
+</html>

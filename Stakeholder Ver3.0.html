@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical Tourism Stakeholder Vision/Mission Catalogue Ver3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --coral-50:#FAECE7;--coral-100:#F5C4B3;--coral-400:#D85A30;--coral-600:#993C1D;--coral-800:#712B13;
+    --teal-50:#E1F5EE;--teal-100:#9FE1CB;--teal-400:#1D9E75;--teal-600:#0F6E56;--teal-800:#085041;
+    --purple-50:#EEEDFE;--purple-100:#CECBF6;--purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;
+    --amber-50:#FAEEDA;--amber-100:#FAC775;--amber-400:#BA7517;--amber-600:#854F0B;--amber-800:#633806;
+    --gray-50:#F1EFE8;--gray-100:#D3D1C7;--gray-400:#888780;--gray-600:#5F5E5A;--gray-800:#2C2C2A;
+    --ink:#1a1916;--muted:#6b6966;--faint:#b4b2a9;
+    --bg:#fafaf7;--surface:#ffffff;
+    --radius:10px;
+    --font:'Sarabun',sans-serif;--mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7}
+  
+  .hero{padding:4rem 2rem 2.5rem;text-align:center;border-bottom:0.5px solid var(--gray-100);margin-bottom:2rem}
+  .hero h1{font-size:2.2rem;font-weight:700;color:var(--ink);margin-bottom:.8rem;line-height:1.2}
+  .hero h1 span{color:var(--coral-600)}
+  .hero p{color:var(--muted);max-width:700px;margin:0 auto;font-size:1rem;line-height:1.6}
+  
+  .stats{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;padding:0 2rem 2rem}
+  .stat{background:var(--surface);border:0.5px solid var(--gray-100);border-radius:12px;padding:1rem 1.8rem;text-align:center;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,.02)}
+  .stat-num{font-size:1.8rem;font-weight:700;color:var(--coral-600)}
+  .stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono)}
+  
+  .container{max-width:1200px;margin:0 auto;padding:0 2rem 4rem}
+  .section-title{font-size:1.3rem;font-weight:700;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.4rem;border-bottom:0.5px solid var(--gray-100)}
+  .section-sub{font-size:.85rem;color:var(--muted);margin-bottom:1.2rem}
+  
+  /* Cluster Definitions */
+  .cluster-defs{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem;margin-bottom:2rem}
+  .cluster-def{padding:1.2rem;border-radius:10px;border:0.5px solid var(--gray-100);background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.02)}
+  .cd-title{font-size:1rem;font-weight:700;margin-bottom:0.2rem}
+  .cd-en{font-size:.75rem;color:var(--muted);font-style:normal;font-family:var(--mono);margin-bottom:.5rem}
+  .cd-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+  .cd-count{font-size:.7rem;color:var(--faint);margin-top:.6rem;font-family:var(--mono)}
+  
+  /* Filters */
+  .filter-section{margin-bottom:1.2rem}
+  .filter-label{font-size:.75rem;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-family:var(--mono)}
+  .filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+  .filter-btn{background:var(--surface);border:0.5px solid var(--gray-100);color:var(--muted);
+    padding:.4rem 1rem;border-radius:20px;cursor:pointer;font-size:.78rem;font-family:var(--font);transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+  .filter-btn:hover, .filter-btn.active{background:var(--coral-50);color:var(--coral-600);border-color:var(--coral-100)}
+  
+  .search-box{width:100%;padding:.75rem 1.2rem;background:var(--surface);border:0.5px solid var(--gray-100);
+    border-radius:8px;color:var(--ink);font-family:var(--font);font-size:.95rem;margin-bottom:1.5rem;box-shadow:inset 0 1px 2px rgba(0,0,0,.02)}
+  .search-box::placeholder{color:var(--faint)}
+  .search-box:focus{outline:none;border-color:var(--coral-400);box-shadow:0 0 0 3px rgba(216,90,48,0.15)}
+  
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.1rem}
+  
+  .s-card{background:var(--surface);border:0.5px solid var(--gray-100);border-radius:12px;
+    padding:1.4rem;transition:all .25s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.02)}
+  .s-card:hover{border-color:var(--coral-400);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.06)}
+  
+  .s-card .num{position:absolute;top:1rem;right:1.2rem;font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+  .s-card .name{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+  .s-card .org{font-size:.8rem;color:var(--coral-600);margin-bottom:.1rem;font-weight:600}
+  .s-card .pos{font-size:.75rem;color:var(--muted);margin-bottom:.8rem}
+  
+  .cluster-badges{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem}
+  .cluster-badge{font-size:.65rem;padding:.15rem .5rem;border-radius:8px;font-weight:600;font-family:var(--font)}
+  
+  .group-tag{display:inline-block;background:var(--coral-50);color:var(--coral-600);border:0.5px solid var(--coral-100);font-size:.68rem;padding:.15rem .6rem;border-radius:10px;margin-bottom:.6rem;font-family:var(--mono)}
+  .domains{display:flex;gap:.25rem;flex-wrap:wrap;margin-bottom:.6rem}
+  .domain-pill{font-size:.63rem;padding:.15rem .5rem;border-radius:8px;font-family:var(--mono);font-weight:500}
+  
+  .vision{font-size:.82rem;color:var(--ink);background:var(--gray-50);padding:10px 12px;border-radius:6px;line-height:1.55;margin-bottom:.6rem}
+  .role-text{font-size:.75rem;color:var(--muted);margin-bottom:.6rem;line-height:1.5}
+  
+  .src-link{display:inline-block;font-size:.7rem;color:var(--purple-600);text-decoration:none;border-bottom:1.5px solid var(--purple-100);transition:all .2s;font-weight:500}
+  .src-link:hover{color:var(--purple-800);border-bottom-color:var(--purple-400)}
+  
+  .conf-badge{display:inline-block;font-size:.63rem;font-weight:600;padding:.15rem .5rem;border-radius:8px;text-transform:uppercase;letter-spacing:.05em;margin-left:.4rem;font-family:var(--mono)}
+  .counter{font-size:.85rem;color:var(--muted);margin-bottom:.8rem;font-family:var(--mono)}
+  
+  .footer{text-align:center;padding:3rem 2rem;color:var(--faint);font-size:.8rem;border-top:0.5px solid var(--gray-100);font-family:var(--mono)}
+  
+  /* Inline style overrides matching colors to ecosystem */
+  
+  /* 1. Cluster definitions overrides */
+  .cluster-def[style*="#00d4b1" i], .cluster-def[style*="0,212,177"] {
+    border-left: 4px solid var(--teal-400) !important;
+    background: var(--teal-50) !important;
+  }
+  .cluster-def[style*="#00d4b1" i] .cd-title, .cluster-def[style*="0,212,177"] .cd-title {
+    color: var(--teal-800) !important;
+  }
+  
+  .cluster-def[style*="#c9a84c" i], .cluster-def[style*="201,168,76"] {
+    border-left: 4px solid var(--coral-400) !important;
+    background: var(--coral-50) !important;
+  }
+  .cluster-def[style*="#c9a84c" i] .cd-title, .cluster-def[style*="201,168,76"] .cd-title {
+    color: var(--coral-800) !important;
+  }
+  
+  .cluster-def[style*="#a78bfa" i], .cluster-def[style*="167,139,250"] {
+    border-left: 4px solid var(--purple-400) !important;
+    background: var(--purple-50) !important;
+  }
+  .cluster-def[style*="#a78bfa" i] .cd-title, .cluster-def[style*="167,139,250"] .cd-title {
+    color: var(--purple-800) !important;
+  }
+  
+  .cluster-def[style*="#ff6b52" i], .cluster-def[style*="255,107,82"] {
+    border-left: 4px solid var(--amber-400) !important;
+    background: var(--amber-50) !important;
+  }
+  .cluster-def[style*="#ff6b52" i] .cd-title, .cluster-def[style*="255,107,82"] .cd-title {
+    color: var(--amber-800) !important;
+  }
+  
+  .cluster-def[style*="#4ea8de" i], .cluster-def[style*="78,168,222"] {
+    border-left: 4px solid var(--teal-400) !important;
+    background: var(--teal-50) !important;
+  }
+  .cluster-def[style*="#4ea8de" i] .cd-title, .cluster-def[style*="78,168,222"] .cd-title {
+    color: var(--teal-800) !important;
+  }
+  
+  .cluster-def[style*="#ff9f43" i], .cluster-def[style*="255,159,67"] {
+    border-left: 4px solid var(--gray-400) !important;
+    background: var(--gray-50) !important;
+  }
+  .cluster-def[style*="#ff9f43" i] .cd-title, .cluster-def[style*="255,159,67"] .cd-title {
+    color: var(--gray-800) !important;
+  }
+  
+  /* 2. Filter buttons overrides */
+  .filter-btn[data-filter="promote"] { border-color: var(--teal-100) !important; color: var(--teal-800) !important; }
+  .filter-btn[data-filter="promote"]:hover, .filter-btn[data-filter="promote"].active { background: var(--teal-600) !important; color: #fff !important; border-color: var(--teal-600) !important; }
+  
+  .filter-btn[data-filter="scale"] { border-color: var(--coral-100) !important; color: var(--coral-600) !important; }
+  .filter-btn[data-filter="scale"]:hover, .filter-btn[data-filter="scale"].active { background: var(--coral-600) !important; color: #fff !important; border-color: var(--coral-600) !important; }
+  
+  .filter-btn[data-filter="extend"] { border-color: var(--purple-100) !important; color: var(--purple-600) !important; }
+  .filter-btn[data-filter="extend"]:hover, .filter-btn[data-filter="extend"].active { background: var(--purple-600) !important; color: #fff !important; border-color: var(--purple-600) !important; }
+  
+  .filter-btn[data-filter="national"] { border-color: var(--amber-100) !important; color: var(--amber-600) !important; }
+  .filter-btn[data-filter="national"]:hover, .filter-btn[data-filter="national"].active { background: var(--amber-600) !important; color: #fff !important; border-color: var(--amber-600) !important; }
+  
+  .filter-btn[data-filter="provider"] { border-color: var(--teal-100) !important; color: var(--teal-800) !important; }
+  .filter-btn[data-filter="provider"]:hover, .filter-btn[data-filter="provider"].active { background: var(--teal-800) !important; color: #fff !important; border-color: var(--teal-800) !important; }
+  
+  .filter-btn[data-filter="safety"] { border-color: var(--gray-100) !important; color: var(--gray-600) !important; }
+  .filter-btn[data-filter="safety"]:hover, .filter-btn[data-filter="safety"].active { background: var(--gray-600) !important; color: #fff !important; border-color: var(--gray-600) !important; }
+  
+  /* 3. Cards conf border overrides */
+  .s-card[data-conf="high"] { border-left: 3px solid var(--teal-400) !important; }
+  .s-card[data-conf="medium"] { border-left: 3px solid var(--amber-400) !important; }
+  .s-card[data-conf="low"] { border-left: 3px solid var(--coral-400) !important; }
+  
+  /* 4. Conf badges overrides */
+  .conf-badge[style*="#00d4b1" i], .conf-badge[style*="0,212,177"] { background: var(--teal-50) !important; color: var(--teal-600) !important; }
+  .conf-badge[style*="#c9a84c" i], .conf-badge[style*="201,168,76"] { background: var(--coral-50) !important; color: var(--coral-600) !important; }
+  .conf-badge[style*="#ff6b52" i], .conf-badge[style*="255,107,82"] { background: var(--amber-50) !important; color: var(--amber-600) !important; }
+  
+  /* 5. Cluster badges in cards overrides */
+  .cluster-badge[data-cluster="promote"] { background: var(--teal-50) !important; color: var(--teal-600) !important; border: 0.5px solid var(--teal-100) !important; }
+  .cluster-badge[data-cluster="scale"] { background: var(--coral-50) !important; color: var(--coral-600) !important; border: 0.5px solid var(--coral-100) !important; }
+  .cluster-badge[data-cluster="extend"] { background: var(--purple-50) !important; color: var(--purple-600) !important; border: 0.5px solid var(--purple-100) !important; }
+  .cluster-badge[data-cluster="national"] { background: var(--amber-50) !important; color: var(--amber-600) !important; border: 0.5px solid var(--amber-100) !important; }
+  .cluster-badge[data-cluster="provider"] { background: var(--teal-50) !important; color: var(--teal-800) !important; border: 0.5px solid var(--teal-100) !important; }
+  .cluster-badge[data-cluster="safety"] { background: var(--gray-50) !important; color: var(--gray-600) !important; border: 0.5px solid var(--gray-100) !important; }
+  
+  /* 6. Domain pills overrides */
+  .domain-pill[style*="#c9a84c" i], .domain-pill[style*="201,168,76"] { background: var(--coral-50) !important; color: var(--coral-600) !important; }
+  .domain-pill[style*="#ff6b52" i], .domain-pill[style*="255,107,82"] { background: var(--amber-50) !important; color: var(--amber-600) !important; }
+  .domain-pill[style*="#a78bfa" i], .domain-pill[style*="167,139,250"] { background: var(--purple-50) !important; color: var(--purple-600) !important; }
+  .domain-pill[style*="#4ea8de" i], .domain-pill[style*="78,168,222"] { background: var(--teal-50) !important; color: var(--teal-800) !important; }
+  .domain-pill[style*="#00d4b1" i], .domain-pill[style*="0,212,177"] { background: var(--teal-50) !important; color: var(--teal-600) !important; }
+  .domain-pill[style*="#ff9f43" i], .domain-pill[style*="255,159,67"] { background: var(--gray-50) !important; color: var(--gray-600) !important; }
+  
+  @media(max-width:600px){.card-grid{grid-template-columns:1fr}.hero h1{font-size:1.5rem}.cluster-defs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-eyebrow" style="display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:18px;">
+<span class="badge" style="font-family:var(--mono);font-size:0.7333rem;font-weight:500;letter-spacing:.06em;padding:3px 10px;border-radius:20px;background:var(--coral-50);color:var(--coral-600);border:0.5px solid var(--coral-100)">นพท. Program</span>
+<span class="badge b2" style="font-family:var(--mono);font-size:0.7333rem;font-weight:500;letter-spacing:.06em;padding:3px 10px;border-radius:20px;background:var(--teal-50);color:var(--teal-600);border:0.5px solid var(--teal-100)">Medical Hub Thailand</span>
+</div>
+<h1>Medical Tourism Stakeholder<br/><span>Vision / Mission Catalogue</span></h1>
+<p style="margin-top:14px">54 stakeholders mapped to Health × Tourism × Environment ecosystem<br/>โครงการผู้นำยุทธศาสตร์นวัตกรรมสุขภาพเพื่อการท่องเที่ยวเชิงการแพทย์ (นพท.) · Ver3.0</p>
+</div>
+<div class="stats">
+<div class="stat"><div class="stat-num">54</div><div class="stat-label">Stakeholders</div></div>
+<div class="stat"><div class="stat-num">6</div><div class="stat-label">Strategic Clusters</div></div>
+<div class="stat"><div class="stat-num">33</div><div class="stat-label">High Confidence</div></div>
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Medium</div></div>
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">Low / Verify</div></div>
+</div>
+<div class="container">
+<div class="section-title">กลุ่มยุทธศาสตร์ — Strategic Relationship Clusters</div>
+<div class="section-sub">จัดกลุ่มตามบทบาทเชิงความสัมพันธ์: ส่งเสริม → ขยายผล → ต่อยอด พร้อมกลุ่มพิเศษระดับชาติ</div>
+<div class="cluster-defs">
+<div class="cluster-def" style="border-left:4px solid #00d4b1;background:rgba(0,212,177,0.04)">
+<div class="cd-title" style="color:#00d4b1">🌱 ส่งเสริม (Promote)</div>
+<div class="cd-en">Foundation &amp; Promotion</div>
+<div class="cd-desc">หน่วยงานที่สร้างรากฐาน กำกับมาตรฐาน วางนโยบาย และส่งเสริมขีดความสามารถ — เป็นเสาหลักที่ทำให้ระบบนิเวศ Medical Tourism มีความน่าเชื่อถือและพร้อมดำเนินการ</div>
+<div class="cd-count">15 stakeholders</div>
+</div>
+<div class="cluster-def" style="border-left:4px solid #c9a84c;background:rgba(201,168,76,0.04)">
+<div class="cd-title" style="color:#c9a84c">🚀 ขยายผล (Scale)</div>
+<div class="cd-en">Scaling &amp; Expansion</div>
+<div class="cd-desc">หน่วยงานที่ขยายผลจากรากฐานสู่ตลาด — เชื่อมเครือข่ายธุรกิจ ผลักดันการลงทุน ส่งเสริม SME และสร้าง market access ระดับนานาชาติ</div>
+<div class="cd-count">11 stakeholders</div>
+</div>
+<div class="cluster-def" style="border-left:4px solid #a78bfa;background:rgba(167,139,250,0.04)">
+<div class="cd-title" style="color:#a78bfa">💎 ต่อยอด (Extend)</div>
+<div class="cd-en">Extension &amp; Innovation</div>
+<div class="cd-desc">หน่วยงานที่ต่อยอดนวัตกรรม สร้างผลิตภัณฑ์/บริการใหม่ ใช้ AI/Data/Digital เป็นตัวขับเคลื่อน และพัฒนา platform ที่เป็น competitive advantage</div>
+<div class="cd-count">12 stakeholders</div>
+</div>
+<div class="cluster-def" style="border-left:4px solid #ff6b52;background:rgba(255,107,82,0.04)">
+<div class="cd-title" style="color:#ff6b52">🏛️ โครงการระดับชาติ (National Flagship)</div>
+<div class="cd-en">National-Level Project Potential</div>
+<div class="cd-desc">กลุ่มพิเศษที่มีศักยภาพร่วมกันพัฒนาโครงการระดับชาติ — เชื่อมนโยบายภาครัฐ ข้อมูลสุขภาพ การท่องเที่ยว สิ่งแวดล้อม การลงทุน และ AI/Digital ได้ครบวงจร</div>
+<div class="cd-count">14 stakeholders</div>
+</div>
+<div class="cluster-def" style="border-left:4px solid #4ea8de;background:rgba(78,168,222,0.04)">
+<div class="cd-title" style="color:#4ea8de">🏥 ผู้ให้บริการ (Service Providers)</div>
+<div class="cd-en">Health, Wellness &amp; Hospitality Providers</div>
+<div class="cd-desc">โรงพยาบาล โรงแรม สปา ผู้ประกอบการท่องเที่ยวเชิงการแพทย์ — จุดสัมผัสหลักที่ส่งมอบประสบการณ์จริงให้นักท่องเที่ยว</div>
+<div class="cd-count">9 stakeholders</div>
+</div>
+<div class="cluster-def" style="border-left:4px solid #ff9f43;background:rgba(255,159,67,0.04)">
+<div class="cd-title" style="color:#ff9f43">🛡️ ความปลอดภัย (Safety &amp; Resilience)</div>
+<div class="cd-en">Security, Environment &amp; Emergency</div>
+<div class="cd-desc">หน่วยงานด้านความปลอดภัย การตอบสนองเหตุฉุกเฉิน สิ่งแวดล้อม พลังงาน และโครงสร้างพื้นฐาน — สร้างความเชื่อมั่นให้ Trusted Destination</div>
+<div class="cd-count">7 stakeholders</div>
+</div>
+</div>
+<div class="section-title">คณะกรรมการบริหารโครงการ — Project Governance Board</div>
+<div class="section-sub">เพิ่มรายชื่อกรรมการตามข้อมูลที่ส่งให้ และจัดตำแหน่งเชิงยุทธศาสตร์ตามบทบาทที่เหมาะสมกับระบบนิเวศ Medical Tourism</div>
+<div class="card-grid committee-grid" id="committee-grid"><div class="s-card" data-clusters="promote national" data-conf="high" data-search="รองศาสตราจารย์ ดร. วีระพงษ์ แพสุวรรณ ประธานที่ปรึกษาโครงการ กองทุนส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม ววน กสว อุทยานวิทยาศาสตร์ภูมิภาค Science Policy National Innovation Governance Data/Logic/Action Governance Business Offering คณะกรรมการบริหารโครงการ">
+<div class="num">#1</div>
+<div class="name">รองศาสตราจารย์ ดร. วีระพงษ์ แพสุวรรณ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรรมการผู้ทรงคุณวุฒิด้านวิทยาศาสตร์ ในคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม (กสว.) / (ววน.) / (กวทช.) / ประธานคณะกรรมการส่งเสริมกิจการอุทยานวิทยาศาสตร์ภูมิภาค / กรรมการสภามหาวิทยาลัยผู้ทรงคุณวุฒิ : มหาวิทยาลัยขอนแก่น </div>
+<div class="pos">ตำแหน่งในโครงการ: ประธานที่ปรึกษาโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Strategic Advisory &amp; Science Policy</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ประธานที่ปรึกษาเพื่อกำกับทิศทางระดับชาติ เชื่อมระบบ ววน. นโยบายวิทยาศาสตร์ และกลไกอุทยานวิทยาศาสตร์ภูมิภาค</div>
+<div class="role-text">บทบาท: ให้คำปรึกษาเชิงยุทธศาสตร์ วางกรอบ governance เชื่อมหน่วยทุน/นโยบาย และช่วยยกระดับโครงการเป็น national flagship</div>
+
+</div><div class="s-card" data-clusters="promote scale national" data-conf="high" data-search="ดร. พัชรินรุจา จันทโรนานท์ กรรมการผู้ทรงคุณวุฒิ คณะกรรมการสำนักงานเร่งรัดการวิจัยและนวัตกรรมเพื่อเพิ่มความสามารถการแข่งขันและการพัฒนาพื้นที่ นพท Research Acceleration Competitiveness Area-Based Innovation Business Offering Data/Logic/Action Governance Travel &amp; Tourism Data คณะกรรมการบริหารโครงการ">
+<div class="num">#2</div>
+<div class="name">ดร. พัชรินรุจา จันทโรนานท์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">คณะกรรมการสำนักงานเร่งรัดการวิจัยและนวัตกรรมเพื่อเพิ่มความสามารถการแข่งขันและการพัฒนาพื้นที่</div>
+<div class="pos">ตำแหน่งในโครงการ: กรรมการผู้ทรงคุณวุฒิ / กรรมการบริหารโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Research Acceleration &amp; Competitiveness</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 กลุ่มส่งเสริม ขยายผล และโครงการระดับชาติ เพราะมีบทบาทเชื่อมการเร่งรัดวิจัย นวัตกรรม ความสามารถการแข่งขัน และการพัฒนาพื้นที่</div>
+<div class="role-text">บทบาท: สนับสนุนการจัดลำดับโครงการเชิงพื้นที่ การเชื่อมแหล่งทุน/กลไกเร่งรัด และการแปลงผลวิจัยเป็นโครงการที่แข่งขันได้</div>
+
+
+</div><div class="s-card" data-clusters="scale extend" data-conf="high" data-search="ผู้ช่วยศาสตราจารย์ ดร. ลลิตา โกศการิกา กรรมการโครงการ ศูนย์ BrandKU ภาควิชาการตลาด คณะบริหารธุรกิจ มหาวิทยาลัยเกษตรศาสตร์ Branding Business Strategy Global Branding Business Offering Travel &amp; Tourism Data คณะกรรมการบริหารโครงการ">
+<div class="num">#3</div>
+<div class="name">ผู้ช่วยศาสตราจารย์ ดร. ลลิตา โกศการิกา
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">ศูนย์ BrandKU และภาควิชาการตลาด คณะบริหารธุรกิจ มหาวิทยาลัยเกษตรศาสตร์</div>
+<div class="pos">ตำแหน่งในโครงการ: กรรมการโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Branding, Strategy &amp; Global Positioning</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 กลุ่มขยายผลและต่อยอด เพราะเชี่ยวชาญ branding, business strategy และ global branding สำหรับสร้างภาพจำ Thailand Medical Tourism</div>
+<div class="role-text">บทบาท: ออกแบบ brand architecture, value proposition, international positioning และแผนสื่อสารเพื่อขยายตลาดคุณภาพ</div>
+
+</div><div class="s-card" data-clusters="extend" data-conf="high" data-search="รองศาสตราจารย์ ดร. ปริญญา น้อยสา กรรมการโครงการ Cell-Based Assays and Innovations เทคโนโลยีชีวภาพ มหาวิทยาลัยเทคโนโลยีสุรนารี Stem cells Genetic engineering Cancer biology Natural product development Health Data Ontology Business Offering คณะกรรมการบริหารโครงการ">
+<div class="num">#4</div>
+<div class="name">รองศาสตราจารย์ ดร. ปริญญา น้อยสา
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สาขาวิชาเทคโนโลยีชีวภาพ สำนักวิชาเทคโนโลยีการเกษตร มหาวิทยาลัยเทคโนโลยีสุรนารี</div>
+<div class="pos">ตำแหน่งในโครงการ: กรรมการโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Biotech, Cell-Based Innovation &amp; Natural Products</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 กลุ่มต่อยอดนวัตกรรมสุขภาพ โดยเชื่อม stem cells, genetic engineering, cancer biology และ natural product development สู่บริการ/ผลิตภัณฑ์สุขภาพมูลค่าสูง</div>
+<div class="role-text">บทบาท: พิจารณาความเป็นไปได้ทางวิทยาศาสตร์ของ health innovation, lab validation, product pathway และข้อเสนอเชิง translational research</div>
+</div><div class="s-card" data-clusters="extend national" data-conf="high" data-search="รองศาสตราจารย์ ดร. อารีจรรย์ โสตถิพันธุ์ กรรมการโครงการ วิทยาลัยแพทยศาสตร์นานาชาติจุฬาภรณ์ มหาวิทยาลัยธรรมศาสตร์ Neuroscience Neural stem cells Autophagy Digital Health Regenerative Medicine AI Healthcare Health Innovation Entrepreneurship คณะกรรมการบริหารโครงการ">
+<div class="num">#5</div>
+<div class="name">รองศาสตราจารย์ ดร. อารีจรรย์ โสตถิพันธุ์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">วิทยาลัยแพทยศาสตร์นานาชาติจุฬาภรณ์ มหาวิทยาลัยธรรมศาสตร์</div>
+<div class="pos">ตำแหน่งในโครงการ: กรรมการโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Digital Health, AI &amp; Regenerative Medicine</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 กลุ่มต่อยอดและโครงการระดับชาติ เพราะเชื่อม neuroscience, digital health, regenerative medicine และ AI สู่การใช้จริงใน healthcare application</div>
+<div class="role-text">บทบาท: ช่วยแปลงองค์ความรู้ชีวการแพทย์และ AI เป็นบริการสุขภาพ ต้นแบบธุรกิจ และกรอบนวัตกรรมที่ขยายผลได้</div>
+
+
+</div><div class="s-card" data-clusters="promote scale national" data-conf="high" data-search="คุณพรพิมล ปักเข็ม กรรมการโครงการ">
+<div class="num">#6</div>
+<div class="name">คุณพรพิมล ปักเข็ม
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">ที่ปรึกษาด้านการตลาด บริษัท Karnesh Wellness จำกัด</div>
+<div class="pos">ตำแหน่งในโครงการ: กรรมการบริหารโครงการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Branding, Strategy &amp; Global Positioning, Acceleration &amp; Competitiveness</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 กลุ่มขยายผลและต่อยอด เพราะเชี่ยวชาญ branding, business strategy และ global branding สำหรับสร้างภาพจำ Thailand Medical Tourism</div>
+<div class="role-text">บทบาท: สนับสนุนการวางกลยุทธ์การตลาด การสร้างแบรนด์ การพัฒนาผลิตภัณฑ์ และการสื่อสารเพื่อยกระดับ Medical Tourism Thailand</div>
+
+
+
+<p></p>
+
+</div></div>
+<p>ค้นหาชื่อ หน่วยงาน หรือกลุ่มยุทธศาสตร์</p>
+
+<input class="search-box" id="search" placeholder="🔍 ค้นหาชื่อ หน่วยงาน หรือกลุ่มยุทธศาสตร์..." type="text"/>
+<div class="filter-section">
+<div class="filter-label">กลุ่มยุทธศาสตร์ (Strategic Cluster)</div>
+<div class="filters" id="cluster-filters">
+<button class="filter-btn active" data-filter="all">All (54)</button>
+<button class="filter-btn" data-filter="promote" style="border-color:#00d4b1">🌱 ส่งเสริม (Promote) (15)</button>
+<button class="filter-btn" data-filter="scale" style="border-color:#c9a84c">🚀 ขยายผล (Scale) (11)</button>
+<button class="filter-btn" data-filter="extend" style="border-color:#a78bfa">💎 ต่อยอด (Extend) (12)</button>
+<button class="filter-btn" data-filter="national" style="border-color:#ff6b52">🏛️ โครงการระดับชาติ (National Flagship) (14)</button>
+<button class="filter-btn" data-filter="provider" style="border-color:#4ea8de">🏥 ผู้ให้บริการ (Service Providers) (9)</button>
+<button class="filter-btn" data-filter="safety" style="border-color:#ff9f43">🛡️ ความปลอดภัย (Safety &amp; Resilience) (7)</button>
+</div>
+</div>
+<div class="filter-section">
+<div class="filter-label">ระดับความเชื่อมั่น (Confidence)</div>
+<div class="filters" id="conf-filters">
+<button class="filter-btn conf-filter active" data-conffilter="all">All</button>
+</div>
+</div>
+<div class="counter" id="counter">Showing 54 of 54</div>
+<div class="section-title">รายชื่อ Stakeholders เดิม — Updated Catalogue</div>
+<div class="section-sub">ปรับปรุงจาก Ver2.0 26/6/2026 </div>
+<div class="card-grid" id="grid">
+<div class="s-card" data-clusters="scale" data-conf="high" data-search="คุณ กรกมล อเนกะมัย กรมส่งเสริมการค้าระหว่างประเทศ (DITP), กระทรวงพาณิชย์ Policy, Trade &amp; Market Access Travel &amp; Tourism Data&lt;br&gt;Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#6</div>
+<div class="name">คุณ กรกมล อเนกะมัย
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรมส่งเสริมการค้าระหว่างประเทศ (DITP), กระทรวงพาณิชย์</div>
+<div class="pos">ผู้อำนวยการสำนักพัฒนาและส่งเสริมธุรกิจ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">Policy, Trade &amp; Market Access</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 มุ่งยกระดับความสามารถการแข่งขันด้านการค้าระหว่างประเทศของไทย และส่งเสริมผู้ประกอบการไทยสู่ตลาดโลก</div>
+<div class="role-text">บทบาท: เชื่อมตลาดต่างประเทศ การส่งเสริมบริการไทย และ market access สำหรับ medical tourism</div>
+<a class="src-link" href="https://www.ditp.go.th/post/about/about-ditp-thai" target="_blank">🔗 เกี่ยวกับกรม - กรมส่งเสริมการค้าระหว่างประเทศ</a>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="high" data-search="นายแพทย์ กรกฤช ลิ้มสมมุติ กรมสนับสนุนบริการสุขภาพ (HSS), กระทรวงสาธารณสุข Health Regulation &amp; Service Quality Health Data Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#7</div>
+<div class="name">นายแพทย์ กรกฤช ลิ้มสมมุติ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรมสนับสนุนบริการสุขภาพ (HSS), กระทรวงสาธารณสุข</div>
+<div class="pos">รองอธิบดี</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Health Regulation &amp; Service Quality</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เป็นองค์กรหลักในการคุ้มครองผู้บริโภคด้านระบบบริการสุขภาพ และส่งเสริมพัฒนาระบบบริการสุขภาพให้ได้มาตรฐาน</div>
+<div class="role-text">บทบาท: กำกับมาตรฐานบริการสุขภาพ ธุรกิจบริการสุขภาพ และ medical tourism governance</div>
+<a class="src-link" href="https://hss.moph.go.th/mvs.php" target="_blank">🔗 วิสัยทัศน์/พันธกิจ - กรมสนับสนุนบริการสุขภาพ</a>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="high" data-search="คุณ เกษมศักดิ์ ศิริรักษ์ กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช (DNP) Environmental Assets &amp; Sustainable Destination Environmental Ontology&lt;br&gt;Travel &amp; Tourism Data">
+<div class="num">#8</div>
+<div class="name">คุณ เกษมศักดิ์ ศิริรักษ์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช (DNP)</div>
+<div class="pos">ที่ปรึกษากรรมการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Environmental Assets &amp; Sustainable Destination</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 เพิ่มพื้นที่ป่าอนุรักษ์และบริหารจัดการทรัพยากรป่าไม้และสัตว์ป่าอย่างมีส่วนร่วมและเหมาะสมกับเทคโนโลยี</div>
+<div class="role-text">บทบาท: กำหนดมิติพื้นที่ธรรมชาติ แหล่งท่องเที่ยวเชิงอนุรักษ์ ความเสี่ยงพื้นที่ และ carrying capacity</div>
+<a class="src-link" href="https://catalog.dnp.go.th/organization/about/dnp" target="_blank">🔗 DNP Data Catalog - เกี่ยวกับกรม</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="medium" data-search="รองศาสตราจารย์ ดร. เกียรติศักดิ์ แสงประดิษฐ์ สถาบันวิจัยและพัฒนา มทร.ธัญบุรี (IRD-RMUTT) Research, Innovation &amp; Talent Data/Logic/Action Governance">
+<div class="num">#9</div>
+<div class="name">รองศาสตราจารย์ ดร. เกียรติศักดิ์ แสงประดิษฐ์
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">สถาบันวิจัยและพัฒนา มทร.ธัญบุรี (IRD-RMUTT)</div>
+<div class="pos">ผู้อำนวยการสถาบันวิจัยและพัฒนา</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Research, Innovation &amp; Talent</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 มุ่งสร้างงานวิจัย สิ่งประดิษฐ์ งานสร้างสรรค์ และนวัตกรรมสู่การใช้ประโยชน์ในอุตสาหกรรม สังคม และชุมชน</div>
+<div class="role-text">บทบาท: สนับสนุนการวิจัยเชิงประยุกต์ prototype และ capacity building</div>
+<a class="src-link" href="https://ird.rmutt.ac.th/vision-mission" target="_blank">🔗 วิสัยทัศน์ พันธกิจ - IRD RMUTT</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="ผู้ช่วยศาสตราจารย์ ดร. จรวยพร ศรีศศลักษณ์ สถาบันวิจัยระบบสาธารณสุข (สวรส. / HSRI) Health Policy Research Health Data Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#10</div>
+<div class="name">ผู้ช่วยศาสตราจารย์ ดร. จรวยพร ศรีศศลักษณ์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สถาบันวิจัยระบบสาธารณสุข (สวรส. / HSRI)</div>
+<div class="pos">รองผู้อำนวยการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">Health Policy Research</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เป็นผู้นำในการบริหารจัดการงานวิจัยด้านสุขภาพ และขับเคลื่อนองค์ความรู้เพื่อพัฒนาระบบสุขภาพไทย</div>
+<div class="role-text">บทบาท: วางกรอบ evidence-based policy, evaluation และ health system research</div>
+<a class="src-link" href="https://www.hsri.or.th/vision" target="_blank">🔗 วิสัยทัศน์/พันธกิจ - สวรส.</a>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="high" data-search="คุณ จาตุรนต์ ภักดีวานิช กรมการท่องเที่ยว (DOT), กระทรวงการท่องเที่ยวและกีฬา Tourism Regulation &amp; Service Standard Travel &amp; Tourism Data&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#11</div>
+<div class="name">คุณ จาตุรนต์ ภักดีวานิช
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรมการท่องเที่ยว (DOT), กระทรวงการท่องเที่ยวและกีฬา</div>
+<div class="pos">อธิบดี</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Tourism Regulation &amp; Service Standard</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 พัฒนาแหล่งท่องเที่ยว คุณภาพสิ่งแวดล้อม มาตรฐานสินค้า บริการ และบุคลากรด้านการท่องเที่ยว</div>
+<div class="role-text">บทบาท: กำกับมาตรฐานสินค้า บริการ บุคลากรท่องเที่ยว และ platform readiness</div>
+<a class="src-link" href="https://www.dot.go.th/pages/18" target="_blank">🔗 วิสัยทัศน์ พันธกิจ เป้าหมาย - กรมการท่องเที่ยว</a>
+</div>
+<div class="s-card" data-clusters="scale" data-conf="high" data-search="คุณ เจนจิต ลัดพลี บริษัท บัตรกรุงไทย จำกัด (มหาชน) (KTC) Payment, Finance &amp; Customer Engagement Travel &amp; Tourism Data&lt;br&gt;Business Offering&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#12</div>
+<div class="name">คุณ เจนจิต ลัดพลี
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">บริษัท บัตรกรุงไทย จำกัด (มหาชน) (KTC)</div>
+<div class="pos">บริหารสูงสุดฝ่ายสื่อสารและประชาสัมพันธ์องค์กร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">Payment, Finance &amp; Customer Engagement</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 มุ่งเป็น membership company ในธุรกิจ payment และ retail lending ที่น่าเชื่อถือ เติบโตอย่างยั่งยืน และให้บริการชำระเงินที่สะดวกปลอดภัย</div>
+<div class="role-text">บทบาท: ออกแบบ payment journey, retail lending/payment service และ member engagement สำหรับแพ็กเกจ</div>
+<a class="src-link" href="https://www.ktc.co.th/en/about/vision-mission-values" target="_blank">🔗 Vision / Mission / Core Value - KTC</a>
+</div>
+
+<div class="s-card" data-clusters="promote national" data-conf="high" data-search="ศาสตราจารย์ ดร. ชูกิจ ลิมปิจำนงค์ สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช. / NSTDA) Science, Technology &amp; AI Infrastructure Data/Logic/Action Governance&lt;br&gt;Health Data Ontology&lt;br&gt;Environmental Ontology">
+<div class="num">#13</div>
+<div class="name">ศาสตราจารย์ ดร. ชูกิจ ลิมปิจำนงค์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช. / NSTDA)</div>
+<div class="pos">ผู้อำนวยการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Science, Technology &amp; AI Infrastructure</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span></div>
+<div class="vision">💡 ส่งเสริมเศรษฐกิจฐานนวัตกรรมและใช้วิทยาศาสตร์เทคโนโลยีเพื่อยกระดับภาคเกษตร อุตสาหกรรม และประเทศ</div>
+<div class="role-text">บทบาท: สนับสนุน R&amp;D, AI, data platform, technology transfer และ innovation ecosystem</div>
+<a class="src-link" href="https://www.nstda.or.th/home/introduce/about/" target="_blank">🔗 แนะนำ สวทช.</a>
+</div>
+<div class="s-card" data-clusters="scale" data-conf="medium" data-search="คุณ เชาว์ชัย เจียมวิจิตร หอการค้าไทยและสภาหอการค้าแห่งประเทศไทย Business Network &amp; Market Development Business Offering&lt;br&gt;Travel &amp; Tourism Data">
+<div class="num">#14</div>
+<div class="name">คุณ เชาว์ชัย เจียมวิจิตร
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">หอการค้าไทยและสภาหอการค้าแห่งประเทศไทย</div>
+<div class="pos">สภาหอการค้าแห่งประเทศไทย</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">Business Network &amp; Market Development</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 เน้นการเชื่อมโยงเครือข่ายภาครัฐ เอกชน และสมาชิก เพื่อปลดล็อกการเติบโตและพัฒนาเศรษฐกิจ</div>
+<div class="role-text">บทบาท: เชื่อมเครือข่ายธุรกิจ SMEs จังหวัด การค้า และบริการที่เกี่ยวข้อง</div>
+<a class="src-link" href="https://www.thaichamber.org/view/364/%E0%B8%A7%E0%B8%B4%E0%B8%AA%E0%B8%B1%E0%B8%A2%E0%B8%97%E0%B8%B1%E0%B8%A8%E0%B8%99%E0%B9%8C---%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B8%98%E0%B8%81%E0%B8%B4%E0%B8%88" target="_blank">🔗 วิสัยทัศน์ / พันธกิจ - หอการค้าไทยและสภาหอการค้าแห่งประ</a>
+</div>
+<div class="s-card" data-clusters="scale national" data-conf="high" data-search="คุณ ณัฐ ครุฑสูตร การท่องเที่ยวแห่งประเทศไทย (ททท. / TAT) Tourism Marketing &amp; Experience Design Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#15</div>
+<div class="name">คุณ ณัฐ ครุฑสูตร
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">การท่องเที่ยวแห่งประเทศไทย (ททท. / TAT)</div>
+<div class="pos">รองผู้ว่าการด้านสินค้าธุรกิจท่องเที่ยว</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Tourism Marketing &amp; Experience Design</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ส่งเสริมการตลาด ขยายฐานตลาดคุณภาพ สร้างสินค้า/ประสบการณ์ท่องเที่ยว และขับเคลื่อน tourism ecosystem อย่างยั่งยืน</div>
+<div class="role-text">บทบาท: ขับเคลื่อนตลาดคุณภาพ สินค้าท่องเที่ยว และ destination campaign</div>
+<a class="src-link" href="https://www.tat.or.th/about-tat/mission-vision" target="_blank">🔗 ภารกิจและวิสัยทัศน์ - ททท.</a>
+</div>
+<div class="s-card" data-clusters="uncategorized" data-conf="medium" data-search="ผู้ช่วยศาสตราจารย์ ดร. ณัฐวรรณ สาสิงห์ คณะแพทยศาสตร์ มหาวิทยาลัยกรุงเทพธนบุรี Medical Education &amp; Clinical Capacity Health Data Ontology">
+<div class="num">#16</div>
+<div class="name">ผู้ช่วยศาสตราจารย์ ดร. ณัฐวรรณ สาสิงห์
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">คณะแพทยศาสตร์ มหาวิทยาลัยกรุงเทพธนบุรี</div>
+<div class="pos">รองคณบดีฝ่ายบริหารและการคลัง</div>
+<div class="cluster-badges"></div>
+<div class="group-tag">Medical Education &amp; Clinical Capacity</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span></div>
+<div class="vision">💡 มุ่งผลิตบัณฑิตแพทย์ที่มีความรู้ ความสามารถ ทักษะ และเจตคติสอดคล้องมาตรฐานแพทยสภา พร้อมคุณธรรม</div>
+<div class="role-text">บทบาท: สนับสนุน clinical workforce, medical education และ service standard</div>
+<a class="src-link" href="https://bkkthon.ac.th/home/th/faculty/faculty-28" target="_blank">🔗 คณะแพทยศาสตร์ - มหาวิทยาลัยกรุงเทพธนบุรี</a>
+</div>
+<div class="s-card" data-clusters="uncategorized" data-conf="medium" data-search="ศาสตราจารย์พิเศษ ดร. ดวงฤทธิ์ เบ็ญจาธิกุล ชัยรุ่งเรือง มหาวิทยาลัยกรุงเทพธนบุรี Education &amp; Institutional Partnership Data/Logic/Action Governance&lt;br&gt;Health Data Ontology">
+<div class="num">#17</div>
+<div class="name">ศาสตราจารย์พิเศษ ดร. ดวงฤทธิ์ เบ็ญจาธิกุล ชัยรุ่งเรือง
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">มหาวิทยาลัยกรุงเทพธนบุรี</div>
+<div class="pos">มหาวิทยาลัยกรุงเทพธนบุรี</div>
+<div class="cluster-badges"></div>
+<div class="group-tag">Education &amp; Institutional Partnership</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span></div>
+<div class="vision">💡 มุ่งผลิตบัณฑิตให้มีภาวะผู้นำ ความรู้ ความสามารถ คุณธรรม และพัฒนาตนเอง สังคม ประเทศชาติ</div>
+<div class="role-text">บทบาท: สนับสนุนการศึกษา วิจัย และความร่วมมือด้าน medical tourism workforce</div>
+<a class="src-link" href="https://bkkthon.ac.th/home/th/about_university/about-14" target="_blank">🔗 ประวัติ/ปรัชญา/วิสัยทัศน์/พันธกิจ - มหาวิทยาลัยกรุงเทพธ</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="high" data-search="ดร. แดน เหตระกูล International Research Corporation Public Company Limited (IRCP) Digital Infrastructure &amp; Systems Integration Data/Logic/Action Governance">
+<div class="num">#18</div>
+<div class="name">ดร. แดน เหตระกูล
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">International Research Corporation Public Company Limited (IRCP)</div>
+<div class="pos">ประธานเจ้าหน้าที่บริหาร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Digital Infrastructure &amp; Systems Integration</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 มุ่งเป็นผู้นำด้านนวัตกรรมดิจิทัลใน infrastructure technology และยกระดับบริการสู่มาตรฐานสากล</div>
+<div class="role-text">บทบาท: สนับสนุน ICT infrastructure, system integration และ platform implementation</div>
+<a class="src-link" href="https://www.ircp.co.th/en/ircp-homepage/vision-and-mission/" target="_blank">🔗 Vision and Mission - IRCP</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="low" data-search="พันตำรวจเอก ทศพล โชติคุตร์ โรงพยาบาลตา กรุงเทพ จำกัด Specialty Medical Provider Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#19</div>
+<div class="name">พันตำรวจเอก ทศพล โชติคุตร์
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">โรงพยาบาลตา กรุงเทพ จำกัด</div>
+<div class="pos">ผู้ก่อตั้งและประธานที่ปรึกษา</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Specialty Medical Provider</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ข้อมูล vision/mission สาธารณะขององค์กรยังต้องยืนยันเพิ่มเติม; จัดเป็นผู้ให้บริการเฉพาะทางด้านตาและสุขภาพ</div>
+<div class="role-text">บทบาท: ตัวแทน specialty care provider สำหรับ medical tourism package</div>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="low" data-search="คุณ ทักษพร ประทีปอุษานนท์ Phuket Medical Care Co., Ltd. Medical Tourism Operator Health Data Ontology&lt;br&gt;Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#20</div>
+<div class="name">คุณ ทักษพร ประทีปอุษานนท์
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">Phuket Medical Care Co., Ltd.</div>
+<div class="pos">Founder &amp; CGO</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Medical Tourism Operator</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ข้อมูล vision/mission สาธารณะยังต้องยืนยันเพิ่มเติม; จัดเป็น medical care / medical tourism operator ในพื้นที่ภูเก็ต</div>
+<div class="role-text">บทบาท: เชื่อม local medical service, patient journey และ business development ในภูเก็ต</div>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="low" data-search="พันตำรวจเอก ธงชัย บัวรังษี กองบังคับการตำรวจนครบาล 7 / กองบัญชาการตำรวจนครบาล Safety, Security &amp; Incident Response Environmental Ontology&lt;br&gt;Travel &amp; Tourism Data&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#21</div>
+<div class="name">พันตำรวจเอก ธงชัย บัวรังษี
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">กองบังคับการตำรวจนครบาล 7 / กองบัญชาการตำรวจนครบาล</div>
+<div class="pos">รอง ผบก.น.7</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Safety, Security &amp; Incident Response</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 ภารกิจโดยรวมคือการรักษาความสงบเรียบร้อย ความปลอดภัย และการบังคับใช้กฎหมายในพื้นที่รับผิดชอบ</div>
+<div class="role-text">บทบาท: เชื่อม tourist safety, incident response, emergency coordination และ public security workflow</div>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="medium" data-search="คุณ ธนัช ปวรวิปุลยากร Power Solution Technologies PCL (PSTC) Infrastructure, Energy &amp; Smart Facility Environmental Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#22</div>
+<div class="name">คุณ ธนัช ปวรวิปุลยากร
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">Power Solution Technologies PCL (PSTC)</div>
+<div class="pos">ประธานเจ้าหน้าที่บริหาร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Infrastructure, Energy &amp; Smart Facility</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 ดำเนินธุรกิจด้านพลังงาน/โซลูชันเทคโนโลยีและโครงสร้างพื้นฐานที่เกี่ยวข้องกับการพัฒนาอย่างยั่งยืน</div>
+<div class="role-text">บทบาท: สนับสนุน energy infrastructure, smart facility และ sustainability ใน destination operation</div>
+<a class="src-link" href="https://www.pst.co.th/aboutus-vision-view.html" target="_blank">🔗 เกี่ยวกับเรา - PSTC</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="high" data-search="ผู้ช่วยศาสตราจารย์ ดร. ธัญญานุภาพ อานันทนะ มหาวิทยาลัยเชียงใหม่ (CMU) University, Regional Innovation &amp; Research Data/Logic/Action Governance&lt;br&gt;Environmental Ontology&lt;br&gt;Health Data Ontology">
+<div class="num">#23</div>
+<div class="name">ผู้ช่วยศาสตราจารย์ ดร. ธัญญานุภาพ อานันทนะ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">มหาวิทยาลัยเชียงใหม่ (CMU)</div>
+<div class="pos">รองอธิการบดี</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">University, Regional Innovation &amp; Research</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span></div>
+<div class="vision">💡 เป็นมหาวิทยาลัยชั้นนำที่รับผิดชอบต่อสังคมเพื่อการพัฒนาที่ยั่งยืนด้วยนวัตกรรม</div>
+<div class="role-text">บทบาท: สนับสนุนวิจัยนวัตกรรม ภูมิภาค และฐานความรู้ด้านสุขภาพ/สิ่งแวดล้อม</div>
+<a class="src-link" href="https://www.cmu.ac.th/th/cmu/resolution" target="_blank">🔗 ปณิธาน/วิสัยทัศน์/พันธกิจ - มหาวิทยาลัยเชียงใหม่</a>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="high" data-search="คุณ นำโชค โสมาภา สำนักงานนวัตกรรมแห่งชาติ (NIA) National Innovation System Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#24</div>
+<div class="name">คุณ นำโชค โสมาภา
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานนวัตกรรมแห่งชาติ (NIA)</div>
+<div class="pos">กรรมการผู้ทรงคุณวุฒิ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">National Innovation System</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 เป็นองค์กรหลักในการเสริมสร้างระบบนวัตกรรมแห่งชาติ เพื่อเพิ่มคุณค่าที่ยั่งยืน</div>
+<div class="role-text">บทบาท: เชื่อม innovation funding, startup ecosystem, policy sandbox และ scaling</div>
+<a class="src-link" href="https://www.nia.or.th/vision" target="_blank">🔗 วิสัยทัศน์ - NIA</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="high" data-search="รองศาสตราจารย์ ดร. ปฐมพล วงศ์ตระกูลเกตุ คณะวิทยาศาสตร์ มหาวิทยาลัยมหิดล Science, Research &amp; Innovation Health Data Ontology&lt;br&gt;Environmental Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#25</div>
+<div class="name">รองศาสตราจารย์ ดร. ปฐมพล วงศ์ตระกูลเกตุ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">คณะวิทยาศาสตร์ มหาวิทยาลัยมหิดล</div>
+<div class="pos">ผู้ช่วยคณบดีฝ่ายวิจัยและนวัตกรรม</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Science, Research &amp; Innovation</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เป็นคณะวิทยาศาสตร์ระดับโลกที่สร้างผลกระทบต่อสังคม และเป็นผู้นำด้านการศึกษา วิจัย นวัตกรรมคุณภาพสากล</div>
+<div class="role-text">บทบาท: สนับสนุน scientific validation, analytics, evaluation และ research integrity</div>
+<a class="src-link" href="https://science.mahidol.ac.th/th/aboutsc.php" target="_blank">🔗 แนะนำ คณะวิทยาศาสตร์ มหาวิทยาลัยมหิดล</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="ดร. ปณิตา ชินวัตร สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม (OSMEP) SME Enablement &amp; Economic Development Business Offering&lt;br&gt;Travel &amp; Tourism Data">
+<div class="num">#26</div>
+<div class="name">ดร. ปณิตา ชินวัตร
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม (OSMEP)</div>
+<div class="pos">รักษาการแทนผู้อำนวยการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">SME Enablement &amp; Economic Development</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 เป็นผู้ชี้นำในการขับเคลื่อนและเพิ่มศักยภาพ MSME สู่ความมั่งคั่งอย่างยั่งยืน</div>
+<div class="role-text">บทบาท: ออกแบบการสนับสนุน SME โรงแรม ทัวร์ wellness และ local service providers</div>
+<a class="src-link" href="https://en.sme.go.th/th/page.php?modulekey=5" target="_blank">🔗 วิสัยทัศน์ พันธกิจ และภารกิจ - สสว.</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="high" data-search="ผู้ช่วยศาสตราจารย์ ดร. ปภากร พิทยชวาล อุทยานวิทยาศาสตร์ภูมิภาค ภาคตะวันออกเฉียงเหนือตอนล่าง Regional Innovation Platform Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#27</div>
+<div class="name">ผู้ช่วยศาสตราจารย์ ดร. ปภากร พิทยชวาล
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">อุทยานวิทยาศาสตร์ภูมิภาค ภาคตะวันออกเฉียงเหนือตอนล่าง</div>
+<div class="pos">ผู้อำนวยการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Regional Innovation Platform</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 เป็นตัวกลางและ national platform ในการส่งเสริมการใช้ประโยชน์โครงสร้างพื้นฐาน ววน. เพื่อพัฒนาเศรษฐกิจและสังคม</div>
+<div class="role-text">บทบาท: เชื่อมโครงสร้างพื้นฐาน ววน. กับธุรกิจพื้นที่และ innovation sandbox</div>
+<a class="src-link" href="https://sut-rsp.ksta.co/?page_id=3150" target="_blank">🔗 เกี่ยวกับเรา - อุทยานวิทยาศาสตร์ภูมิภาค</a>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="high" data-search="พลอากาศเอก ประภาส สอนใจดี กองทัพอากาศไทย (RTAF) Security, Logistics &amp; Emergency Readiness Environmental Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#28</div>
+<div class="name">พลอากาศเอก ประภาส สอนใจดี
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กองทัพอากาศไทย (RTAF)</div>
+<div class="pos">ผู้ช่วยผู้บัญชาการทหารอากาศ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Security, Logistics &amp; Emergency Readiness</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เตรียมและใช้กำลังกองทัพอากาศ รวมถึงเฝ้าตรวจระวังภัยทางอากาศและภารกิจด้านความมั่นคง</div>
+<div class="role-text">บทบาท: สนับสนุน crisis logistics, command structure, aerial mobility และ resilience planning</div>
+<a class="src-link" href="https://welcome-page.rtaf.mi.th/mission" target="_blank">🔗 วิสัยทัศน์ พันธกิจ - กองทัพอากาศ</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="รองศาสตราจารย์ ดร. ประมา ศาสตระรุจิ สำนักงานบริหารเทคโนโลยีสารสนเทศเพื่อพัฒนาการศึกษา (UniNet) Digital Infrastructure &amp; Knowledge Network Data/Logic/Action Governance">
+<div class="num">#29</div>
+<div class="name">รองศาสตราจารย์ ดร. ประมา ศาสตระรุจิ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานบริหารเทคโนโลยีสารสนเทศเพื่อพัฒนาการศึกษา (UniNet)</div>
+<div class="pos">ผู้อำนวยการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">Digital Infrastructure &amp; Knowledge Network</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เป็นศูนย์กลางบริหารจัดการทรัพยากรด้าน ICT เพื่อการศึกษาวิจัยระดับชาติ ส่งเสริมการใช้ทรัพยากรร่วมกันและพัฒนาองค์ความรู้สู่สังคม</div>
+<div class="role-text">บทบาท: สนับสนุน data network, connectivity, research network และ knowledge sharing</div>
+<a class="src-link" href="https://www.uni.net.th/" target="_blank">🔗 UniNet หน้าหลัก / ความเป็นมา</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="low" data-search="คุณ พงศ์ศรัณย์ อัศวชัยโสภณ ไม่ระบุ / ต้องยืนยัน Unclassified / To Verify -">
+<div class="num">#30</div>
+<div class="name">คุณ พงศ์ศรัณย์ อัศวชัยโสภณ
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">ไม่ระบุ / ต้องยืนยัน</div>
+<div class="pos">ไม่ระบุ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Unclassified / To Verify</div>
+<div class="domains"></div>
+<div class="vision">💡 ไม่สามารถสรุป vision/mission ได้จากเอกสารที่ให้มา</div>
+<div class="role-text">บทบาท: ต้องยืนยันบทบาทและองค์กรก่อนจัดเข้ากลุ่ม</div>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="medium" data-search="คุณ พรพสุ อิ่มฤทัย Mandarin Eastville Pattaya Hotel Hotel &amp; Hospitality Provider Travel &amp; Tourism Data&lt;br&gt;Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#31</div>
+<div class="name">คุณ พรพสุ อิ่มฤทัย
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">Mandarin Eastville Pattaya Hotel</div>
+<div class="pos">กรรมการผู้จัดการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Hotel &amp; Hospitality Provider</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 มุ่งสร้างประสบการณ์การพักผ่อนที่อบอุ่น ปลอดภัย และมีคุณภาพสำหรับ vacation และ long stay</div>
+<div class="role-text">บทบาท: hotel touchpoint สำหรับ concierge, referral, package booking และ tourist journey</div>
+<a class="src-link" href="https://mandarineastville.com/" target="_blank">🔗 Mandarin Eastville Hotel - Home</a>
+</div>
+<div class="s-card" data-clusters="extend national" data-conf="high" data-search="คุณ พันธพงศ์ ตั้งธีระสุนันท์ บริษัท จันวาณิชย์ จำกัด / Chanwanich Group Enterprise Architecture, Data &amp; Digital Innovation Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#32</div>
+<div class="name">คุณ พันธพงศ์ ตั้งธีระสุนันท์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">บริษัท จันวาณิชย์ จำกัด / Chanwanich Group</div>
+<div class="pos">ผู้ช่วยกรรมการผู้จัดการ ฝ่ายนวัตกรรมและสถาปัตยกรรมองค์กร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Enterprise Architecture, Data &amp; Digital Innovation</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 สร้างคุณค่า สินค้าและบริการที่ดีด้วยนวัตกรรมและเทคโนโลยีเพื่อความยั่งยืนของสังคมไทยและธุรกิจ</div>
+<div class="role-text">บทบาท: ออกแบบ enterprise architecture, data platform, ontology, governance และ innovation center</div>
+<a class="src-link" href="https://www.chanwanich.digital/aboutus/" target="_blank">🔗 บริษัท จันวาณิชย์ จำกัด - เกี่ยวกับเรา</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="คุณ พูนพงษ์ นัยนาภากรณ์ กรมพัฒนาธุรกิจการค้า (DBD), กระทรวงพาณิชย์ Business Registration &amp; Business Data Business Offering&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#33</div>
+<div class="name">คุณ พูนพงษ์ นัยนาภากรณ์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">กรมพัฒนาธุรกิจการค้า (DBD), กระทรวงพาณิชย์</div>
+<div class="pos">อธิบดี</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">Business Registration &amp; Business Data</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เป็นองค์กรชั้นนำด้านบริการและขับเคลื่อนธุรกิจไทยให้เติบโตอย่างยั่งยืน ด้วยบริการทะเบียนและข้อมูลธุรกิจที่ทันสมัย</div>
+<div class="role-text">บทบาท: เชื่อมข้อมูลธุรกิจ ผู้ประกอบการ การจดทะเบียน และ business data service</div>
+<a class="src-link" href="https://www.dbd.go.th/data-storage/attachment/7bd7acf166678ad7e6c91cd3.pdf" target="_blank">🔗 แผนปฏิบัติราชการกรมพัฒนาธุรกิจการค้า / วิสัยทัศน์พันธกิ</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="low" data-search="คุณ ภัทรพงษ์ พันธ์แม้นเจริญ Thai Royal Co., Ltd. / Thai Royal Ice Cream Local Product &amp; Experience Economy Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#34</div>
+<div class="name">คุณ ภัทรพงษ์ พันธ์แม้นเจริญ
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">Thai Royal Co., Ltd. / Thai Royal Ice Cream</div>
+<div class="pos">Founder-CEO</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Local Product &amp; Experience Economy</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ข้อมูล mission/vision ทางการยังไม่ชัดเจน; ข้อมูลสาธารณะระบุเป็นแบรนด์/ธุรกิจไอศกรีมและผลิตภัณฑ์อาหาร</div>
+<div class="role-text">บทบาท: เชื่อม local product, souvenir, food experience และ tourism package</div>
+<a class="src-link" href="https://www.thairoyalicecream.com/" target="_blank">🔗 Thai Royal Ice Cream - Official Website</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="คุณ ภัทรวรรณ ภัทรบวรวุฒิ สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ. / OBEC) Education, Workforce &amp; Public Sector Capacity Data/Logic/Action Governance">
+<div class="num">#35</div>
+<div class="name">คุณ ภัทรวรรณ ภัทรบวรวุฒิ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ. / OBEC)</div>
+<div class="pos">รองเลขาธิการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">Education, Workforce &amp; Public Sector Capacity</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 ผู้เรียนมีความรู้ สมรรถนะ ความสุข และได้รับการพัฒนาอย่างมีคุณภาพเต็มศักยภาพ พร้อมพันธกิจยกระดับคุณภาพผู้เรียนและบุคลากร</div>
+<div class="role-text">บทบาท: เชื่อมการพัฒนาทักษะคน การเรียนรู้ในพื้นที่ และ workforce readiness</div>
+<a class="src-link" href="https://www.obec.go.th/th/vision" target="_blank">🔗 วิสัยทัศน์ - OBEC</a>
+</div>
+<div class="s-card" data-clusters="scale" data-conf="high" data-search="ดร. มาส ตันหยงมาศ Bangkok Aviation Fuel Services PCL (BAFS) Aviation, Logistics &amp; International Relations Travel &amp; Tourism Data&lt;br&gt;Environmental Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#36</div>
+<div class="name">ดร. มาส ตันหยงมาศ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">Bangkok Aviation Fuel Services PCL (BAFS)</div>
+<div class="pos">ผู้เชี่ยวชาญด้านรัฐศาสตร์และความสัมพันธ์ระหว่างประเทศระดับสูง และกรรมการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">Aviation, Logistics &amp; International Relations</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 เน้นคุณภาพและความปลอดภัยของผลิตภัณฑ์และบริการตามมาตรฐานสากล รวมถึงผลตอบแทนและความร่วมมือทางธุรกิจอย่างยั่งยืน</div>
+<div class="role-text">บทบาท: เชื่อม aviation fuel, airport ecosystem, international coordination และ sustainability</div>
+<a class="src-link" href="https://www.bafsthai.com/en/about-us/purpose-vision-and-mission" target="_blank">🔗 Purpose, Vision and Mission - BAFS</a>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="high" data-search="คุณ เมธี รัตนเสนีย์ สำนักงานแรงงานจังหวัดฉะเชิงเทรา Local Workforce &amp; Labor Policy Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#37</div>
+<div class="name">คุณ เมธี รัตนเสนีย์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สำนักงานแรงงานจังหวัดฉะเชิงเทรา</div>
+<div class="pos">แรงงานจังหวัดฉะเชิงเทรา</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Local Workforce &amp; Labor Policy</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ขับเคลื่อนยุทธศาสตร์ด้านแรงงาน ประสานความร่วมมือเครือข่าย และพัฒนาแรงงานในพื้นที่ให้เกิดผลเชิงรูปธรรม</div>
+<div class="role-text">บทบาท: เชื่อมข้อมูลแรงงาน ทักษะบริการ และ workforce planning สำหรับ medical tourism</div>
+<a class="src-link" href="https://chachoengsao.mol.go.th/ข้อมูลหน่วยงาน/ภารกิจ-และ-อำนาจหน้าที่รับผิดชอบของหน่วยงาน" target="_blank">🔗 ภารกิจและอำนาจหน้าที่ - สำนักงานแรงงานจังหวัดฉะเชิงเทรา</a>
+</div>
+<div class="s-card" data-clusters="scale national" data-conf="high" data-search="คุณ ยุทธชัย พงศ์พณิช องค์การบริหารส่วนจังหวัดบุรีรัมย์ (อบจ.บุรีรัมย์) Local Government &amp; Destination Operation Travel &amp; Tourism Data&lt;br&gt;Environmental Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#38</div>
+<div class="name">คุณ ยุทธชัย พงศ์พณิช
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">องค์การบริหารส่วนจังหวัดบุรีรัมย์ (อบจ.บุรีรัมย์)</div>
+<div class="pos">รองนายกองค์การบริหารส่วนจังหวัดบุรีรัมย์</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Local Government &amp; Destination Operation</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 พัฒนาศักยภาพการท่องเที่ยว กีฬา คุณภาพชีวิต เศรษฐกิจสังคม และพื้นที่เมืองอย่างบูรณาการ</div>
+<div class="role-text">บทบาท: พัฒนา local command center, tourism/service readiness และ local governance</div>
+<a class="src-link" href="https://www.bpao.go.th/bpaoweb/index.php?Itemid=5&amp;id=3&amp;option=com_content&amp;view=article" target="_blank">🔗 วิสัยทัศน์ พันธกิจ และยุทธศาสตร์การพัฒนา - อบจ.บุรีรัมย</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="medium" data-search="คุณ รติรส จุลชาต rati / Siam Prathin Co., Ltd. Wellness Product &amp; Thai Brand Experience Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#39</div>
+<div class="name">คุณ รติรส จุลชาต
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">rati / Siam Prathin Co., Ltd.</div>
+<div class="pos">ผู้ก่อตั้งแบรนด์</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Wellness Product &amp; Thai Brand Experience</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 แบรนด์ personal care ที่เริ่มจากแนวคิดส่งต่อความรักและใช้ความเชี่ยวชาญด้านเคมี/แร่ธาตุพัฒนาผลิตภัณฑ์ให้ทันสมัย</div>
+<div class="role-text">บทบาท: เชื่อม wellness product, Thai lifestyle brand และ experience package</div>
+<a class="src-link" href="https://www.ratibkk.com/" target="_blank">🔗 rati - Our Story</a>
+</div>
+<div class="s-card" data-clusters="scale national" data-conf="high" data-search="คุณ วรางคณา ลือโรจน์วงศ์ บริษัท การบินไทย จำกัด (มหาชน) (Thai Airways) Aviation &amp; Tourist Journey Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#40</div>
+<div class="name">คุณ วรางคณา ลือโรจน์วงศ์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">บริษัท การบินไทย จำกัด (มหาชน) (Thai Airways)</div>
+<div class="pos">ประธานเจ้าหน้าที่หน่วยธุรกิจการบิน</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Aviation &amp; Tourist Journey</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 เป็นสายการบินคุณภาพสูงแบบ full-service ที่เชื่อมไทยสู่ทั่วโลกด้วยอัตลักษณ์ไทยและสร้างผลกำไรอย่างต่อเนื่อง</div>
+<div class="role-text">บทบาท: เชื่อม arrival/departure journey, tourist profile, in-flight marketing และ destination package</div>
+<a class="src-link" href="https://ir.thaiairways.com/th/vision-and-mission-th/" target="_blank">🔗 วิสัยทัศน์และพันธกิจ - Thai Airways</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="medium" data-search="แพทย์หญิง วรารัตน์ สิริกุตตา Meko International Hospital Beauty, Wellness &amp; Specialty Hospital Health Data Ontology&lt;br&gt;Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#41</div>
+<div class="name">แพทย์หญิง วรารัตน์ สิริกุตตา
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">Meko International Hospital</div>
+<div class="pos">ประธานเจ้าหน้าที่บริหาร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Beauty, Wellness &amp; Specialty Hospital</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 มุ่งยกระดับมาตรฐานโรงพยาบาลความงามและบริการศัลยกรรม/ความงามครบวงจรสู่ระดับโลก</div>
+<div class="role-text">บทบาท: ตัวอย่าง provider ด้าน aesthetic/beauty medical tourism และ international patient experience</div>
+<a class="src-link" href="https://mekoclinic.com/blog/launch-meko-hospital/" target="_blank">🔗 เปิดตัว MEKO HOSPITAL / Meko Group</a>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="low" data-search="คุณ วราวุธ เลาหพงศ์ชนะ บุคคลสื่อสารสาธารณะ / Media Persona Communication &amp; Public Engagement Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#42</div>
+<div class="name">คุณ วราวุธ เลาหพงศ์ชนะ
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">บุคคลสื่อสารสาธารณะ / Media Persona</div>
+<div class="pos">ผู้ดำเนินรายการโทรทัศน์</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Communication &amp; Public Engagement</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ไม่มีหน่วยงานในเอกสาร จึงไม่สามารถระบุ vision/mission องค์กรได้</div>
+<div class="role-text">บทบาท: ช่วยสื่อสารนโยบาย แคมเปญ medical tourism และ public trust</div>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="high" data-search="คุณ วิบูลย์ อุตสาหจิต Siam Wellness Group PCL Wellness &amp; Spa Industry Travel &amp; Tourism Data&lt;br&gt;Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#43</div>
+<div class="name">คุณ วิบูลย์ อุตสาหจิต
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">Siam Wellness Group PCL</div>
+<div class="pos">ประธานกรรมการบริหาร</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Wellness &amp; Spa Industry</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ให้บริการสุขภาพแบบองค์รวมที่เข้าถึงง่าย มีความเป็นไทย และสร้างมาตรฐานสปาไทยให้เป็นที่ยอมรับระดับนานาชาติ</div>
+<div class="role-text">บทบาท: เชื่อม spa/wellness packages, Thai wellness standard และ international wellness experience</div>
+<a class="src-link" href="https://siamwellnessgroup.com/th/about-us/" target="_blank">🔗 วิสัยทัศน์ พันธกิจ และค่านิยม - Siam Wellness Group</a>
+</div>
+<div class="s-card" data-clusters="promote" data-conf="high" data-search="ดร. วีรชัย อาจหาญ สถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย (วว. / TISTR) Applied Research, Industrial Innovation &amp; SMEs Data/Logic/Action Governance&lt;br&gt;Environmental Ontology&lt;br&gt;Business Offering">
+<div class="num">#44</div>
+<div class="name">ดร. วีรชัย อาจหาญ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">สถาบันวิจัยวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย (วว. / TISTR)</div>
+<div class="pos">ผู้ว่าการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span></div>
+<div class="group-tag">Applied Research, Industrial Innovation &amp; SMEs</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 เป็นองค์กรหลักในการสร้างความเข้มแข็งให้ภาคอุตสาหกรรม SMEs และชุมชนผ่านระบบนิเวศนวัตกรรมอย่างยั่งยืน</div>
+<div class="role-text">บทบาท: สนับสนุน innovation ecosystem, testing, certification และ technology transfer ให้ SMEs/ชุมชน</div>
+<a class="src-link" href="https://www.tistr.or.th/home/org_about.php" target="_blank">🔗 About TISTR</a>
+</div>
+<div class="s-card" data-clusters="scale" data-conf="medium" data-search="คุณ วีระศักดิ์ ฟูตระกูล กระทรวงการต่างประเทศ / Diplomatic Network International Relations &amp; Trust Diplomacy Travel &amp; Tourism Data&lt;br&gt;Business Offering&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#45</div>
+<div class="name">คุณ วีระศักดิ์ ฟูตระกูล
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">กระทรวงการต่างประเทศ / Diplomatic Network</div>
+<div class="pos">นักการทูต และอดีตรัฐมนตรีช่วยว่าการกระทรวงการต่างประเทศ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">International Relations &amp; Trust Diplomacy</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 กระทรวงการต่างประเทศขับเคลื่อนนโยบายต่างประเทศไทยเพื่อผลประโยชน์ของชาติ และสร้างความสัมพันธ์ระหว่างประเทศ</div>
+<div class="role-text">บทบาท: ช่วยเชื่อม international trust, country branding, bilateral partnership และ medical tourism diplomacy</div>
+<a class="src-link" href="https://www.kst.go.th/uploads/files/ESTJd1497410865.pdf" target="_blank">🔗 ยุทธศาสตร์กระทรวงการต่างประเทศ / Vision Mission</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="high" data-search="นายแพทย์ ศิณภคินท์ อิทธิเมฆินทร์ Science Innovative Products Co., Ltd. (SIP Lab) Biotech, Lab &amp; Health Product Innovation Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#46</div>
+<div class="name">นายแพทย์ ศิณภคินท์ อิทธิเมฆินทร์
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">Science Innovative Products Co., Ltd. (SIP Lab)</div>
+<div class="pos">ที่ปรึกษาด้านบริการสุขภาพ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Biotech, Lab &amp; Health Product Innovation</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ห้องปฏิบัติการชีวภาพที่พัฒนาเทคโนโลยีชีวภาพ สเต็มเซลล์ ผลิตภัณฑ์สุขภาพ และอุปกรณ์การแพทย์ภายใต้มาตรฐานสากล</div>
+<div class="role-text">บทบาท: เชื่อม biotechnology, lab services, health products และ clinical innovation</div>
+<a class="src-link" href="https://www.scienceinproducts.com/" target="_blank">🔗 SIP Lab - Science Innovative Products Co., Ltd.</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="low" data-search="คุณ ศีกัญญา ศักดิเดช ภาณุพันธ์ MANEEYA GROUP Property, Hospitality &amp; Urban Experience Travel &amp; Tourism Data&lt;br&gt;Business Offering">
+<div class="num">#47</div>
+<div class="name">คุณ ศีกัญญา ศักดิเดช ภาณุพันธ์
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">MANEEYA GROUP</div>
+<div class="pos">Executive Director</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Property, Hospitality &amp; Urban Experience</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ข้อมูล vision/mission ทางการยังไม่ชัดเจน; ข้อมูลสาธารณะระบุบทบาทด้าน real estate/hospitality/brand space</div>
+<div class="role-text">บทบาท: เชื่อม property/hospitality ecosystem, urban destination และ premium experience</div>
+<a class="src-link" href="https://thestandard.co/maneeya-group-real-estate-plan/" target="_blank">🔗 Maneeya Group public profile / media source</a>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="low" data-search="แพทย์หญิง สรัสวดี สุวรรณจินดา ไม่ระบุ / ต้องยืนยัน Health Expert / To Verify Health Data Ontology">
+<div class="num">#48</div>
+<div class="name">แพทย์หญิง สรัสวดี สุวรรณจินดา
+        <span class="conf-badge" style="background:rgba(255,107,82,0.15);color:#ff6b52">low</span>
+</div>
+<div class="org">ไม่ระบุ / ต้องยืนยัน</div>
+<div class="pos">ไม่ระบุ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Health Expert / To Verify</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span></div>
+<div class="vision">💡 ไม่สามารถสรุป vision/mission ได้จากเอกสารที่ให้มา</div>
+<div class="role-text">บทบาท: อาจเป็นผู้เชี่ยวชาญด้านสุขภาพ แต่ต้องยืนยันหน่วยงานและบทบาท</div>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="medium" data-search="ดร.นายแพทย์ สราวุฒิ บุญสุข กรมวิทยาศาสตร์การแพทย์ (DMSc), กระทรวงสาธารณสุข Medical Science, Lab Standard &amp; Public Health Evidence Health Data Ontology&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#49</div>
+<div class="name">ดร.นายแพทย์ สราวุฒิ บุญสุข
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">กรมวิทยาศาสตร์การแพทย์ (DMSc), กระทรวงสาธารณสุข</div>
+<div class="pos">อธิบดี</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Medical Science, Lab Standard &amp; Public Health Evidence</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 พัฒนาระบบสารสนเทศ โครงสร้างพื้นฐาน มาตรฐานข้อมูล และบุคลากรเพื่อสนับสนุนภารกิจด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</div>
+<div class="role-text">บทบาท: กำกับมาตรฐานห้องปฏิบัติการ วิทยาศาสตร์การแพทย์ และข้อมูลตรวจวิเคราะห์</div>
+<a class="src-link" href="https://www.dmsc.moph.go.th/th/pageredirect/GUIgozqgqS9cMUug%40nJ14pjWewEb3QWewEb3Q%40nGE4ZDWewEb3QWewEb3Q%40M2y0LJybrSDWewEb3Q%40" target="_blank">🔗 วิสัยทัศน์และนโยบาย / กรมวิทยาศาสตร์การแพทย์</a>
+</div>
+<div class="s-card" data-clusters="provider" data-conf="high" data-search="พลเอกนายแพทย์ สิรรุจน์ สกุลณะมรรคา Bangkok International Hospital - Neuroscience Center Specialty Hospital &amp; Advanced Care Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#50</div>
+<div class="name">พลเอกนายแพทย์ สิรรุจน์ สกุลณะมรรคา
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">Bangkok International Hospital - Neuroscience Center</div>
+<div class="pos">ประสาทศัลยแพทย์ที่ปรึกษา</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="provider" style="background:rgba(78,168,222,0.12);color:#4ea8de;border:1px solid rgba(78,168,222,0.25)">🏥 ผู้ให้บริการ</span></div>
+<div class="group-tag">Specialty Hospital &amp; Advanced Care</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ให้บริการดูแลระบบประสาทแบบองค์รวม ตั้งแต่การวินิจฉัย รักษา ป้องกันการเกิดซ้ำ และฟื้นฟูคุณภาพชีวิต</div>
+<div class="role-text">บทบาท: สนับสนุน specialty care pathway, referral protocols และ international patient service</div>
+<a class="src-link" href="https://www.bangkokhospital.com/en/bangkok-bone-brain/center-clinic/bih-neuroscience-center/bangkok-neuroscience-center/overview" target="_blank">🔗 Neuroscience Center - Bangkok International Hospital</a>
+</div>
+<div class="s-card" data-clusters="extend" data-conf="medium" data-search="คุณ สิรินทร์นิชา พีรวุฒิ Gen Life Science Co., Ltd. Anti-aging, Longevity &amp; Medical Practice Health Data Ontology&lt;br&gt;Business Offering">
+<div class="num">#51</div>
+<div class="name">คุณ สิรินทร์นิชา พีรวุฒิ
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">Gen Life Science Co., Ltd.</div>
+<div class="pos">ประธานเจ้าหน้าที่ฝ่ายการเงิน</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="extend" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)">💎 ต่อยอด</span></div>
+<div class="group-tag">Anti-aging, Longevity &amp; Medical Practice</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(78,168,222,0.15);color:#4ea8de">Health Data Ontology</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 ข้อมูลสาธารณะระบุประเภทธุรกิจด้านสถานพยาบาล คลินิกเวชกรรม คลินิกเฉพาะทางด้านชะลอวัยและเวชศาสตร์อายุยืน; ยังไม่พบ vision/mission ทางการ</div>
+<div class="role-text">บทบาท: เชื่อม anti-aging/longevity clinic, finance model และ package economics</div>
+<a class="src-link" href="https://www.matchlink.asia/th/business/page/Thailand/BANGKOK/24646-gen-life-science-co-ltd.html" target="_blank">🔗 ข้อมูลบริษัท GEN LIFE SCIENCE CO., LTD.</a>
+</div>
+<div class="s-card" data-clusters="promote national" data-conf="medium" data-search="นาย สุทธิเกตติ์ ทัดพิทักษ์กุล สำนักงานคณะกรรมการส่งเสริมการลงทุน (BOI) Investment Promotion &amp; Incentives Business Offering&lt;br&gt;Data/Logic/Action Governance">
+<div class="num">#52</div>
+<div class="name">นาย สุทธิเกตติ์ ทัดพิทักษ์กุล
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">สำนักงานคณะกรรมการส่งเสริมการลงทุน (BOI)</div>
+<div class="pos">รองเลขาธิการ BOI</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="promote" style="background:rgba(0,212,177,0.12);color:#00d4b1;border:1px solid rgba(0,212,177,0.25)">🌱 ส่งเสริม</span><span class="cluster-badge" data-cluster="national" style="background:rgba(255,107,82,0.12);color:#ff6b52;border:1px solid rgba(255,107,82,0.25)">🏛️ โครงการระดับชาติ</span></div>
+<div class="group-tag">Investment Promotion &amp; Incentives</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span></div>
+<div class="vision">💡 มุ่งปรับโครงสร้างเศรษฐกิจไทยสู่เศรษฐกิจที่ขับเคลื่อนด้วยนวัตกรรม แข่งขันได้ และครอบคลุมยั่งยืน</div>
+<div class="role-text">บทบาท: ออกแบบ incentive, investment package และ strategic industry promotion สำหรับ medical/wellness tourism</div>
+<a class="src-link" href="https://surat.boi.go.th/index.php/aboutus/31" target="_blank">🔗 วิสัยทัศน์ของการส่งเสริมการลงทุน - BOI</a>
+</div>
+<div class="s-card" data-clusters="safety" data-conf="high" data-search="คุณ สุเมธ ตั้งประเสริฐ การนิคมอุตสาหกรรมแห่งประเทศไทย (กนอ. / IEAT) Industrial Estate, Infrastructure &amp; Environmental Governance Environmental Ontology&lt;br&gt;Data/Logic/Action Governance&lt;br&gt;Business Offering">
+<div class="num">#53</div>
+<div class="name">คุณ สุเมธ ตั้งประเสริฐ
+        <span class="conf-badge" style="background:rgba(0,212,177,0.15);color:#00d4b1">high</span>
+</div>
+<div class="org">การนิคมอุตสาหกรรมแห่งประเทศไทย (กนอ. / IEAT)</div>
+<div class="pos">ผู้ว่าการ</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="safety" style="background:rgba(255,159,67,0.12);color:#ff9f43;border:1px solid rgba(255,159,67,0.25)">🛡️ ความปลอดภัย</span></div>
+<div class="group-tag">Industrial Estate, Infrastructure &amp; Environmental Governance</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(0,212,177,0.15);color:#00d4b1">Environmental Ontology</span><span class="domain-pill" style="background:rgba(255,107,82,0.15);color:#ff6b52">Data/Logic/Action Governance</span><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span></div>
+<div class="vision">💡 พัฒนาและสนับสนุนนิคมอุตสาหกรรม/ท่าเรืออุตสาหกรรมเป็นฐานการผลิตและบริการที่มีโครงสร้างพื้นฐานเพียงพอ และสมดุลเศรษฐกิจ สังคม สิ่งแวดล้อม</div>
+<div class="role-text">บทบาท: เชื่อม industrial estate, environmental safety, infrastructure และ investment ecosystem</div>
+<a class="src-link" href="https://www.ieat.go.th/en/philosophy" target="_blank">🔗 Philosophy, Vision and Mission - IEAT</a>
+</div>
+<div class="s-card" data-clusters="scale" data-conf="medium" data-search="คุณ แสงชัย ธีรกุลวาณิช สมาพันธ์เอสเอ็มอีไทย / SME Thai Federation SME Network &amp; Local Business Enablement Business Offering&lt;br&gt;Travel &amp; Tourism Data">
+<div class="num">#54</div>
+<div class="name">คุณ แสงชัย ธีรกุลวาณิช
+        <span class="conf-badge" style="background:rgba(201,168,76,0.15);color:#c9a84c">medium</span>
+</div>
+<div class="org">สมาพันธ์เอสเอ็มอีไทย / SME Thai Federation</div>
+<div class="pos">ประธานกิตติมศักดิ์และประธานยุทธศาสตร์</div>
+<div class="cluster-badges"><span class="cluster-badge" data-cluster="scale" style="background:rgba(201,168,76,0.12);color:#c9a84c;border:1px solid rgba(201,168,76,0.25)">🚀 ขยายผล</span></div>
+<div class="group-tag">SME Network &amp; Local Business Enablement</div>
+<div class="domains"><span class="domain-pill" style="background:rgba(167,139,250,0.15);color:#a78bfa">Business Offering</span><span class="domain-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c">Travel &amp; Tourism Data</span></div>
+<div class="vision">💡 มุ่งเป็นที่พึ่งและตัวกลางสะท้อนปัญหาผู้ประกอบการ SMEs ไปยังภาครัฐ เพื่อพัฒนาให้ SMEs ไทยแข่งขันได้</div>
+<div class="role-text">บทบาท: รวบรวม SMEs ท่องเที่ยว เวลเนส ของฝาก บริการ และเชื่อมภาครัฐเพื่อการสนับสนุน</div>
+<a class="src-link" href="https://www.smeeastern.com/" target="_blank">🔗 สมาพันธ์เอสเอ็มอีภาคตะวันออก / ข้อมูลบทบาทและภารกิจ</a>
+</div>
+</div>
+</div>
+<div class="footer">Medical Tourism Stakeholder Vision/Mission Catalogue · Altrion Platform · Ver3.0 · 2026<br/>Data → Logic → Action → Governance</div>
+<script>
+  const cards = document.querySelectorAll('.s-card');
+  const search = document.getElementById('search');
+  const counter = document.getElementById('counter');
+  const total = cards.length;
+  let activeCluster = 'all';
+  let activeConf = 'all';
+  
+  function applyFilters() {
+    const q = search.value.toLowerCase();
+    let shown = 0;
+    cards.forEach(c => {
+      const matchSearch = !q || c.dataset.search.toLowerCase().includes(q);
+      const matchCluster = activeCluster === 'all' || c.dataset.clusters.split(' ').includes(activeCluster);
+      const matchConf = activeConf === 'all' || c.dataset.conf === activeConf;
+      const vis = matchSearch && matchCluster && matchConf;
+      c.style.display = vis ? '' : 'none';
+      if(vis) shown++;
+    });
+    counter.textContent = 'Showing ' + shown + ' of ' + total;
+  }
+  
+  search.addEventListener('input', applyFilters);
+  
+  document.querySelectorAll('#cluster-filters .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#cluster-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCluster = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+  
+  document.querySelectorAll('#conf-filters .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#conf-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeConf = btn.dataset.conffilter;
+      applyFilters();
+    });
+  });
+</script>
+</body>
+</html>

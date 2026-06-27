@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy Workshop Capture & Skill Analysis Intake</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --ink:#102033;
+      --muted:#627086;
+      --line:#d9e0ea;
+      --navy:#0b1b33;
+      --blue:#3b7ddd;
+      --green:#2e9f5b;
+      --teal:#0f8b8d;
+      --amber:#f2a90d;
+      --red:#e6535c;
+      --soft-blue:#eaf2ff;
+      --soft-green:#edf8f1;
+      --soft-amber:#fff7df;
+      --soft-red:#fff0f1;
+      --radius:18px;
+      --shadow:0 14px 35px rgba(20,38,60,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.45;
+    }
+    header{
+      padding:28px 36px 22px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    h1{margin:0 0 6px;font-size:28px;letter-spacing:.2px}
+    .subtitle{color:var(--muted);font-size:14px}
+    .wrap{
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:22px;
+      padding:24px 32px 38px;
+      max-width:1600px;
+      margin:0 auto;
+    }
+    .side{
+      position:sticky;
+      top:112px;
+      align-self:start;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .side-title{
+      padding:18px 18px 12px;
+      font-weight:800;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    .navbtn{
+      width:100%;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:13px 18px;
+      border:0;
+      border-bottom:1px solid #edf1f6;
+      background:#fff;
+      color:var(--ink);
+      text-align:left;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .navbtn:hover{background:#f7faff}
+    .navbtn.active{background:#eaf2ff;border-left:5px solid var(--blue);font-weight:700}
+    .badge{
+      width:26px;height:26px;border-radius:8px;
+      display:inline-flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:800;font-size:13px;flex:0 0 auto;
+      background:var(--navy);
+    }
+    .b1{background:var(--amber)} .b2{background:var(--green)} .b3{background:var(--blue)} .b4{background:var(--teal)} .b5{background:var(--red)}
+    main{min-width:0}
+    .panel{
+      display:none;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-bottom:22px;
+    }
+    .panel.active{display:block}
+    .panel h2{margin:0 0 8px;font-size:24px}
+    .hint{color:var(--muted);font-size:13px;margin-bottom:18px}
+    .grid{display:grid;gap:14px}
+    .grid.two{grid-template-columns:1fr 1fr}
+    .grid.three{grid-template-columns:repeat(3,1fr)}
+    .grid.four{grid-template-columns:repeat(4,1fr)}
+    label{font-weight:700;font-size:13px;display:block;margin:0 0 6px}
+    input, textarea, select{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      color:var(--ink);
+      padding:12px 13px;
+      font-size:14px;
+      font-family:inherit;
+      outline:none;
+    }
+    textarea{min-height:112px;resize:vertical}
+    input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,125,221,.12)}
+    .section-card{
+      border:1px solid var(--line);
+      border-left:7px solid var(--blue);
+      border-radius:16px;
+      padding:16px;
+      background:#fff;
+      margin-top:14px;
+    }
+    .section-card.amber{border-left-color:var(--amber);background:var(--soft-amber)}
+    .section-card.green{border-left-color:var(--green);background:var(--soft-green)}
+    .section-card.blue{border-left-color:var(--blue);background:var(--soft-blue)}
+    .section-card.teal{border-left-color:var(--teal);background:#edfafa}
+    .section-card.red{border-left-color:var(--red);background:var(--soft-red)}
+    .toolbar{
+      display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 4px
+    }
+    button{
+      border:0;
+      border-radius:14px;
+      padding:11px 15px;
+      font-weight:800;
+      cursor:pointer;
+      font-family:inherit;
+      font-size:14px;
+      background:#eef3f9;
+      color:var(--ink);
+    }
+    button.primary{background:var(--navy);color:#fff}
+    button.blue{background:var(--blue);color:#fff}
+    button.green{background:var(--green);color:#fff}
+    button.amber{background:var(--amber);color:#fff}
+    button.red{background:var(--red);color:#fff}
+    button.ghost{background:#fff;border:1px solid var(--line)}
+    button:hover{filter:brightness(.98);transform:translateY(-1px)}
+    .status{
+      font-size:13px;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
+      background:#f3f6fa;
+      margin-top:10px;
+    }
+    .voice-box{
+      border:1px dashed #9fb0c8;
+      border-radius:16px;
+      padding:16px;
+      background:#fbfdff;
+    }
+    .pill{
+      display:inline-block;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      margin:3px 4px 3px 0;
+      color:var(--muted);
+    }
+    .output{
+      background:#0b1b33;
+      color:#e9f2ff;
+      border-radius:16px;
+      padding:16px;
+      min-height:260px;
+      white-space:pre-wrap;
+      overflow:auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12.5px;
+      line-height:1.55;
+    }
+    .small{font-size:12px;color:var(--muted)}
+    .divider{height:1px;background:var(--line);margin:20px 0}
+    table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:14px;overflow:hidden}
+    th,td{border:1px solid var(--line);padding:10px;vertical-align:top}
+    th{background:#f2f6fb;text-align:left}
+    .top-actions{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:14px
+    }
+    .score-row{
+      display:grid;
+      grid-template-columns:1.5fr repeat(7, minmax(58px,1fr));
+      gap:8px;
+      align-items:end;
+      margin-bottom:10px;
+    }
+    .score-row input[type=number]{padding:9px}
+    .microcopy{
+      padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:13px
+    }
+    .checklist label{display:flex;gap:8px;align-items:flex-start;font-weight:500;margin:8px 0}
+    .checklist input{width:auto;margin-top:3px}
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr;padding:16px}
+      .side{position:relative;top:0}
+      .grid.two,.grid.three,.grid.four{grid-template-columns:1fr}
+      .score-row{grid-template-columns:1fr 1fr}
+      header{position:relative;padding:22px 18px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Policy Workshop Capture & Skill Analysis Intake</h1>
+  <div class="subtitle">เครื่องมือ HTML สำหรับเก็บข้อความจากการระดมสมอง เสียงจากการหารือ และรายละเอียด workshop เพื่อส่งต่อเข้าสู่ระบบ Skill / Agent วิเคราะห์นโยบาย</div>
+  <div class="top-actions">
+    <button class="primary" onclick="saveAll()">บันทึกในเครื่อง</button>
+    <button class="ghost" onclick="loadAll()">โหลดข้อมูลที่บันทึกไว้</button>
+    <button class="ghost" onclick="clearAll()">ล้างฟอร์ม</button>
+    <button class="blue" onclick="go('export')">ไปหน้า Export</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="side">
+    <div class="side-title">Policy Cycle Menu</div>
+    <button class="navbtn active" data-target="setup" onclick="go('setup')"><span class="badge">0</span>ตั้งค่า Workshop</button>
+    <button class="navbtn" data-target="capture" onclick="go('capture')"><span class="badge b1">A</span>จับเสียง/ระดมสมอง</button>
+    <button class="navbtn" data-target="agenda" onclick="go('agenda')"><span class="badge b1">1</span>Agenda Setting</button>
+    <button class="navbtn" data-target="formulation" onclick="go('formulation')"><span class="badge b2">2</span>Policy Formulation</button>
+    <button class="navbtn" data-target="adoption" onclick="go('adoption')"><span class="badge b3">3</span>Decision / Adoption</button>
+    <button class="navbtn" data-target="implementation" onclick="go('implementation')"><span class="badge b4">4</span>Implementation</button>
+    <button class="navbtn" data-target="evaluation" onclick="go('evaluation')"><span class="badge b5">5</span>Evaluation</button>
+    <button class="navbtn" data-target="skill" onclick="go('skill')"><span class="badge">S</span>Skill Analysis Prompt</button>
+    <button class="navbtn" data-target="export" onclick="go('export')"><span class="badge">X</span>Export JSON / MD</button>
+  </aside>
+
+  <main>
+    <section class="panel active" id="setup">
+      <h2>0) ตั้งค่า Workshop</h2>
+      <div class="hint">กรอกข้อมูลพื้นฐานเพื่อให้ระบบสร้างไฟล์วิเคราะห์ที่อ่านต่อได้ง่าย ทั้งสำหรับมนุษย์และ Agent</div>
+      <div class="grid two">
+        <div><label>ชื่อหัวข้อ / Policy Topic</label><input id="topic" placeholder="เช่น Thailand Medical Tourism Policy & Foresight" /></div>
+        <div><label>หน่วยงานเจ้าภาพ / Host Agency</label><input id="hostAgency" placeholder="เช่น กระทรวง / กรม / คณะทำงาน" /></div>
+        <div><label>วันที่จัด Workshop</label><input id="workshopDate" type="date" /></div>
+        <div><label>สถานที่ / รูปแบบ</label><input id="venue" placeholder="เช่น Online / On-site / Hybrid" /></div>
+        <div><label>Facilitator</label><input id="facilitator" placeholder="ชื่อผู้อำนวยกระบวนการ" /></div>
+        <div><label>Note Taker</label><input id="noteTaker" placeholder="ชื่อผู้จดบันทึก" /></div>
+      </div>
+      <div class="grid two" style="margin-top:14px">
+        <div><label>ผู้เข้าร่วม / Participants</label><textarea id="participants" placeholder="ใส่รายชื่อ หน่วยงาน บทบาท หรือ stakeholder groups"></textarea></div>
+        <div><label>วัตถุประสงค์ของ Workshop</label><textarea id="objectives" placeholder="ต้องการให้จบ workshop แล้วได้อะไร เช่น problem statement, policy option matrix, decision brief"></textarea></div>
+      </div>
+      <div class="section-card blue">
+        <strong>Output ที่ระบบนี้ออกแบบให้ส่งต่อไปวิเคราะห์ต่อ</strong>
+        <div>
+          <span class="pill">Raw transcript</span>
+          <span class="pill">Brainstorming notes</span>
+          <span class="pill">Problem statement</span>
+          <span class="pill">Policy option matrix</span>
+          <span class="pill">Decision brief</span>
+          <span class="pill">Implementation canvas</span>
+          <span class="pill">Evaluation framework</span>
+          <span class="pill">Skill-ready JSON</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="capture">
+      <h2>A) จับเสียง / ระดมสมอง / Raw Discussion</h2>
+      <div class="hint">ใช้ช่องนี้เก็บเสียงจากการหารือ หรือวางข้อความจากการประชุม เพื่อจัดหมวดเข้าสู่ขั้นตอนนโยบาย</div>
+
+      <div class="voice-box">
+        <div class="grid three">
+          <div>
+            <label>ภาษาถอดเสียง</label>
+            <select id="speechLang">
+              <option value="th-TH">Thai - th-TH</option>
+              <option value="en-US">English - en-US</option>
+            </select>
+          </div>
+          <div>
+            <label>ส่ง transcript เข้า section</label>
+            <select id="targetBucket">
+              <option value="rawNotes">Raw Discussion Notes</option>
+              <option value="symptoms">Agenda: อาการของปัญหา</option>
+              <option value="rootCauses">Agenda: รากเหตุ</option>
+              <option value="affectedGroups">Agenda: กลุ่มที่ได้รับผลกระทบ</option>
+              <option value="publicImpact">Agenda: ผลกระทบสาธารณะ</option>
+              <option value="policyOptions">Policy Options</option>
+              <option value="decisionNotes">Decision Notes</option>
+              <option value="implementationNotes">Implementation Notes</option>
+              <option value="evaluationNotes">Evaluation Notes</option>
+            </select>
+          </div>
+          <div>
+            <label>สถานะเสียง</label>
+            <div id="speechStatus" class="status">ยังไม่เริ่มบันทึกเสียง</div>
+          </div>
+        </div>
+        <div class="toolbar">
+          <button class="green" onclick="startSpeech()">เริ่มถอดเสียง</button>
+          <button class="red" onclick="stopSpeech()">หยุดถอดเสียง</button>
+          <button class="blue" onclick="appendTranscript()">ส่งข้อความไปยัง section</button>
+          <button class="ghost" onclick="copyText('liveTranscript')">คัดลอก transcript</button>
+        </div>
+        <label>Live Transcript</label>
+        <textarea id="liveTranscript" placeholder="เมื่อกดเริ่มถอดเสียง ข้อความจะขึ้นที่นี่ หรือพิมพ์เองได้"></textarea>
+        <div class="small">หมายเหตุ: ฟังก์ชันไมโครโฟนใช้ Web Speech API จึงมักทำงานดีที่สุดบน Chrome และอาจต้องเปิดผ่าน HTTPS/localhost</div>
+      </div>
+
+      <div class="section-card amber">
+        <label>Raw Discussion Notes / ข้อความดิบจากการหารือ</label>
+        <textarea id="rawNotes" placeholder="วาง transcript จาก Zoom, Teams, Line, Google Docs หรือข้อความระดมสมองทั้งหมดที่นี่"></textarea>
+      </div>
+
+      <div class="grid two">
+        <div class="section-card green">
+          <label>Key Quotes / เสียงสำคัญของผู้มีส่วนได้ส่วนเสีย</label>
+          <textarea id="keyQuotes" placeholder="เช่น ผู้ป่วยต่างชาติกล่าวว่า... โรงพยาบาลระบุว่า... ผู้ประกอบการท่องเที่ยวเสนอว่า..."></textarea>
+        </div>
+        <div class="section-card blue">
+          <label>Emerging Themes / ประเด็นที่เริ่มเห็นซ้ำ</label>
+          <textarea id="emergingThemes" placeholder="เช่น ความปลอดภัย ราคา มาตรฐานข้อมูล การส่งต่อ การคุ้มครองผู้บริโภค"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="agenda">
+      <h2>1) Agenda Setting / Problem Identification</h2>
+      <div class="hint">เปลี่ยน “ประเด็นทั่วไป” ให้เป็น “ปัญหาสาธารณะ” ที่รัฐควรลงมือ</div>
+      <div class="grid two">
+        <div><label>อาการของปัญหา</label><textarea id="symptoms" placeholder="ประชาชนหรือผู้รับบริการเห็นปัญหาอะไร เช่น ความไม่ปลอดภัย ความล่าช้า ค่าใช้จ่ายสูง"></textarea></div>
+        <div><label>รากเหตุ</label><textarea id="rootCauses" placeholder="ปัญหาเกิดจากอะไร เช่น กฎระเบียบไม่ชัด มาตรฐานไม่เท่ากัน ข้อมูลกระจัดกระจาย"></textarea></div>
+        <div><label>กลุ่มที่ได้รับผลกระทบ</label><textarea id="affectedGroups" placeholder="ใครได้รับผลกระทบ และกระทบอย่างไร เช่น ผู้ป่วย โรงพยาบาล ธุรกิจท้องถิ่น"></textarea></div>
+        <div><label>เหตุผลที่รัฐต้องทำ / Public Rationale</label><textarea id="publicImpact" placeholder="เกี่ยวกับสาธารณสุข ความปลอดภัย ความเป็นธรรม การคุ้มครองผู้บริโภค หรือเศรษฐกิจ"></textarea></div>
+      </div>
+      <div class="section-card amber">
+        <label>Problem Statement 1 หน้า</label>
+        <textarea id="problemStatement" placeholder="เพราะ [รากเหตุ] ทำให้ [กลุ่มเป้าหมาย] เผชิญ [ปัญหาที่วัดได้] ส่งผลต่อ [ผลกระทบสาธารณะ] ดังนั้นรัฐควร [เป้าหมายของนโยบาย]"></textarea>
+        <div class="toolbar">
+          <button class="amber" onclick="generateProblemStatement()">สร้าง Problem Statement จากข้อมูลด้านบน</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="formulation">
+      <h2>2) Policy Formulation</h2>
+      <div class="hint">พัฒนาทางเลือกเชิงนโยบายและทดสอบความเป็นไปได้</div>
+      <div class="grid two">
+        <div><label>ฐานข้อมูล / Evidence Base</label><textarea id="evidenceBase" placeholder="ข้อมูล สถิติ งานวิจัย กฎหมาย เสียงผู้มีส่วนได้ส่วนเสีย"></textarea></div>
+        <div><label>ตรรกะนโยบาย / Policy Logic</label><textarea id="policyLogic" placeholder="ปัญหา → กลไก → ผลลัพธ์ที่คาดหวัง"></textarea></div>
+      </div>
+      <div class="section-card green">
+        <label>Policy Options</label>
+        <textarea id="policyOptions" placeholder="ใส่ทางเลือกนโยบาย เช่น Distributive, Redistributive, Regulatory, Constituent หรือแนวทางอื่น ๆ"></textarea>
+      </div>
+
+      <div class="grid four">
+        <div><label>Distributive</label><textarea id="optionDistributive" placeholder="จัดสรรทรัพยากร เช่น งบสนับสนุน เมืองนำร่อง"></textarea></div>
+        <div><label>Redistributive</label><textarea id="optionRedistributive" placeholder="ปรับสมดุลทรัพยากร เช่น กองทุนช่วยกลุ่มเปราะบาง"></textarea></div>
+        <div><label>Regulatory</label><textarea id="optionRegulatory" placeholder="กำหนดมาตรฐาน เช่น คลินิก ราคา ข้อมูล ความปลอดภัย"></textarea></div>
+        <div><label>Constituent</label><textarea id="optionConstituent" placeholder="ตั้งกลไกใหม่ เช่น คณะกรรมการกลาง ระบบ seal"></textarea></div>
+      </div>
+
+      <div class="section-card blue">
+        <label>Stakeholder Map</label>
+        <textarea id="stakeholderMap" placeholder="ใครมีอำนาจ ใครได้รับผลกระทบ ใครสนับสนุน ใครคัดค้าน"></textarea>
+      </div>
+      <div class="section-card red">
+        <label>Risk Register</label>
+        <textarea id="riskRegister" placeholder="ความเสี่ยง กฎหมาย งบประมาณ การเมือง ความเป็นธรรม ความปลอดภัย ข้อมูลส่วนบุคคล"></textarea>
+      </div>
+    </section>
+
+    <section class="panel" id="adoption">
+      <h2>3) Decision-Making / Adoption</h2>
+      <div class="hint">เลือกแนวทางที่เหมาะสมและได้รับการรับรองอย่างเป็นทางการ</div>
+      <div class="section-card blue">
+        <label>Decision Notes / บันทึกการตัดสินใจ</label>
+        <textarea id="decisionNotes" placeholder="เหตุผลที่เลือก ข้อแลกเปลี่ยน ความเสี่ยง เงื่อนไขสำเร็จ สิ่งที่ผู้บริหารต้องอนุมัติ"></textarea>
+      </div>
+      <div class="microcopy">ให้คะแนน 1–5 เพื่อช่วยเปรียบเทียบทางเลือก: Alignment, Feasibility, Support, Public Value, Equity, Transparency, Readiness</div>
+      <div id="scoringArea" style="margin-top:14px"></div>
+      <div class="toolbar">
+        <button class="blue" onclick="addScoreRow()">เพิ่มทางเลือกเพื่อให้คะแนน</button>
+        <button class="ghost" onclick="calculateScores()">คำนวณคะแนนรวม</button>
+      </div>
+      <div class="section-card">
+        <label>Decision Brief</label>
+        <textarea id="decisionBrief" placeholder="1. Policy Problem&#10;2. Recommended Option&#10;3. Rationale&#10;4. Trade-offs&#10;5. Key Risks&#10;6. Conditions for Success&#10;7. Decision Required"></textarea>
+        <div class="toolbar"><button class="blue" onclick="generateDecisionBrief()">สร้าง Decision Brief เบื้องต้น</button></div>
+      </div>
+    </section>
+
+    <section class="panel" id="implementation">
+      <h2>4) Implementation</h2>
+      <div class="hint">แปลงนโยบายให้เป็นระบบงานจริงที่มีเจ้าของและวัดผลได้</div>
+      <div class="grid two">
+        <div><label>Governance</label><textarea id="implGovernance" placeholder="คณะทำงาน เจ้าภาพหลัก อำนาจตัดสินใจ การรายงาน"></textarea></div>
+        <div><label>Process / SOP</label><textarea id="implProcess" placeholder="เส้นทางบริการ มาตรฐานงาน จุดส่งต่อ"></textarea></div>
+        <div><label>Resources</label><textarea id="implResources" placeholder="งบประมาณ บุคลากร เทคโนโลยี คู่ค้า เครื่องมือ"></textarea></div>
+        <div><label>Communication</label><textarea id="implCommunication" placeholder="การสื่อสารกับประชาชน ผู้ให้บริการ หน่วยงาน และต่างประเทศ"></textarea></div>
+        <div><label>Risk Control</label><textarea id="implRiskControl" placeholder="ข้อร้องเรียน ความปลอดภัย กฎหมาย ข้อมูลส่วนบุคคล"></textarea></div>
+        <div><label>KPI & Data</label><textarea id="implKpiData" placeholder="dashboard ข้อมูลผลลัพธ์ รอบประเมิน"></textarea></div>
+      </div>
+      <div class="section-card teal">
+        <label>Implementation Notes รวม</label>
+        <textarea id="implementationNotes" placeholder="บันทึกเพิ่มเติมจากการหารือเรื่องการนำไปปฏิบัติ"></textarea>
+      </div>
+    </section>
+
+    <section class="panel" id="evaluation">
+      <h2>5) Evaluation</h2>
+      <div class="hint">ประเมินผลเพื่อตอบว่านโยบายควรเดินต่อ ปรับ ขยาย หรือยุติ</div>
+      <div class="grid two">
+        <div><label>Input Indicators</label><textarea id="evalInput" placeholder="ทรัพยากรที่ใช้ งบ บุคลากร เวลา เทคโนโลยี"></textarea></div>
+        <div><label>Process Indicators</label><textarea id="evalProcess" placeholder="คุณภาพการดำเนินงาน ระยะเวลา ขั้นตอน ความครบถ้วน"></textarea></div>
+        <div><label>Output Indicators</label><textarea id="evalOutput" placeholder="ผลผลิตทันที จำนวนผู้รับบริการ หน่วยงานที่เข้าร่วม แพ็กเกจที่เปิดใช้"></textarea></div>
+        <div><label>Outcome Indicators</label><textarea id="evalOutcome" placeholder="ความไว้วางใจ ความปลอดภัย รายได้ คุณภาพบริการ"></textarea></div>
+        <div><label>Impact Indicators</label><textarea id="evalImpact" placeholder="ความสามารถแข่งขัน ภาพลักษณ์ประเทศ ระบบสุขภาพที่ยั่งยืน"></textarea></div>
+        <div><label>Baseline / Target / Owner / Frequency</label><textarea id="evalBaselineTarget" placeholder="baseline เป้าหมาย แหล่งข้อมูล ผู้รับผิดชอบ รอบรายงาน"></textarea></div>
+      </div>
+      <div class="section-card red">
+        <label>Evaluation Notes รวม</label>
+        <textarea id="evaluationNotes" placeholder="บันทึกเพิ่มเติมจากการหารือเรื่องการประเมินผล"></textarea>
+      </div>
+    </section>
+
+    <section class="panel" id="skill">
+      <h2>S) Skill Analysis Prompt</h2>
+      <div class="hint">สร้าง prompt เพื่อส่งให้ระบบ Skill / Agent วิเคราะห์ต่อ โดยใช้ข้อมูลทั้งหมดจากฟอร์มนี้</div>
+      <div class="checklist section-card blue">
+        <strong>เลือกงานวิเคราะห์ที่ต้องการให้ Skill ทำต่อ</strong>
+        <label><input type="checkbox" id="taskProblem" checked> วิเคราะห์และปรับ Problem Statement</label>
+        <label><input type="checkbox" id="taskOptions" checked> สร้าง Policy Option Matrix</label>
+        <label><input type="checkbox" id="taskDecision" checked> สร้าง Decision Brief สำหรับผู้บริหาร</label>
+        <label><input type="checkbox" id="taskImplementation" checked> สร้าง Implementation Canvas</label>
+        <label><input type="checkbox" id="taskEvaluation" checked> สร้าง Evaluation Framework / KPI Dashboard</label>
+        <label><input type="checkbox" id="taskReport" checked> สร้าง Workshop Report แบบ Markdown</label>
+      </div>
+      <div class="toolbar">
+        <button class="primary" onclick="generateSkillPrompt()">สร้าง Skill Prompt</button>
+        <button class="ghost" onclick="copyText('skillPrompt')">คัดลอก Prompt</button>
+      </div>
+      <label>Skill Prompt</label>
+      <textarea id="skillPrompt" style="min-height:360px"></textarea>
+    </section>
+
+    <section class="panel" id="export">
+      <h2>X) Export JSON / Markdown / Text</h2>
+      <div class="hint">นำออกเป็นข้อมูล structured เพื่อใช้กับ Agent, Skill, Notebook, Google Sheet, Database หรือรายงานต่อไป</div>
+      <div class="toolbar">
+        <button class="primary" onclick="renderJSON()">Preview JSON</button>
+        <button class="green" onclick="downloadJSON()">Download .json</button>
+        <button class="blue" onclick="downloadMD()">Download .md</button>
+        <button class="amber" onclick="downloadTXT()">Download raw transcript .txt</button>
+        <button class="ghost" onclick="copyOutput()">Copy Output</button>
+      </div>
+      <pre class="output" id="exportOutput">กด Preview JSON หรือ Download เพื่อสร้างไฟล์</pre>
+    </section>
+  </main>
+</div>
+
+<script>
+  const ids = [
+    "topic","hostAgency","workshopDate","venue","facilitator","noteTaker","participants","objectives",
+    "speechLang","targetBucket","liveTranscript","rawNotes","keyQuotes","emergingThemes",
+    "symptoms","rootCauses","affectedGroups","publicImpact","problemStatement",
+    "evidenceBase","policyLogic","policyOptions","optionDistributive","optionRedistributive","optionRegulatory","optionConstituent","stakeholderMap","riskRegister",
+    "decisionNotes","decisionBrief",
+    "implGovernance","implProcess","implResources","implCommunication","implRiskControl","implKpiData","implementationNotes",
+    "evalInput","evalProcess","evalOutput","evalOutcome","evalImpact","evalBaselineTarget","evaluationNotes",
+    "skillPrompt"
+  ];
+
+  let recognition = null;
+  let recognizing = false;
+  let scoreRows = 0;
+
+  function go(id){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const b = document.querySelector(`[data-target="${id}"]`);
+    if(b) b.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function val(id){ return (document.getElementById(id)?.value || "").trim(); }
+  function setVal(id, v){ const el=document.getElementById(id); if(el) el.value = v || ""; }
+  function appendVal(id, text){
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.value = (el.value ? el.value.trim() + "\n" : "") + text.trim();
+  }
+
+  function collectData(){
+    const data = {};
+    ids.forEach(id => data[id] = val(id));
+    data.tasks = {
+      problem_statement: document.getElementById("taskProblem")?.checked || false,
+      policy_option_matrix: document.getElementById("taskOptions")?.checked || false,
+      decision_brief: document.getElementById("taskDecision")?.checked || false,
+      implementation_canvas: document.getElementById("taskImplementation")?.checked || false,
+      evaluation_framework: document.getElementById("taskEvaluation")?.checked || false,
+      workshop_report: document.getElementById("taskReport")?.checked || false
+    };
+    data.scores = [...document.querySelectorAll(".score-row")].map(row => {
+      const inputs = row.querySelectorAll("input");
+      const name = inputs[0]?.value || "";
+      const nums = [...inputs].slice(1,8).map(i => Number(i.value || 0));
+      return {
+        option: name,
+        alignment: nums[0],
+        feasibility: nums[1],
+        support: nums[2],
+        public_value: nums[3],
+        equity: nums[4],
+        transparency: nums[5],
+        readiness: nums[6],
+        total: nums.reduce((a,b)=>a+b,0)
+      };
+    });
+    data.generated_at = new Date().toISOString();
+    data.schema = "policy_workshop_skill_intake_v1";
+    return data;
+  }
+
+  function saveAll(){
+    localStorage.setItem("policyWorkshopSkillIntake", JSON.stringify(collectData()));
+    alert("บันทึกข้อมูลในเครื่องแล้ว");
+  }
+
+  function loadAll(){
+    const raw = localStorage.getItem("policyWorkshopSkillIntake");
+    if(!raw){ alert("ยังไม่มีข้อมูลที่บันทึกไว้"); return; }
+    const data = JSON.parse(raw);
+    ids.forEach(id => setVal(id, data[id] || ""));
+    if(data.tasks){
+      document.getElementById("taskProblem").checked = !!data.tasks.problem_statement;
+      document.getElementById("taskOptions").checked = !!data.tasks.policy_option_matrix;
+      document.getElementById("taskDecision").checked = !!data.tasks.decision_brief;
+      document.getElementById("taskImplementation").checked = !!data.tasks.implementation_canvas;
+      document.getElementById("taskEvaluation").checked = !!data.tasks.evaluation_framework;
+      document.getElementById("taskReport").checked = !!data.tasks.workshop_report;
+    }
+    if(data.scores){
+      document.getElementById("scoringArea").innerHTML = "";
+      scoreRows = 0;
+      data.scores.forEach(s => addScoreRow(s));
+    }
+    alert("โหลดข้อมูลเรียบร้อย");
+  }
+
+  function clearAll(){
+    if(!confirm("ต้องการล้างข้อมูลในฟอร์มทั้งหมดหรือไม่?")) return;
+    ids.forEach(id => setVal(id,""));
+    document.getElementById("scoringArea").innerHTML = "";
+    scoreRows = 0;
+  }
+
+  function startSpeech(){
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SpeechRecognition){
+      document.getElementById("speechStatus").textContent = "เบราว์เซอร์นี้ยังไม่รองรับ Web Speech API";
+      return;
+    }
+    recognition = new SpeechRecognition();
+    recognition.lang = val("speechLang") || "th-TH";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onstart = () => {
+      recognizing = true;
+      document.getElementById("speechStatus").textContent = "กำลังฟังและถอดเสียง...";
+    };
+
+    recognition.onresult = (event) => {
+      let finalText = "";
+      let interimText = "";
+      for(let i=event.resultIndex; i<event.results.length; i++){
+        const transcript = event.results[i][0].transcript;
+        if(event.results[i].isFinal) finalText += transcript + " ";
+        else interimText += transcript;
+      }
+      const current = val("liveTranscript");
+      if(finalText) setVal("liveTranscript", current + (current ? "\n" : "") + finalText.trim());
+      if(interimText) document.getElementById("speechStatus").textContent = "กำลังฟัง: " + interimText.slice(0,80);
+    };
+
+    recognition.onerror = (event) => {
+      document.getElementById("speechStatus").textContent = "เกิดข้อผิดพลาด: " + event.error;
+    };
+
+    recognition.onend = () => {
+      recognizing = false;
+      document.getElementById("speechStatus").textContent = "หยุดถอดเสียงแล้ว";
+    };
+
+    recognition.start();
+  }
+
+  function stopSpeech(){
+    if(recognition && recognizing) recognition.stop();
+    document.getElementById("speechStatus").textContent = "สั่งหยุดถอดเสียงแล้ว";
+  }
+
+  function appendTranscript(){
+    const text = val("liveTranscript");
+    const bucket = val("targetBucket");
+    if(!text){ alert("ยังไม่มี transcript"); return; }
+    appendVal(bucket, text);
+    document.getElementById("speechStatus").textContent = "ส่ง transcript เข้า " + bucket + " แล้ว";
+  }
+
+  function generateProblemStatement(){
+    const root = val("rootCauses") || "[รากเหตุ]";
+    const group = val("affectedGroups") || "[กลุ่มเป้าหมาย]";
+    const symptom = val("symptoms") || "[ปัญหาที่วัดได้]";
+    const impact = val("publicImpact") || "[ผลกระทบสาธารณะ]";
+    const topic = val("topic") || "[เป้าหมายของนโยบาย]";
+    const text = `เพราะ ${root} ทำให้ ${group} เผชิญ ${symptom} ส่งผลต่อ ${impact} ดังนั้นรัฐควรพัฒนานโยบาย/มาตรการเรื่อง ${topic} ให้มีเจ้าภาพชัดเจน วัดผลได้ และนำไปปฏิบัติได้จริง`;
+    setVal("problemStatement", text);
+  }
+
+  function addScoreRow(seed={}){
+    scoreRows++;
+    const div = document.createElement("div");
+    div.className = "score-row";
+    div.innerHTML = `
+      <div><label>Option ${scoreRows}</label><input placeholder="ชื่อทางเลือก" value="${escapeAttr(seed.option || "")}"></div>
+      <div><label>Align</label><input type="number" min="0" max="5" value="${seed.alignment || ""}"></div>
+      <div><label>Feasible</label><input type="number" min="0" max="5" value="${seed.feasibility || ""}"></div>
+      <div><label>Support</label><input type="number" min="0" max="5" value="${seed.support || ""}"></div>
+      <div><label>Value</label><input type="number" min="0" max="5" value="${seed.public_value || ""}"></div>
+      <div><label>Equity</label><input type="number" min="0" max="5" value="${seed.equity || ""}"></div>
+      <div><label>Transparent</label><input type="number" min="0" max="5" value="${seed.transparency || ""}"></div>
+      <div><label>Ready</label><input type="number" min="0" max="5" value="${seed.readiness || ""}"></div>
+    `;
+    document.getElementById("scoringArea").appendChild(div);
+  }
+
+  function escapeAttr(s){
+    return String(s).replaceAll("&","&amp;").replaceAll('"',"&quot;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+  }
+
+  function calculateScores(){
+    const data = collectData().scores;
+    const ranked = data.filter(s=>s.option).sort((a,b)=>b.total-a.total);
+    if(!ranked.length){ alert("กรุณาเพิ่มและให้คะแนนทางเลือกก่อน"); return; }
+    const lines = ranked.map((s,i)=>`${i+1}. ${s.option} — total ${s.total}/35`).join("\n");
+    appendVal("decisionNotes", "\nผลการให้คะแนนทางเลือก:\n" + lines);
+    alert("คำนวณคะแนนรวมและเพิ่มใน Decision Notes แล้ว");
+  }
+
+  function generateDecisionBrief(){
+    const ranked = collectData().scores.filter(s=>s.option).sort((a,b)=>b.total-a.total);
+    const best = ranked[0]?.option || "[Recommended Option]";
+    const brief = `# Decision Brief
+
+## 1. Policy Problem
+${val("problemStatement") || "[สรุปปัญหา]"}
+
+## 2. Recommended Option
+${best}
+
+## 3. Rationale
+เลือกแนวทางนี้เนื่องจากมีความสอดคล้องกับปัญหา ความเป็นไปได้ในการดำเนินการ และมีศักยภาพสร้างคุณค่าสาธารณะ
+
+## 4. Trade-offs
+${val("decisionNotes") || "[ระบุข้อแลกเปลี่ยน เช่น ต้นทุน เวลา ความเสี่ยงทางกฎหมาย ความเสี่ยงทางการเมือง]"}
+
+## 5. Key Risks
+${val("riskRegister") || "[ความเสี่ยงสำคัญ]"}
+
+## 6. Conditions for Success
+ต้องมีเจ้าภาพหลัก กลไกกำกับดูแล งบประมาณ ข้อมูลสำหรับ dashboard และรอบติดตามผลที่ชัดเจน
+
+## 7. Decision Required
+ขออนุมัติหลักการ ทางเลือกนโยบาย เจ้าภาพดำเนินการ แผนปฏิบัติการ และกรอบตัวชี้วัด`;
+    setVal("decisionBrief", brief);
+  }
+
+  function generateSkillPrompt(){
+    const data = collectData();
+    const selectedTasks = Object.entries(data.tasks).filter(([k,v])=>v).map(([k])=>"- " + k).join("\n");
+    const prompt = `Act as Policy Formulation Workshop Analysis Skill.
+
+Use the structured workshop intake below to analyze the policy workshop outputs and convert raw brainstorming notes, voice transcript, and discussion details into decision-ready policy documents.
+
+Analysis tasks:
+${selectedTasks}
+
+Required output:
+1. Executive summary
+2. Cleaned problem statement
+3. Root cause and stakeholder analysis
+4. Policy option matrix using Distributive, Redistributive, Regulatory, and Constituent instruments
+5. Feasibility, equity, risk, and implementation readiness comparison
+6. Decision brief
+7. Implementation canvas
+8. Evaluation framework using Input, Process, Output, Outcome, Impact
+9. KPI dashboard draft
+10. Follow-up action plan with owner, timeline, and next decision
+
+Important rules:
+- Separate raw opinions from evidence-based findings.
+- Preserve important stakeholder quotes.
+- Identify assumptions and missing data.
+- Use clear tables.
+- Make outputs practical for government, public health, medical tourism, or digital health policy teams.
+- Highlight risks, equity concerns, data governance issues, and feasibility constraints.
+- Recommend next steps that can be done within 30, 60, and 90 days.
+
+Structured intake JSON:
+\`\`\`json
+${JSON.stringify(data, null, 2)}
+\`\`\`
+`;
+    setVal("skillPrompt", prompt);
+    go("skill");
+  }
+
+  function toMarkdown(data){
+    const scores = (data.scores || []).map(s => `| ${s.option || ""} | ${s.alignment} | ${s.feasibility} | ${s.support} | ${s.public_value} | ${s.equity} | ${s.transparency} | ${s.readiness} | ${s.total} |`).join("\n");
+    return `# Policy Workshop Skill Intake
+
+## 1. Workshop Overview
+- Topic: ${data.topic}
+- Host Agency: ${data.hostAgency}
+- Date: ${data.workshopDate}
+- Venue: ${data.venue}
+- Facilitator: ${data.facilitator}
+- Note Taker: ${data.noteTaker}
+
+## 2. Participants
+${data.participants}
+
+## 3. Objectives
+${data.objectives}
+
+## 4. Raw Discussion Notes
+${data.rawNotes}
+
+## 5. Key Quotes
+${data.keyQuotes}
+
+## 6. Emerging Themes
+${data.emergingThemes}
+
+## 7. Agenda Setting / Problem Identification
+
+### Symptoms
+${data.symptoms}
+
+### Root Causes
+${data.rootCauses}
+
+### Affected Groups
+${data.affectedGroups}
+
+### Public Rationale / Public Impact
+${data.publicImpact}
+
+### Problem Statement
+${data.problemStatement}
+
+## 8. Policy Formulation
+
+### Evidence Base
+${data.evidenceBase}
+
+### Policy Logic
+${data.policyLogic}
+
+### Policy Options
+${data.policyOptions}
+
+| Policy Instrument | Notes |
+|---|---|
+| Distributive | ${oneLine(data.optionDistributive)} |
+| Redistributive | ${oneLine(data.optionRedistributive)} |
+| Regulatory | ${oneLine(data.optionRegulatory)} |
+| Constituent | ${oneLine(data.optionConstituent)} |
+
+### Stakeholder Map
+${data.stakeholderMap}
+
+### Risk Register
+${data.riskRegister}
+
+## 9. Decision-Making / Adoption
+
+### Decision Notes
+${data.decisionNotes}
+
+### Scoring
+| Option | Alignment | Feasibility | Support | Public Value | Equity | Transparency | Readiness | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+${scores}
+
+### Decision Brief
+${data.decisionBrief}
+
+## 10. Implementation Canvas
+
+| Component | Notes |
+|---|---|
+| Governance | ${oneLine(data.implGovernance)} |
+| Process / SOP | ${oneLine(data.implProcess)} |
+| Resources | ${oneLine(data.implResources)} |
+| Communication | ${oneLine(data.implCommunication)} |
+| Risk Control | ${oneLine(data.implRiskControl)} |
+| KPI & Data | ${oneLine(data.implKpiData)} |
+
+### Implementation Notes
+${data.implementationNotes}
+
+## 11. Evaluation Framework
+
+| Level | Notes |
+|---|---|
+| Input | ${oneLine(data.evalInput)} |
+| Process | ${oneLine(data.evalProcess)} |
+| Output | ${oneLine(data.evalOutput)} |
+| Outcome | ${oneLine(data.evalOutcome)} |
+| Impact | ${oneLine(data.evalImpact)} |
+| Baseline / Target / Owner / Frequency | ${oneLine(data.evalBaselineTarget)} |
+
+### Evaluation Notes
+${data.evaluationNotes}
+
+## 12. Skill Prompt
+${data.skillPrompt}
+
+## 13. Metadata
+- Schema: ${data.schema}
+- Generated at: ${data.generated_at}
+`;
+  }
+
+  function oneLine(s){ return (s || "").replace(/\n/g, "<br>"); }
+
+  function renderJSON(){
+    const out = JSON.stringify(collectData(), null, 2);
+    document.getElementById("exportOutput").textContent = out;
+    go("export");
+  }
+
+  function downloadJSON(){
+    downloadFile("policy_workshop_skill_intake.json", JSON.stringify(collectData(), null, 2), "application/json");
+  }
+
+  function downloadMD(){
+    downloadFile("policy_workshop_skill_intake.md", toMarkdown(collectData()), "text/markdown");
+  }
+
+  function downloadTXT(){
+    const data = collectData();
+    const txt = [
+      "RAW DISCUSSION NOTES",
+      data.rawNotes,
+      "",
+      "LIVE TRANSCRIPT",
+      data.liveTranscript,
+      "",
+      "KEY QUOTES",
+      data.keyQuotes,
+      "",
+      "EMERGING THEMES",
+      data.emergingThemes
+    ].join("\n");
+    downloadFile("policy_workshop_raw_transcript.txt", txt, "text/plain");
+  }
+
+  function downloadFile(filename, content, mime){
+    const blob = new Blob([content], {type:mime + ";charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function copyText(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    navigator.clipboard.writeText(el.value || el.textContent || "");
+    alert("คัดลอกแล้ว");
+  }
+
+  function copyOutput(){
+    const text = document.getElementById("exportOutput").textContent;
+    navigator.clipboard.writeText(text);
+    alert("คัดลอก Output แล้ว");
+  }
+
+  // initialize sample score rows
+  addScoreRow({option:"Option A"});
+  addScoreRow({option:"Option B"});
+</script>
+</body>
+</html>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇹🇭 Thailand Wellness & Longevity Policy Framework 2026–2030</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #006B6B;
+  --teal-light: #2D8A8A;
+  --teal-pale: #E8F4F4;
+  --gold: #C8960C;
+  --gold-light: #F4D98A;
+  --dark: #1A2332;
+  --mid: #2C3E50;
+  --text: #2A3545;
+  --muted: #6B7B8D;
+  --white: #FFFFFF;
+  --surface: #F7FBFB;
+  --border: #D4E8E8;
+  --accent-orange: #E88A00;
+  --accent-green: #228B22;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', 'Sarabun', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #0A1628 0%, #1A2332 40%, #0D3535 80%, #006B6B 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,107,107,0.15) 0%, transparent 70%);
+  top: -200px; right: -200px;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,150,12,0.08) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+  animation: pulse 10s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.hero-flag {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.8s ease;
+  filter: drop-shadow(0 0 30px rgba(200,150,12,0.4));
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.1;
+  animation: fadeInDown 0.9s ease 0.1s both;
+}
+
+.hero-title span { color: var(--gold); }
+
+.hero-subtitle {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-top: 1rem;
+  text-align: center;
+  animation: fadeInDown 1s ease 0.2s both;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 1.5rem;
+  text-align: center;
+  animation: fadeInDown 1.1s ease 0.3s both;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+  animation: fadeInUp 1.2s ease 0.4s both;
+}
+
+.pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,107,107,0.5);
+  color: rgba(255,255,255,0.85);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+.pill:hover { background: var(--teal); border-color: var(--teal); cursor: default; }
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 3rem;
+  animation: fadeInUp 1.3s ease 0.5s both;
+  position: relative; z-index: 2;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal-pale);
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+.nav-btn:hover { background: var(--teal); color: white; transform: translateY(-2px); }
+.nav-btn.gold { border-color: var(--gold); color: var(--gold); }
+.nav-btn.gold:hover { background: var(--gold); color: var(--dark); }
+
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== MAIN CONTENT ===== */
+main { background: var(--surface); }
+
+.section {
+  padding: 5rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-full {
+  padding: 5rem 2rem;
+}
+
+/* ===== BRAND POSITIONING ===== */
+.brand-section {
+  background: var(--dark);
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-title.light { color: var(--white); }
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.brand-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,107,107,0.3);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-color, var(--teal));
+  border-radius: 16px 16px 0 0;
+}
+
+.brand-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-color, var(--teal));
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.brand-icon { font-size: 2rem; margin-bottom: 1rem; }
+.brand-name { font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.3rem; }
+.brand-tagline { font-style: italic; font-size: 0.85rem; color: var(--gold-light); margin-bottom: 0.75rem; }
+.brand-desc { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.brand-source { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem; }
+
+/* ===== POLICY STAGES ===== */
+.stages-section { background: var(--surface); }
+
+.stage-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.stage-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--muted);
+}
+.stage-btn.active, .stage-btn:hover { background: var(--teal); color: white; border-color: var(--teal); }
+
+.stage-content { display: none; }
+.stage-content.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.stage-header {
+  background: linear-gradient(135deg, var(--dark), var(--mid));
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stage-number {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(0,107,107,0.3);
+}
+
+.stage-header-text h2 { color: white; font-size: 1.4rem; margin-bottom: 0.25rem; }
+.stage-header-text p { color: var(--gold); font-size: 0.9rem; }
+
+/* ===== TABLES ===== */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; }
+thead tr { background: var(--dark); }
+thead th { padding: 0.85rem 1rem; text-align: left; font-size: 0.8rem; font-weight: 600; color: white; letter-spacing: 0.05em; text-transform: uppercase; }
+tbody tr:nth-child(even) { background: var(--teal-pale); }
+tbody tr:hover { background: rgba(0,107,107,0.06); }
+tbody td { padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--text); border-bottom: 1px solid var(--border); }
+.tag-high { background: #FFE8E8; color: #C00; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.tag-med { background: #FFF3CD; color: #856404; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.tag-ok { background: #D4EDDA; color: #155724; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.tag-rec { background: var(--teal); color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+
+/* ===== ROADMAP ===== */
+.roadmap-section { background: linear-gradient(180deg, #0A1628 0%, #1A2332 100%); padding: 5rem 2rem; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+
+.phase-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.phase-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+
+.phase-header {
+  padding: 1.5rem;
+  background: var(--phase-color, var(--teal));
+}
+.phase-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 0.3rem; }
+.phase-title { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+.phase-period { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+
+.phase-body { padding: 1.5rem; }
+.phase-items { list-style: none; margin-bottom: 1.25rem; }
+.phase-items li { padding: 0.4rem 0; font-size: 0.875rem; color: rgba(255,255,255,0.75); display: flex; gap: 0.5rem; }
+.phase-items li::before { content: '▶'; color: var(--phase-color, var(--teal)); flex-shrink: 0; }
+
+.phase-budget {
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.phase-budget-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+.phase-budget-value { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+
+/* ===== KPI DASHBOARD ===== */
+.kpi-section { background: var(--surface); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+
+.kpi-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--kpi-color, var(--teal)); }
+.kpi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
+.kpi-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+.kpi-values { display: flex; gap: 1rem; align-items: flex-end; }
+.kpi-val { text-align: center; flex: 1; }
+.kpi-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--kpi-color, var(--teal)); }
+.kpi-year { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+.kpi-arrow { font-size: 1.2rem; color: var(--kpi-color, var(--teal)); align-self: center; }
+
+/* ===== POST-IT WALL ===== */
+.postit-section { background: #F0EDE8; padding: 5rem 2rem; }
+.postit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+
+.postit {
+  background: #FFC947;
+  padding: 1.25rem;
+  border-radius: 4px;
+  transform: rotate(var(--rot, 0deg));
+  box-shadow: 3px 4px 15px rgba(0,0,0,0.15), inset 0 -3px 6px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+  position: relative;
+  min-height: 130px;
+  cursor: default;
+}
+.postit::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 24px; background: rgba(0,0,0,0.05); border-radius: 4px 4px 0 0; }
+.postit:hover { transform: rotate(0deg) scale(1.04) translateY(-6px); z-index: 10; box-shadow: 6px 10px 30px rgba(0,0,0,0.2); }
+
+.postit h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: #1A2332; font-family: 'DM Sans', sans-serif; }
+.postit p { font-size: 0.78rem; color: #2A3545; line-height: 1.45; font-family: 'DM Sans', sans-serif; }
+.postit .postit-tag { display: inline-block; background: rgba(0,0,0,0.1); border-radius: 3px; padding: 1px 6px; font-size: 0.65rem; font-weight: 700; margin-top: 0.5rem; color: #1A2332; }
+
+/* ===== MOVING FORWARD ===== */
+.forward-section {
+  background: linear-gradient(135deg, var(--dark) 0%, #0D3535 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.forward-section::before {
+  content: '"Where Care Feels Real"';
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: rgba(255,255,255,0.02);
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.actions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+
+.action-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,107,107,0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.action-card:hover { background: rgba(0,107,107,0.1); border-color: var(--teal); transform: translateX(4px); }
+
+.action-q {
+  background: var(--teal);
+  color: white;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.action-q.gold { background: var(--gold); color: var(--dark); }
+
+.action-text h4 { color: white; font-size: 0.925rem; font-weight: 600; margin-bottom: 0.3rem; }
+.action-text p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+.action-text .action-budget { color: var(--gold); font-weight: 700; font-size: 0.85rem; margin-top: 0.3rem; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0A1020;
+  padding: 2.5rem;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin: 0.3rem 0; }
+footer strong { color: var(--gold); }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-flag">🇹🇭</div>
+  <h1 class="hero-title">Thailand <span>Wellness</span> &<br>Longevity Policy Framework</h1>
+  <p class="hero-subtitle">ยุทธศาสตร์การพัฒนาไทยเวลเนสและเมดิคัลทัวริสซึม พ.ศ. 2569–2573</p>
+  <p class="hero-tagline">"Where Care Feels Real · Where Healthcare Feels Like a Retreat"</p>
+  <div class="hero-pills">
+    <span class="pill">5-Stage Policy Cycle</span>
+    <span class="pill">Brand Positioning</span>
+    <span class="pill">Longevity Tourism</span>
+    <span class="pill">Medical Tourism</span>
+    <span class="pill">Data Synergy</span>
+    <span class="pill">฿3,200M Investment</span>
+    <span class="pill">2026–2030 Roadmap</span>
+  </div>
+  <div class="hero-nav">
+    <a href="#brand" class="nav-btn">Brand Positioning</a>
+    <a href="#stages" class="nav-btn">Policy Stages</a>
+    <a href="#roadmap" class="nav-btn">Roadmap</a>
+    <a href="#kpis" class="nav-btn">KPI Dashboard</a>
+    <a href="#postits" class="nav-btn">Post-it Wall</a>
+    <a href="#forward" class="nav-btn gold">Moving Forward →</a>
+  </div>
+</section>
+
+<!-- BRAND POSITIONING -->
+<section class="brand-section" id="brand">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-label">Workshop Intelligence → Strategy</div>
+    <h2 class="section-title light">Brand Positioning Themes</h2>
+    <p style="color:rgba(255,255,255,0.6);max-width:700px;line-height:1.7;">Synthesized from all post-it sessions — five converging brand pillars that define Thailand's competitive identity in global wellness and medical tourism.</p>
+
+    <div class="brand-grid">
+      <div class="brand-card" style="--card-color:#006B6B">
+        <div class="brand-icon">🌿</div>
+        <div class="brand-name">Thailand Wellness</div>
+        <div class="brand-tagline">"Where Care Feels Real"</div>
+        <div class="brand-desc">Human Touch · คนละอย่างไทย · Authentic · ทำสายไม่ปลอม · ผสมเพชรเฝือ คู่ไม่ออก · จริงจัง Authentic</div>
+        <div class="brand-source">📌 Post-it: "Thailand Wellness — where care feels real"</div>
+      </div>
+      <div class="brand-card" style="--card-color:#2D8A8A">
+        <div class="brand-icon">♾️</div>
+        <div class="brand-name">Longevity</div>
+        <div class="brand-tagline">Extend Quality of Life</div>
+        <div class="brand-desc">Recovery · Rebalance · Long-stay Centers ระดับโลก · Anti-aging ecosystem · ดึงดูดต่างชาติมาพักระยะยาว</div>
+        <div class="brand-source">📌 Post-it: "Longevity Center ระดับโลก โดดเด่น เกี่ยวกับสุขภาพ"</div>
+      </div>
+      <div class="brand-card" style="--card-color:#1A2332">
+        <div class="brand-icon">🔬</div>
+        <div class="brand-name">Medical Tourism</div>
+        <div class="brand-tagline">"Scientific Base"</div>
+        <div class="brand-desc">Head-Hand-Heart ฝีมือดี · TX · Sex change · Infertility · Dementia · Long-term Care · Science-grounded excellence</div>
+        <div class="brand-source">📌 Post-it: "Medical Tourism Brand Positioning: Scientific base, head-hand-heart"</div>
+      </div>
+      <div class="brand-card" style="--card-color:#C8960C">
+        <div class="brand-icon">🏨</div>
+        <div class="brand-name">Integrated Wellness</div>
+        <div class="brand-tagline">Hospitality + Medical + Spa</div>
+        <div class="brand-desc">Hospitality Wellness · Foods + Medical + Spa เข้าถึงง่าย · Seamless integrated journey · Recovery, Rebalance</div>
+        <div class="brand-source">📌 Post-it: "Integrated Wellness · Hospitality Wellness"</div>
+      </div>
+      <div class="brand-card" style="--card-color:#8B4513">
+        <div class="brand-icon">💪</div>
+        <div class="brand-name">Recovery & Performance</div>
+        <div class="brand-tagline">"Become Better — Faster"</div>
+        <div class="brand-desc">Recovery & Human Performance · Become a better version of yourself · Sports med · Biohacking · Rehab</div>
+        <div class="brand-source">📌 Post-it: "Recovery & Human performance (Become a better ver. of yourself—faster)"</div>
+      </div>
+      <div class="brand-card" style="--card-color:#6B3C7A">
+        <div class="brand-icon">🙏</div>
+        <div class="brand-name">Spiritual / Handmade Spa</div>
+        <div class="brand-tagline">Raw Thai Authenticity</div>
+        <div class="brand-desc">Spiritual / กาวใจ · Hand Made Spa · ดาม Raw · ดาม ใกล้เคียงธรรมชาติ · Sexual Treatment · ฝีแห่งมาไทย</div>
+        <div class="brand-source">📌 Post-it: "Spiritual · Hand Made Spa · Raw · Sexual Treatment"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLICY STAGES -->
+<section class="stages-section section-full" id="stages">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
+    <div class="section-label">5-Stage Policy Cycle</div>
+    <h2 class="section-title">Policy Development Framework</h2>
+    <p style="color:var(--muted);max-width:700px;line-height:1.7;margin-bottom:2.5rem;">From agenda setting to evaluation — the complete Thai government policy cycle for the Thailand Wellness & Longevity Strategy 2026–2030.</p>
+
+    <div class="stage-nav">
+      <button class="stage-btn active" onclick="showStage(1)">① Agenda Setting</button>
+      <button class="stage-btn" onclick="showStage(2)">② Formulation</button>
+      <button class="stage-btn" onclick="showStage(3)">③ Adoption</button>
+      <button class="stage-btn" onclick="showStage(4)">④ Implementation</button>
+      <button class="stage-btn" onclick="showStage(5)">⑤ Evaluation</button>
+    </div>
+
+    <!-- STAGE 1 -->
+    <div class="stage-content active" id="stage-1">
+      <div class="stage-header">
+        <div class="stage-number">1</div>
+        <div class="stage-header-text">
+          <h2>Agenda Setting | การกำหนดวาระนโยบาย</h2>
+          <p>Why Thailand Must Act Now — Problem identification, root causes, affected groups</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Problem Area</th><th>Root Cause</th><th>Impact</th><th>Severity</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fragmented Brand</strong></td><td>No single ministry owns wellness tourism end-to-end</td><td>Lost market positioning</td><td><span class="tag-high">HIGH</span></td></tr>
+            <tr><td><strong>Price Competition</strong></td><td>Vietnam & Philippines undercutting on cost</td><td>Declining market share by 2028</td><td><span class="tag-high">HIGH</span></td></tr>
+            <tr><td><strong>Longevity Gap</strong></td><td>Aging global population = massive underserved segment</td><td>Missed 55+ affluent traveller market</td><td><span class="tag-high">HIGH</span></td></tr>
+            <tr><td><strong>Data Silos</strong></td><td>TAT + MOPH + hospitals not sharing data</td><td>Lost personalization, poor ROI</td><td><span class="tag-high">HIGH</span></td></tr>
+            <tr><td><strong>Missing Segments</strong></td><td>No policy for Fertility Tourism, NCD, Dementia Care</td><td>High-growth segments ungoverned</td><td><span class="tag-med">MEDIUM</span></td></tr>
+            <tr><td><strong>Workforce Shortage</strong></td><td>Insufficient longevity specialists and bilinguals</td><td>Quality ceiling on premium services</td><td><span class="tag-med">MEDIUM</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--teal-pale);border-left:4px solid var(--teal);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin-top:1.5rem;">
+        <strong>🏛️ Government Rationale:</strong> Economic externalities (Medical tourism = ฿2.2T annual opportunity) · Public health equity · National data sovereignty · Consumer protection for fertility and sexual treatment tourism · Competitiveness against ASEAN rivals
+      </div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div class="stage-content" id="stage-2">
+      <div class="stage-header">
+        <div class="stage-number">2</div>
+        <div class="stage-header-text">
+          <h2>Policy Formulation | การร่างนโยบาย</h2>
+          <p>Options analysis, RIA, SMART objectives, Stakeholder mapping</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Option</th><th>Mechanism</th><th>Effectiveness</th><th>Cost (THB M)</th><th>Feasibility</th></tr></thead>
+          <tbody>
+            <tr><td>A: Status Quo</td><td>No policy action</td><td>❌ Low</td><td>0</td><td>Declining market</td></tr>
+            <tr><td>B: Regulatory Only</td><td>New Medical Tourism Act</td><td>⚠️ Medium</td><td>500</td><td>Slow — 3+ years</td></tr>
+            <tr><td>C: Incentive-based</td><td>Tax breaks + grants for operators</td><td>✅ High</td><td>2,000</td><td>Fast impact</td></tr>
+            <tr><td>D: Digital + Brand</td><td>Unified platform + national brand</td><td>✅ Very High</td><td>1,500</td><td>High</td></tr>
+            <tr style="background:#E8F4F4!important"><td><strong>E: Combined C+D ⭐</strong></td><td><strong>Incentives + Digital + Regulatory backbone</strong></td><td><span class="tag-rec">OPTIMAL</span></td><td><strong>3,200</strong></td><td><strong>Highest Feasibility</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div style="background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Objective 1</div>
+          <p style="font-size:0.875rem;">Top-3 GWTIS global wellness destination <strong>by 2030</strong></p>
+        </div>
+        <div style="background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Objective 2</div>
+          <p style="font-size:0.875rem;"><strong>500,000</strong> medical/wellness tourists/year <strong>by 2028</strong></p>
+        </div>
+        <div style="background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Objective 3</div>
+          <p style="font-size:0.875rem;"><strong>10 Longevity Centers</strong> operational <strong>by 2027</strong></p>
+        </div>
+        <div style="background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Objective 4</div>
+          <p style="font-size:0.875rem;"><strong>80% data integration</strong> TAT+MOPH+Hospitals <strong>by 2029</strong></p>
+        </div>
+        <div style="background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Objective 5</div>
+          <p style="font-size:0.875rem;">Fertility Tourism certified in <strong>20 hospitals by 2027</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div class="stage-content" id="stage-3">
+      <div class="stage-header">
+        <div class="stage-number">3</div>
+        <div class="stage-header-text">
+          <h2>Policy Adoption | การรับรองนโยบาย</h2>
+          <p>Thai government pathways, governance structure, legal framework</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Pathway เส้นทาง</th><th>Content เนื้อหา</th><th>Instrument เครื่องมือ</th><th>Timeline</th></tr></thead>
+          <tbody>
+            <tr><td><strong>มติ ครม.</strong></td><td>Thailand Wellness National Strategy 2026–2030</td><td>Cabinet Memo + Policy Brief</td><td><span class="tag-rec">Q1 2026</span></td></tr>
+            <tr><td><strong>กฎกระทรวง</strong></td><td>Medical Tourism & Long-stay Visa Regulations</td><td>กฎกระทรวงสาธารณสุข</td><td>Q2 2026</td></tr>
+            <tr><td><strong>ระเบียบกรม</strong></td><td>Hospital accreditation for wellness tourism services</td><td>SOP + ประกาศกรมสนับสนุนฯ</td><td>Q3 2026</td></tr>
+            <tr><td><strong>ยุทธศาสตร์ชาติ</strong></td><td>Align with National Health Plan 2026–2035</td><td>Policy Alignment Matrix</td><td>Q4 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--dark);border-radius:12px;padding:1.5rem;margin-top:1.5rem;color:white;">
+        <div style="font-weight:700;color:var(--gold);margin-bottom:0.75rem;">🏛️ Governance Structure</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          <div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;">LEAD AGENCIES</div><div style="font-size:0.875rem;">MOPH + TAT (Joint Co-lead)</div></div>
+          <div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;">CO-OWNERS</div><div style="font-size:0.875rem;">กระทรวงดิจิทัลฯ + กระทรวงท่องเที่ยวฯ</div></div>
+          <div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;">PRIVATE BOARD</div><div style="font-size:0.875rem;">Thai Private Hospital Assoc. + Thai Spa Assoc. + TCMA</div></div>
+          <div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;">REPORTING</div><div style="font-size:0.875rem;">Quarterly → Deputy PM, Annual → ครม.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 4 -->
+    <div class="stage-content" id="stage-4">
+      <div class="stage-header">
+        <div class="stage-number">4</div>
+        <div class="stage-header-text">
+          <h2>Implementation | การนำนโยบายไปปฏิบัติ</h2>
+          <p>Service portfolio, phased roadmap, risk register, budget allocation</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Service Line</th><th>Post-it Source</th><th>2026–27 Action</th><th>2028–29 Target</th></tr></thead>
+          <tbody>
+            <tr><td>🏥 Medical Tourism (TX)</td><td>TX · Sex change · Infertility</td><td>License 20 MT-certified hospitals</td><td>500 MT procedures/month</td></tr>
+            <tr><td>🌿 Wellness / Spa</td><td>Spa: แพทย์แผนไทย + สมุนไพร</td><td>Accredit 500 Thai herbal spa operators</td><td>Hand-made spa premium tier brand</td></tr>
+            <tr><td>🏡 Longevity / Long-term Care</td><td>Dementia · Long-stay · Longevity</td><td>3 pilot longevity residences</td><td>10 facilities → 25 by 2030</td></tr>
+            <tr><td>👶 Fertility Tourism</td><td>"Fertility Tourism" (post-it)</td><td>Legal framework + 10 certified centers</td><td>ASEAN fertility hub status</td></tr>
+            <tr><td>💊 NCD Integrated Services</td><td>Integrated services for NCD</td><td>Bundled NCD+wellness in 15 hospitals</td><td>NCD wellness revenue ≥10% total</td></tr>
+            <tr><td>🙏 Spiritual / Handmade</td><td>Spiritual · Raw · Hand Made Spa</td><td>Authentic Thai ritual tourism products</td><td>UNESCO wellness heritage nomination</td></tr>
+            <tr><td>💪 Recovery & Performance</td><td>Recovery · Rebalance · Extend QoL</td><td>Sports med + biohacking clinics (BKK, CNX)</td><td>Recovery Tourism brand active</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <div style="font-weight:700;color:var(--teal);margin-bottom:1rem;">⚠️ Risk Register</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Risk</th><th>Prob.</th><th>Impact</th><th>Mitigation</th></tr></thead>
+            <tbody>
+              <tr><td>Vietnam/Philippines price competition</td><td><span class="tag-high">HIGH</span></td><td><span class="tag-high">HIGH</span></td><td>Differentiate quality + data-driven personalization</td></tr>
+              <tr><td>Regulatory delay (long-stay visa)</td><td><span class="tag-med">MED</span></td><td><span class="tag-high">HIGH</span></td><td>Fast-track กฎกระทรวง via dedicated policy team</td></tr>
+              <tr><td>PDPA data privacy conflicts</td><td><span class="tag-med">MED</span></td><td><span class="tag-med">MED</span></td><td>PDPA-compliant data architecture from Day 1</td></tr>
+              <tr><td>Brand dilution (too many segments)</td><td><span class="tag-med">MED</span></td><td><span class="tag-med">MED</span></td><td>Master brand umbrella with sub-tier identities</td></tr>
+              <tr><td>Workforce shortage (longevity specialists)</td><td><span class="tag-high">HIGH</span></td><td><span class="tag-med">MED</span></td><td>Accelerated training + foreign specialist visas</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 5 -->
+    <div class="stage-content" id="stage-5">
+      <div class="stage-header">
+        <div class="stage-number">5</div>
+        <div class="stage-header-text">
+          <h2>Evaluation | การประเมินผลนโยบาย</h2>
+          <p>KPI framework, evaluation methodology, Process–Output–Outcome–Impact</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Eval Level</th><th>Question</th><th>Method</th><th>Frequency</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Process</strong></td><td>Are programs operating as planned?</td><td>Operational audit</td><td>Quarterly</td></tr>
+            <tr><td><strong>Output</strong></td><td>Visitor numbers & revenue on track?</td><td>TAT + BOT data review</td><td>Semi-annual</td></tr>
+            <tr><td><strong>Outcome</strong></td><td>Tourists choosing Thailand over competitors?</td><td>Survey + market analysis</td><td>Annual</td></tr>
+            <tr><td><strong>Impact</strong></td><td>Global wellness brand ranking improved?</td><td>GWTIS + WHO health tourism index</td><td>Annual</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap-section" id="roadmap">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-label" style="color:var(--gold);">3-Phase Implementation</div>
+    <h2 class="section-title light">Thailand Wellness Roadmap 2026–2030</h2>
+    <p style="color:rgba(255,255,255,0.5);max-width:600px;line-height:1.7;">From brand launch to global leadership — three phases, ฿3,200M investment, one destination vision.</p>
+
+    <div class="roadmap-grid">
+      <div class="phase-card" style="--phase-color:#006B6B">
+        <div class="phase-header" style="background:#006B6B">
+          <div class="phase-badge">Phase 1</div>
+          <div class="phase-title">Healthy Lifestyle + Brand Launch</div>
+          <div class="phase-period">2026 – 2027</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-items">
+            <li>Launch national 'Thailand Wellness' master brand</li>
+            <li>Open 10 Longevity Centers (BKK · CNX · HKT)</li>
+            <li>Data Platform v1 — TAT + MOPH + 20 hospitals</li>
+            <li>License 20 Fertility Tourism certified hospitals</li>
+            <li>500 herbal spa operators accredited</li>
+          </ul>
+          <div class="phase-budget">
+            <span class="phase-budget-label">Phase Budget</span>
+            <span class="phase-budget-value" style="--phase-color:#006B6B">฿800M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card" style="--phase-color:#2D8A8A">
+        <div class="phase-header" style="background:#2D8A8A">
+          <div class="phase-badge">Phase 2</div>
+          <div class="phase-title">Medical Services + Integration</div>
+          <div class="phase-period">2028 – 2029</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-items">
+            <li>Fertility Tourism Program full launch</li>
+            <li>NCD Integrated Services — 15 hospitals</li>
+            <li>Data Synergy v2 — AI analytics active</li>
+            <li>Recovery Tourism brand sub-tier</li>
+            <li>GWTIS Top 10 ranking target</li>
+          </ul>
+          <div class="phase-budget">
+            <span class="phase-budget-label">Phase Budget</span>
+            <span class="phase-budget-value">฿1,400M</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-card" style="--phase-color:#C8960C">
+        <div class="phase-header" style="background:#C8960C">
+          <div class="phase-badge">Phase 3</div>
+          <div class="phase-title">Longevity Ecosystem Completion</div>
+          <div class="phase-period">2030</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-items">
+            <li>AI-driven personalization platform live</li>
+            <li>Global Brand #3 — GWTIS ranking</li>
+            <li>25 Longevity Centers nationwide</li>
+            <li>UNESCO Wellness Heritage nomination</li>
+            <li>1,000,000 medical tourists/year achieved</li>
+          </ul>
+          <div class="phase-budget">
+            <span class="phase-budget-label">Phase Budget</span>
+            <span class="phase-budget-value" style="color:#C8960C">฿1,000M</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;padding:1.5rem;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(200,150,12,0.3);">
+      <span style="color:rgba(255,255,255,0.5);font-size:0.875rem;">Total 3-Phase Investment: </span>
+      <span style="color:var(--gold);font-size:1.5rem;font-weight:700;font-family:'Playfair Display',serif;">฿3,200,000,000</span>
+      <span style="color:rgba(255,255,255,0.5);font-size:0.875rem;"> · Expected ROI: </span>
+      <span style="color:var(--white);font-size:1.1rem;font-weight:600;">฿45B+ in tourism revenue by 2030</span>
+    </div>
+  </div>
+</section>
+
+<!-- KPI DASHBOARD -->
+<section class="kpi-section" id="kpis">
+  <div class="section">
+    <div class="section-label">Performance Tracking</div>
+    <h2 class="section-title">KPI Dashboard 2026–2030</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card" style="--kpi-color:#006B6B">
+        <div class="kpi-label">Medical & Wellness Tourists / Year</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num">500K</div><div class="kpi-year">Baseline</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">650K</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">1M</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+      <div class="kpi-card" style="--kpi-color:#2D8A8A">
+        <div class="kpi-label">Revenue per Visitor (THB)</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num">45K</div><div class="kpi-year">Baseline</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">58K</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">80K</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+      <div class="kpi-card" style="--kpi-color:#C8960C">
+        <div class="kpi-label">Longevity Centers Operational</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num">0</div><div class="kpi-year">Now</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">10</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">25</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+      <div class="kpi-card" style="--kpi-color:#E88A00">
+        <div class="kpi-label">GWTIS Global Wellness Ranking</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num" style="font-size:1rem">Unranked</div><div class="kpi-year">Now</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">Top 10</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">Top 3</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+      <div class="kpi-card" style="--kpi-color:#8B4513">
+        <div class="kpi-label">Fertility Tourism Patients / Year</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num">0</div><div class="kpi-year">Now</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">5K</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">20K</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+      <div class="kpi-card" style="--kpi-color:#228B22">
+        <div class="kpi-label">Cross-Sector Data Integration %</div>
+        <div class="kpi-values">
+          <div class="kpi-val"><div class="kpi-num">20%</div><div class="kpi-year">Now</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">60%</div><div class="kpi-year">2027</div></div>
+          <div class="kpi-arrow">→</div>
+          <div class="kpi-val"><div class="kpi-num">95%</div><div class="kpi-year">2030</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST-IT WALL -->
+<section class="postit-section" id="postits">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-label" style="color:var(--teal);">Workshop Intelligence</div>
+    <h2 class="section-title" style="color:var(--dark);">The Post-it Wall</h2>
+    <p style="color:var(--muted);max-width:600px;line-height:1.7;">Every post-it note from the workshop sessions — the raw intelligence that built this policy framework.</p>
+
+    <div class="postit-grid" style="margin-top:2.5rem;">
+      <div class="postit" style="--rot:-1.5deg">
+        <h4>🇹🇭 Thailand Wellness</h4>
+        <p>"Where care feels real"</p>
+        <p>= คนละอย่างไทย จิตใจ Human Touch</p>
+        <p>= ทำสายไม่ปลอม</p>
+        <p>= ผสมเพชรเฝือ คู่ไม่ออก</p>
+        <p>= จริงจัง Authentic</p>
+        <span class="postit-tag">Brand Vision</span>
+      </div>
+      <div class="postit" style="--rot:1.2deg">
+        <h4>อธิบาย Wellness</h4>
+        <p>ที่ integrated หลายด้านต่างๆ ด้านต่างๆ ด้านสุขภาพ + Hospitalities + Foods + Medical + Spa เข้าถึงง่าย</p>
+        <span class="postit-tag">Integrated Wellness</span>
+      </div>
+      <div class="postit" style="--rot:-0.8deg">
+        <h4>Longevity Center ระดับโลก</h4>
+        <p>โดดเด่นตามความต้องการเกี่ยวกับสุขภาพ</p>
+        <p>เพื่อดึงดูดจากต่างชาติมา ส่งเสริม</p>
+        <p>ปลาย</p>
+        <span class="postit-tag">Longevity</span>
+      </div>
+      <div class="postit" style="--rot:1.8deg">
+        <h4>Longevity.</h4>
+        <p style="font-size:1.1rem;font-weight:700;margin-top:0.5rem;">The flagship positioning</p>
+        <span class="postit-tag">Core Pillar</span>
+      </div>
+      <div class="postit" style="--rot:-1.2deg">
+        <h4>Timeline: Data Synergy</h4>
+        <p>2026–27: ยาแคปซูล Healthy Lifestyle</p>
+        <p>28–29: MS.แพทย์ อัน ครั้ง</p>
+        <p>2030: Longevity</p>
+        <p>← Data Synergy →</p>
+        <span class="postit-tag">Roadmap</span>
+      </div>
+      <div class="postit" style="--rot:0.5deg">
+        <h4>Medical Tourism</h4>
+        <p>TX | Wellness | Long-term Care</p>
+        <p>Sex change | Spa | Dementia</p>
+        <p>Infertility | | </p>
+        <span class="postit-tag">Service Matrix</span>
+      </div>
+      <div class="postit" style="--rot:-2deg">
+        <h4>Recovery & Performance</h4>
+        <p>— Recovery & Human performance</p>
+        <p>(Become a better ver. of yourself — faster)</p>
+        <span class="postit-tag">Brand Positioning</span>
+      </div>
+      <div class="postit" style="--rot:1deg">
+        <h4>Medical Tourism [Brand]</h4>
+        <p>"Scientific base"</p>
+        <p>ฝีมือดี  head-hand-heart</p>
+        <span class="postit-tag">MT Positioning</span>
+      </div>
+      <div class="postit" style="--rot:-0.5deg">
+        <h4>Branding: Longevity ปลาย</h4>
+        <p>× Wellness Lifestyle: Ecosystem</p>
+        <p>– ดนตรีจาก, Spa, วัฒนธรรม, ร้าว</p>
+        <p>– Recovery, Medical spa, Longstas</p>
+        <span class="postit-tag">Brand Architecture</span>
+      </div>
+      <div class="postit" style="--rot:1.5deg">
+        <h4>Thailand Health Experience</h4>
+        <span class="postit-tag">Concept</span>
+      </div>
+      <div class="postit" style="--rot:-1.8deg">
+        <h4>Integrated Services for NCD</h4>
+        <p>Bundled packages connecting chronic disease management with wellness programs</p>
+        <span class="postit-tag">Service Line</span>
+      </div>
+      <div class="postit" style="--rot:0.8deg">
+        <h4>Fertility Tourism</h4>
+        <p>High-growth segment with zero current policy framework → immediate opportunity</p>
+        <span class="postit-tag">New Segment</span>
+      </div>
+      <div class="postit" style="--rot:-1deg">
+        <h4>Spa add</h4>
+        <p>– แพทย์แผนไทยออก</p>
+        <p>– สมุนไพรไทย</p>
+        <span class="postit-tag">Spa Enhancement</span>
+      </div>
+      <div class="postit" style="--rot:2deg">
+        <h4>Recovery · Rebalance · QoL</h4>
+        <p>"Where healthcare feels like a retreat"</p>
+        <span class="postit-tag">Tagline</span>
+      </div>
+      <div class="postit" style="--rot:-0.3deg">
+        <h4>Integrated Wellness</h4>
+        <p>Hospitality Wellness</p>
+        <p>Two distinct but linked pillars of the Thailand brand</p>
+        <span class="postit-tag">Brand Structure</span>
+      </div>
+      <div class="postit" style="--rot:1.3deg">
+        <h4>Marketing Insight</h4>
+        <p>Among the 4Ps of marketing wellness tourism in Thailand — Price is most important.</p>
+        <p>Vietnam & Philippines offer cheaper alternatives.</p>
+        <span class="postit-tag">Competitive Intel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVING FORWARD -->
+<section class="forward-section" id="forward">
+  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-label" style="color:var(--gold);">ไทยก้าวข้างหน้า</div>
+    <h2 class="section-title light">Thailand Moving Forward</h2>
+    <p style="color:rgba(255,255,255,0.55);max-width:680px;line-height:1.75;margin-top:0.75rem;">Six priority actions to launch in 2026. From workshop post-its to national policy. Thailand has the human touch, the scientific base, and the ecosystem to lead global wellness — this is the activation plan.</p>
+
+    <div class="actions-grid">
+      <div class="action-card">
+        <div class="action-q">Q1</div>
+        <div class="action-text">
+          <h4>Launch 'Thailand Wellness' Master Brand Campaign</h4>
+          <p>TAT + MOPH joint campaign. Unify all brand pillars under one master identity.</p>
+          <div class="action-budget">฿200M · TAT + MOPH</div>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-q">Q1</div>
+        <div class="action-text">
+          <h4>Establish National Longevity Tourism Taskforce</h4>
+          <p>Deputy PM Office chairs. Cross-ministry coordination begins immediately.</p>
+          <div class="action-budget">฿10M · Deputy PM Office</div>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-q gold">Q2</div>
+        <div class="action-text">
+          <h4>Fast-track Medical Tourism กฎกระทรวง</h4>
+          <p>Dedicated legal team. Long-stay visa and fertility tourism regulations.</p>
+          <div class="action-budget">฿5M · MOPH Legal Division</div>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-q gold">Q3</div>
+        <div class="action-text">
+          <h4>Launch Data Synergy Platform Phase 1</h4>
+          <p>Connect TAT + MOPH + 20 pilot hospitals. Foundation for AI-driven personalization.</p>
+          <div class="action-budget">฿350M · MDES + TAT</div>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-q gold">Q3</div>
+        <div class="action-text">
+          <h4>Certify 20 Fertility Tourism Hospitals</h4>
+          <p>Establish legal framework and quality standards for the fertility segment.</p>
+          <div class="action-budget">฿80M · กรมสนับสนุนฯ</div>
+        </div>
+      </div>
+      <div class="action-card">
+        <div class="action-q" style="background:var(--teal-light)">Q4</div>
+        <div class="action-text">
+          <h4>Open 3 Flagship Longevity Centers</h4>
+          <p>Bangkok · Chiang Mai · Phuket. The most visible signal of Thailand's longevity vision.</p>
+          <div class="action-budget">฿600M · BOI + MOPH</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;text-align:center;padding:3rem;background:rgba(255,255,255,0.03);border:1px solid rgba(200,150,12,0.25);border-radius:20px;">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2.2rem);color:white;line-height:1.4;margin-bottom:1rem;">
+        "Where Care Feels Real.<br>Where Healthcare Feels Like a Retreat."
+      </div>
+      <div style="color:var(--gold);font-size:1rem;font-weight:600;">Thailand Wellness & Longevity Policy Framework 2026–2030</div>
+      <div style="color:rgba(255,255,255,0.35);font-size:0.8rem;margin-top:0.5rem;">ยุทธศาสตร์การพัฒนาไทยเวลเนสและเมดิคัลทัวริสซึม พ.ศ. 2569–2573</div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <span style="background:rgba(0,107,107,0.2);border:1px solid var(--teal);color:var(--teal-pale);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;">Science + Soul</span>
+        <span style="background:rgba(200,150,12,0.15);border:1px solid var(--gold);color:var(--gold-light);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;">Longevity as Flagship</span>
+        <span style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;">Data Synergy</span>
+        <span style="background:rgba(0,107,107,0.2);border:1px solid var(--teal);color:var(--teal-pale);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;">฿3,200M Investment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Thailand Wellness & Longevity Policy Framework 2026–2030</strong></p>
+  <p>Synthesized from Workshop Post-it Intelligence · 5-Stage Policy Cycle · May 2026</p>
+  <p>Outputs: Interactive HTML · 17-page DOCX · 9-slide PPTX · Obsidian Markdown (.md)</p>
+</footer>
+
+<script>
+function showStage(n) {
+  document.querySelectorAll('.stage-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i + 1 === n);
+  });
+  document.querySelectorAll('.stage-content').forEach(el => el.classList.remove('active'));
+  const target = document.getElementById('stage-' + n);
+  if (target) target.classList.add('active');
+}
+
+// Smooth scroll offset adjustment for fixed/sticky headers
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Animate KPI numbers on scroll
+function animateNumbers() {
+  document.querySelectorAll('.kpi-num').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    el.style.transition = 'all 0.5s ease';
+  });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.kpi-num').forEach((el, i) => {
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, i * 100);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.kpi-card').forEach(card => observer.observe(card));
+}
+animateNumbers();
+</script>
+</body>
+</html>
