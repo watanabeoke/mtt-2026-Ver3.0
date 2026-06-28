@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>นพท. Media Repository & Learning Document Ver1.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Define Color System from Stakeholder Ver2.0 / นพท Ecosystem */
+    :root {
+      --coral-50: #FAECE7;
+      --coral-100: #F5C4B3;
+      --coral-400: #D85A30;
+      --coral-600: #993C1D;
+      --coral-800: #712B13;
+      --teal-50: #E1F5EE;
+      --teal-100: #9FE1CB;
+      --teal-400: #1D9E75;
+      --teal-600: #0F6E56;
+      --teal-800: #085041;
+      --purple-50: #EEEDFE;
+      --purple-100: #CECBF6;
+      --purple-400: #7F77DD;
+      --purple-600: #534AB7;
+      --purple-800: #3C3489;
+      --amber-50: #FAEEDA;
+      --amber-100: #FAC775;
+      --amber-400: #BA7517;
+      --amber-600: #854F0B;
+      --amber-800: #633806;
+      --gray-50: #F1EFE8;
+      --gray-100: #D3D1C7;
+      --gray-400: #888780;
+      --gray-600: #5F5E5A;
+      --gray-800: #2C2C2A;
+      --ink: #1a1916;
+      --muted: #6b6966;
+      --faint: #b4b2a9;
+      --bg: #fafaf7;
+      --surface: #ffffff;
+      --radius: 16px;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
+      --font: 'Sarabun', sans-serif;
+      --serif: 'Playfair Display', serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      padding-bottom: 80px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* --- MESH DECORATION --- */
+    .mesh-bg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1600px;
+      height: 480px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    .mesh-1 {
+      position: absolute;
+      top: -150px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216, 90, 48, 0.1) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    .mesh-2 {
+      position: absolute;
+      top: -80px;
+      right: -100px;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29, 158, 117, 0.08) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+
+    /* --- HEADER / HERO --- */
+    header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 2.5rem;
+      text-align: center;
+      border-bottom: 0.5px solid var(--gray-100);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      padding: 5px 14px;
+      border-radius: 30px;
+      background: var(--coral-50);
+      color: var(--coral-600);
+      border: 0.5px solid var(--coral-100);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .badge.b2 {
+      background: var(--teal-50);
+      color: var(--teal-600);
+      border-color: var(--teal-100);
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    header h1 span {
+      color: var(--coral-600);
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* --- OVERVIEW & STATS --- */
+    .stats-bar {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 0.5px solid rgba(211, 209, 199, 0.5);
+      border-radius: var(--radius);
+      padding: 1rem 1.8rem;
+      text-align: center;
+      min-width: 160px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .stat-val {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--coral-600);
+      font-family: var(--mono);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--mono);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .progress-ring-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 0.5px solid rgba(211, 209, 199, 0.5);
+      border-radius: var(--radius);
+      padding: 0.8rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-ring-text {
+      text-align: left;
+    }
+
+    /* --- CONTROLS: FILTER & SEARCH --- */
+    .controls-section {
+      max-width: 1200px;
+      margin: 1.5rem auto 1.5rem;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.95rem 1.5rem 0.95rem 3rem;
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--coral-400);
+      box-shadow: 0 0 0 4px rgba(216, 90, 48, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      color: var(--muted);
+      padding: 0.45rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-family: var(--font);
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: var(--shadow-sm);
+      font-weight: 500;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--coral-50);
+      color: var(--coral-600);
+      border-color: var(--coral-100);
+    }
+
+    /* --- BOOKSHELF CABINET (เอกสารตามสันเรียน) --- */
+    .bookshelf-outer {
+      max-width: 1200px;
+      margin: 0 auto 3.5rem;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bookshelf-wood {
+      background: linear-gradient(to bottom, #dfdad0 0%, #cfc8b9 80%, #beb7a6 100%);
+      border-radius: var(--radius);
+      padding: 2.8rem 2.5rem 0.5rem;
+      position: relative;
+      box-shadow: inset 0 10px 25px rgba(0, 0, 0, 0.06), 0 15px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #b3a998;
+      overflow: hidden;
+    }
+
+    /* Modern walnut support shelf board with LED light glow */
+    .bookshelf-wood::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 16px;
+      background: linear-gradient(to bottom, #4a3b2c 0%, #2f2319 100%);
+      border-top: 1.5px solid #d4af37; /* Brass accent strip */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 -8px 24px rgba(216, 90, 48, 0.06); /* LED glow upward */
+    }
+
+    .bookshelf-wood::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 16px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.02) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.02) 100%);
+      pointer-events: none;
+    }
+
+    .books-grid {
+      display: flex;
+      gap: 1.4rem;
+      align-items: flex-end;
+      justify-content: center;
+      flex-wrap: wrap;
+      min-height: 290px;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 16px;
+    }
+
+    /* --- BINDER SPINE (สันแฟ้มบทเรียน) --- */
+    /* --- BINDER COVER CARD (แฟ้มบทเรียนแบบแนวนอน) --- */
+    .binder-spine {
+      width: 180px;
+      height: 240px;
+      border-radius: 8px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.25, 1), border-color 0.3s;
+      display: flex;
+      padding: 10px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.18), inset 1px 1px 0 rgba(255, 255, 255, 0.15);
+      border: 0.5px solid rgba(0, 0, 0, 0.15);
+      user-select: none;
+      overflow: hidden;
+    }
+
+    /* Fabric texture overlay on binder cover */
+    .binder-spine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.08) 0%, transparent 20%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.15) 100%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 3px);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    /* Spine strip on left of folder cover */
+    .binder-spine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 22px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.18);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .binder-spine.fade-out {
+      opacity: 0.25;
+      transform: scale(0.94);
+      box-shadow: none;
+    }
+
+    .binder-spine:hover {
+      transform: translateY(-20px) rotate(-1deg);
+      box-shadow: 12px 20px 30px rgba(0, 0, 0, 0.28), inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+      z-index: 5;
+    }
+
+    .binder-spine.active {
+      transform: translateY(-30px) scale(1.03);
+      box-shadow: 15px 25px 35px rgba(0, 0, 0, 0.35);
+      border: 2.2px solid var(--ink);
+      z-index: 10;
+    }
+
+    /* Paper Label pasted on folder cover */
+    .spine-label-sticker {
+      background: #fdfdfb;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 6px;
+      padding: 12px 10px 10px 10px;
+      color: var(--ink);
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.06), 2px 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-left: 16px; /* Offset from left spine strip */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 2;
+    }
+
+    .spine-label-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed var(--gray-100);
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+    }
+
+    .spine-label-code {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--coral-600);
+      background: var(--coral-50);
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Dynamic custom category colors */
+    .binder-teal .spine-label-code {
+      color: var(--teal-600);
+      background: var(--teal-50);
+    }
+
+    .binder-purple .spine-label-code {
+      color: var(--purple-600);
+      background: var(--purple-50);
+    }
+
+    .binder-amber .spine-label-code {
+      color: var(--amber-600);
+      background: var(--amber-50);
+    }
+
+    .binder-navy .spine-label-code {
+      color: #2b3a4a;
+      background: #eef3f7;
+    }
+
+    .spine-label-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      text-align: left;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      word-break: break-word;
+    }
+
+    .spine-label-footer {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      text-align: left;
+      margin-top: 6px;
+      border-top: 0.5px solid var(--gray-100);
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .spine-progress-dot {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gray-400);
+      transition: all 0.3s ease;
+      border: 1.5px solid #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      z-index: 3;
+    }
+
+    .spine-progress-dot.completed {
+      background: var(--teal-400);
+      box-shadow: 0 0 8px var(--teal-100);
+    }
+
+    /* Color Schemes for Binders */
+    .binder-coral {
+      background: linear-gradient(135deg, var(--coral-600) 0%, var(--coral-800) 100%);
+    }
+
+    .binder-teal {
+      background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-800) 100%);
+    }
+
+    .binder-purple {
+      background: linear-gradient(135deg, var(--purple-600) 0%, var(--purple-800) 100%);
+    }
+
+    .binder-amber {
+      background: linear-gradient(135deg, var(--amber-600) 0%, var(--amber-800) 100%);
+    }
+
+    .binder-navy {
+      background: linear-gradient(135deg, #2b3a4a 0%, #172430 100%);
+    }
+
+    /* --- OPEN BINDER VIEWER --- */
+    .viewer-outer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .viewer-outer.active {
+      display: block;
+      animation: fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+    }
+
+    .binder-open-container {
+      background: #1c1c1a; /* Dark textured leather binder inner */
+      background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
+      background-size: 6px 6px;
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-lg), 0 30px 60px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+    }
+
+    /* Open Binder Layout (Left and Right page structure) */
+    .binder-pages-grid {
+      display: grid;
+      grid-template-columns: 320px 12px 1fr;
+      background: #fdfdfc;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 720px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+      transition: grid-template-columns 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Collapsed layout for fullscreen or focus mode */
+    .binder-pages-grid.sidebar-collapsed {
+      grid-template-columns: 0px 0px 1fr;
+    }
+
+    /* --- LEFT PAGE (Table of Contents with Metadata) --- */
+    .left-page {
+      background: var(--surface);
+      padding: 1.8rem 1.2rem 1.8rem 1.8rem;
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow-y: auto;
+      transition: opacity 0.25s ease;
+    }
+
+    .binder-pages-grid.sidebar-collapsed .left-page {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .left-page-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+
+    .active-module-code {
+      font-size: 1.3rem;
+      font-family: var(--mono);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+      color: var(--coral-600);
+    }
+
+    .active-module-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .slides-index-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex-grow: 1;
+    }
+
+    .slide-index-item {
+      font-size: 0.8rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--gray-50);
+      color: var(--ink);
+      border: 0.5px solid var(--gray-100);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slide-index-item:hover {
+      background: var(--gray-100);
+      border-color: var(--gray-400);
+    }
+
+    .slide-index-item.active {
+      background: var(--coral-50);
+      color: var(--coral-800);
+      border-color: var(--coral-400);
+      box-shadow: 0 4px 15px rgba(216, 90, 48, 0.1);
+    }
+
+    /* Meta data styles in TOC list */
+    .toc-item-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .toc-item-icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .toc-item-speaker {
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .toc-item-org {
+      font-size: 0.68rem;
+      color: var(--faint);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .toc-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: 0.5px dashed var(--gray-100);
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+
+    .toc-item-date {
+      font-family: var(--mono);
+    }
+
+    .toc-item-status {
+      font-size: 0.72rem;
+      color: var(--faint);
+      font-weight: 500;
+    }
+
+    .slide-index-item.viewed .toc-item-status {
+      color: var(--teal-600);
+    }
+
+    /* --- MIDDLE SPINE / RINGS --- */
+    .binder-rings-column {
+      background: linear-gradient(to right, #e8e6e0, #c4c2ba, #b2b0a8, #c4c2ba, #e8e6e0);
+      height: 100%;
+      position: relative;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 3rem 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .binder-pages-grid.sidebar-collapsed .binder-rings-column {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .binder-metal-ring {
+      width: 24px;
+      height: 16px;
+      background: linear-gradient(to bottom, #d2d0c9 0%, #ffffff 40%, #828079 85%, #d2d0c9 100%);
+      border-radius: 8px;
+      border: 1px solid #828079;
+      position: relative;
+      left: -6px;
+      box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    /* --- RIGHT PAGE (Media / Slides Canvas) --- */
+    .right-page {
+      background: #fdfdfd;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Tabs styling at top of right page */
+    .viewer-tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 0.5px solid var(--gray-100);
+      padding-bottom: 0.5rem;
+    }
+
+    .viewer-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .viewer-tab-btn:hover {
+      background: var(--gray-50);
+      color: var(--ink);
+    }
+
+    .viewer-tab-btn.active {
+      background: var(--coral-50);
+      color: var(--coral-600);
+    }
+
+    .viewer-tab-btn.active.tab-teal {
+      background: var(--teal-50);
+      color: var(--teal-600);
+    }
+
+    /* Media Viewport Container */
+    .media-viewport {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background: #fdfdfd;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.02);
+      min-height: 520px;
+    }
+
+    .media-container-fade {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-container-fade.fade-in {
+      opacity: 1;
+    }
+
+    /* PDF Iframe */
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      border: none;
+      flex-grow: 1;
+      background: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Zoomable Image Viewport */
+    .image-viewer-wrapper {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      position: relative;
+      background: #181817;
+      background-image: linear-gradient(45deg, #1f1f1e 25%, transparent 25%),
+        linear-gradient(-45deg, #1f1f1e 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1f1f1e 75%),
+        linear-gradient(-45deg, transparent 75%, #1f1f1e 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .image-element {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      user-select: none;
+      border-radius: 4px;
+    }
+
+    .image-zoom-controls {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      display: flex;
+      gap: 0.3rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 5px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      z-index: 10;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-zoom {
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-zoom:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Presentation Header Card */
+    .media-header-card {
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      border-radius: 10px;
+      padding: 0.9rem 1.4rem;
+      margin-bottom: 0.8rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mhc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .mhc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .mhc-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .mhc-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      gap: 4px;
+    }
+
+    .mhc-badge {
+      background: var(--coral-50);
+      color: var(--coral-600);
+      border: 0.5px solid var(--coral-100);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- HIGH FIDELITY SUMMARY SLIDE TEMPLATES --- */
+    .summary-slide-content {
+      padding: 2rem;
+      overflow-y: auto;
+      flex-grow: 1;
+      background: #fafaf9;
+      height: 100%;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .summary-highlight-card {
+      background: var(--coral-50);
+      border-left: 5px solid var(--coral-600);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-highlight-card.teal {
+      background: var(--teal-50);
+      border-left-color: var(--teal-600);
+    }
+
+    .summary-highlight-card.purple {
+      background: var(--purple-50);
+      border-left-color: var(--purple-600);
+    }
+
+    .summary-highlight-card.amber {
+      background: var(--amber-50);
+      border-left-color: var(--amber-600);
+    }
+
+    .summary-highlight-card.navy {
+      background: #eef3f7;
+      border-left-color: #2b3a4a;
+    }
+
+    .summary-highlight-title {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      color: var(--coral-800);
+    }
+
+    .summary-highlight-card.teal .summary-highlight-title { color: var(--teal-800); }
+    .summary-highlight-card.purple .summary-highlight-title { color: var(--purple-800); }
+    .summary-highlight-card.amber .summary-highlight-title { color: var(--amber-800); }
+    .summary-highlight-card.navy .summary-highlight-title { color: #172430; }
+
+    .summary-highlight-text {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .summary-points-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media(max-width: 768px) {
+      .summary-points-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .summary-point-card {
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      padding: 1.1rem 1.3rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .summary-point-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-point-card h4 span {
+      display: inline-flex;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral-400);
+    }
+
+    .summary-point-card.teal h4 span { background: var(--teal-400); }
+    .summary-point-card.purple h4 span { background: var(--purple-400); }
+    .summary-point-card.amber h4 span { background: var(--amber-400); }
+    .summary-point-card.navy h4 span { background: #2b3a4a; }
+
+    .summary-point-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .summary-takeaway-card {
+      background: #fafaf9;
+      border: 1px dashed var(--gray-400);
+      padding: 1rem 1.4rem;
+      border-radius: 10px;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .summary-takeaway-card span {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--coral-400);
+    }
+
+    .summary-takeaway-card.teal span { color: var(--teal-400); }
+    .summary-takeaway-card.purple span { color: var(--purple-400); }
+    .summary-takeaway-card.amber span { color: var(--amber-400); }
+    .summary-takeaway-card.navy span { color: #2b3a4a; }
+
+    /* Loading Spinner */
+    .media-loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(240, 240, 238, 0.85);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: opacity 0.3s ease;
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border: 3.5px solid rgba(216, 90, 48, 0.15);
+      border-top: 3.5px solid var(--coral-600);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .media-loader span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Page Footer / Navigation */
+    .right-page-footer {
+      border-top: 0.5px solid var(--gray-100);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slide-nav-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .btn-nav {
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      color: var(--ink);
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-nav:hover {
+      background: var(--gray-50);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .page-number-indicator {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .action-controls {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .btn-action {
+      background: var(--surface);
+      border: 0.5px solid var(--gray-100);
+      color: var(--muted);
+      padding: 0 0.9rem;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      gap: 6px;
+    }
+
+    .btn-action:hover {
+      background: var(--gray-50);
+      color: var(--ink);
+      border-color: var(--gray-400);
+    }
+
+    /* Progress Line */
+    .slide-progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gray-100);
+    }
+
+    .slide-progress-bar {
+      height: 100%;
+      background: var(--coral-400);
+      width: 0;
+      transition: width 0.3s ease;
+    }
+
+    /* Fullscreen Viewport */
+    .binder-open-container:-webkit-full-screen {
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+      background: #111110;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .binder-open-container:-webkit-full-screen .binder-pages-grid {
+      width: 100%;
+      max-width: 1450px;
+      height: 100%;
+      min-height: 600px;
+    }
+
+    .keyboard-hint {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--faint);
+      margin-top: 1rem;
+      font-family: var(--mono);
+    }
+
+    /* Search highlights */
+    .highlight-match {
+      background-color: #ffd43b;
+      color: #000;
+      padding: 0 2px;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    .search-results-banner {
+      display: none;
+      background: var(--amber-50);
+      border: 0.5px solid var(--amber-100);
+      padding: 0.7rem 1.3rem;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      color: var(--amber-800);
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-results-banner.active {
+      display: flex;
+    }
+
+    .search-results-clear {
+      margin-left: auto;
+      font-size: 0.75rem;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      color: var(--faint);
+      font-size: 0.8rem;
+      border-top: 0.5px solid var(--gray-100);
+      font-family: var(--mono);
+      max-width: 1200px;
+      margin: 4rem auto 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --- RESPONSIVE LAYOUTS --- */
+    @media(max-width: 980px) {
+      .binder-pages-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto;
+      }
+
+      .left-page {
+        border-right: none;
+        border-bottom: 1.5px dashed var(--gray-100);
+        padding: 1.2rem 1.5rem;
+      }
+
+      .binder-rings-column {
+        display: none !important;
+      }
+
+      .right-page {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MESH BG DECORATION -->
+  <div class="mesh-bg">
+    <div class="mesh-1"></div>
+    <div class="mesh-2"></div>
+  </div>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero-eyebrow">
+      <span class="badge">นพท. Program</span>
+      <span class="badge b2">Medical Hub Thailand</span>
+    </div>
+    <h1>Learning Document <span>Ver1.0</span></h1>
+    <p style="margin-top:10px">สรุปสาระสำคัญหลักสูตรผู้นำยุทธศาสตร์นวัตกรรมสุขภาพและการท่องเที่ยวเชิงการแพทย์ (Executive Summary Slide Library)</p>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-val" id="stat-modules">5</span>
+      <span class="stat-label">Binders</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val" id="stat-slides">16</span>
+      <span class="stat-label">Documents</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val" style="color:var(--teal-600); font-size:1.4rem;">สรุป & ไฟล์จริง</span>
+      <span class="stat-label">Double Tabs</span>
+    </div>
+    <div class="progress-ring-container">
+      <svg width="45" height="45" viewBox="0 0 36 36" style="transform: rotate(-90deg);">
+        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#F1EFE8" stroke-width="3" />
+        <path id="progress-circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="0, 100" />
+      </svg>
+      <div class="progress-ring-text">
+        <div class="stat-val" id="progress-percent" style="font-size: 1.1rem;">0%</div>
+        <div class="stat-label" style="font-size: 0.65rem;">Viewed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls-section">
+    <div class="search-wrapper">
+      <input type="text" class="search-input" id="search-bar" placeholder="🔍 ค้นหาหัวข้อบทเรียน, วิทยากร, หน่วยงาน หรือวันที่บรรยาย... (เช่น: จรวยพร, บพข, 18 มิ.ย., Amy)">
+    </div>
+    <div class="filter-row">
+      <span style="font-size: 0.72rem; text-transform: uppercase; font-family: var(--mono); color: var(--faint); letter-spacing: 0.08em; margin-right: 5px;">ครั้งที่จัดสัมมนา (Session):</span>
+      <button class="filter-btn active" data-category="all">All Binders (5)</button>
+      <button class="filter-btn" data-category="session1">ครั้งที่ 1 เขาใหญ่</button>
+      <button class="filter-btn" data-category="session2">ครั้งที่ 2 หัวหิน</button>
+    </div>
+  </div>
+
+  <!-- BOOKSHELF OUTER -->
+  <div class="bookshelf-outer">
+    <div class="search-results-banner" id="search-results-banner">
+      <span>💡 พบหัวข้อบรรยายตรงตามคำค้นหาของคุณ. คลิกแฟ้มที่มีกรอบสีทองเพื่อเปิดดูรายการเอกสาร</span>
+      <span class="search-results-clear" id="search-clear-btn">ล้างการค้นหา</span>
+    </div>
+
+    <div class="bookshelf-wood">
+      <div class="books-grid" id="bookshelf-grid">
+        <!-- Generated dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- BINDER VIEWER CONTAINER -->
+  <div class="viewer-outer" id="viewer-wrapper">
+    <div class="binder-open-container" id="fullscreen-target">
+      <div class="binder-pages-grid" id="pages-layout-grid">
+
+        <!-- LEFT PAGE: TABLE OF CONTENTS -->
+        <div class="left-page">
+          <span class="left-page-title">Table of Contents</span>
+          <div class="active-module-code" id="view-module-code">M01</div>
+          <div class="active-module-title" id="view-module-title">ครั้งที่ 1 เขาใหญ่</div>
+
+          <ul class="slides-index-list" id="slides-toc-list">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+
+        <!-- CENTER RINGS -->
+        <div class="binder-rings-column">
+          <div class="binder-metal-ring"></div>
+          <div class="binder-metal-ring"></div>
+          <div class="binder-metal-ring"></div>
+          <div class="binder-metal-ring"></div>
+          <div class="binder-metal-ring"></div>
+          <div class="binder-metal-ring"></div>
+        </div>
+
+        <!-- RIGHT PAGE: MEDIA VIEWPORT -->
+        <div class="right-page">
+          <!-- Presentation Title Card -->
+          <div class="media-header-card">
+            <button class="btn-action" id="btn-toggle-sidebar" title="ซ่อน/แสดง สารบัญ (Toggle Sidebar)" style="padding: 0 0.6rem; height: 32px;">
+              📁 Sidebar
+            </button>
+            <div class="mhc-left" style="margin-left: 10px; flex-grow: 1;">
+              <span class="mhc-title" id="media-title">ยุทธศาสตร์การแพทย์</span>
+              <span class="mhc-sub" id="media-speaker-org">ผู้บรรยาย | หน่วยงาน</span>
+            </div>
+            <div class="mhc-right">
+              <span class="mhc-badge" id="media-type-badge">PDF</span>
+              <span style="margin-top:4px" id="media-date">20 May 2026</span>
+            </div>
+          </div>
+
+          <!-- Tabs Panel Navigation -->
+          <div class="viewer-tabs">
+            <button class="viewer-tab-btn active" id="tab-btn-summary">📝 สรุปสาระสำคัญ (Executive Summary)</button>
+            <button class="viewer-tab-btn" id="tab-btn-original">📄 เอกสารฉบับจริง (Original File)</button>
+          </div>
+
+          <!-- Dynamic media viewport -->
+          <div class="media-viewport">
+            <!-- Loading Spinner overlay -->
+            <div class="media-loader" id="media-loader">
+              <div class="spinner"></div>
+              <span>กำลังโหลดข้อมูล...</span>
+            </div>
+
+            <div class="media-container-fade" id="media-canvas">
+              <!-- Rendered Dynamically -->
+            </div>
+          </div>
+
+          <!-- Controls & Navigation -->
+          <div class="right-page-footer">
+            <div class="slide-nav-controls">
+              <button class="btn-nav" id="btn-slide-prev" title="ก่อนหน้า">
+                ← Prev
+              </button>
+              <span class="page-number-indicator" id="slide-page-indicator">File 1 of 5</span>
+              <button class="btn-nav" id="btn-slide-next" title="ถัดไป">
+                Next →
+              </button>
+            </div>
+
+            <div class="action-controls">
+              <a class="btn-action" id="btn-new-tab" href="#" target="_blank" title="เปิดเต็มจอในแท็บใหม่">
+                ↗ Open Tab
+              </a>
+              <button class="btn-action" id="btn-slide-fullscreen" title="ขยายเต็มหน้าจอ (Fullscreen)">
+                ⛶ Fullscreen
+              </button>
+            </div>
+          </div>
+
+          <!-- Progress line at the bottom of the right page -->
+          <div class="slide-progress-bar-container">
+            <div class="slide-progress-bar" id="slide-progress-bar"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="keyboard-hint">
+      💡 TIP: สามารถใช้ปุ่มลูกศร <kbd>←</kbd> และ <kbd>→</kbd> บนแป้นพิมพ์เพื่อสลับหน้าไฟล์เอกสารในแฟ้มนี้ได้
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>นพท. · โครงการผู้นำยุทธศาสตร์นวัตกรรมสุขภาพเพื่อการท่องเที่ยวเชิงการแพทย์ 2026</p>
+    <p>Media Repository & Presentation Library Ver1.0 · Designed for Kasetsart University & PMUC</p>
+  </div>
+
+  <!-- JAVASCRIPT MECHANICS -->
+  <script>
+    // Course Modules and Media items array mapping the actual files on disk
+    const MODULES = [
+      {
+        id: "m1",
+        code: "Binder 1",
+        titleEn: "ครั้งที่ 1 เขาใหญ่",
+        titleTh: "ครั้งที่ 1 เขาใหญ่",
+        session: "session1",
+        colorClass: "binder-coral",
+        colorHex: "#D85A30",
+        desc: "เอกสารประกอบการบรรยายสัมมนา นพท. ครั้งที่ 1 จัดขึ้น ณ เขาใหญ่ (18-20 พฤษภาคม 2569)",
+        slides: [
+          {
+            title: "Brand Positioning (แบรนด์ดิ้งยุทธศาสตร์เวลเนส)",
+            speaker: "คุณเอมี่ (Amy)",
+            organization: "นพท. Brand Specialist",
+            date: "18 พฤษภาคม 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 1 เขาใหญ่/present/Brand Positioning_Amy.pdf",
+            summary: {
+              highlight: "สร้างอัตลักษณ์ความต่างด้วยอัตลักษณ์ไทยเวลเนสภายใต้สโลแกน 'Where Care Feels Real' เพื่อดึงกลุ่มผู้มีรายได้สูง (HNWI)",
+              points: [
+                { title: "การปักหมุดตำแหน่งแบรนด์ (Positioning)", desc: "เน้นความเป็นเลิศทางการแพทย์ร่วมกับอัตลักษณ์การบริการที่อ่อนน้อม จริงใจ และอบอุ่นเพื่อสร้างความน่าจดจำ" },
+                { title: "กลุ่มลูกค้าเป้าหมายระดับสูง", desc: "วิเคราะห์พฤติกรรมลูกค้ากลุ่ม Longevity & High-Net-Worth Individuals ที่ต้องการความเป็นส่วนตัวและความพรีเมียม" },
+                { title: "แนวทางการสื่อสารภาพลักษณ์ประเทศ", desc: "การทำตลาดเชิงรุกประสานความร่วมมือระหว่างสมาคมโรงแรมไทย สปา และโรงพยาบาลเอกชน" }
+              ],
+              takeaway: "ความร่วมมือกันสร้างแบรนด์ภาพลักษณ์ร่วม (Co-branding) คือหัวใจหลักที่จะเปิดตัวตลาดเวลเนสไทยสู่เวทีระดับโลก"
+            }
+          },
+          {
+            title: "PMUB ทุนวิจัยและการสนับสนุนยุทธศาสตร์นวัตกรรมสุขภาพ",
+            speaker: "ดร.ณิรวัฒน์ ธรรมจักร์",
+            organization: "บพข. (PMUC)",
+            date: "19 พฤษภาคม 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 1 เขาใหญ่/present/PMUB ดร.ณิรวัฒน์ Medical Tourism Ver3.pdf",
+            summary: {
+              highlight: "แนวทางการขอรับทุนและการสนับสนุนทุนวิจัยอุตสาหกรรมนวัตกรรมสุขภาพและการแพทย์เชิงท่องเที่ยวจาก บพข.",
+              points: [
+                { title: "งบประมาณพัฒนาอุตสาหกรรม", desc: "การสนับสนุนงบประมาณพัฒนาเพื่อจัดทำมาตรฐานและร่วมทุนในกลุ่มอุตสาหกรรมยุทธศาสตร์นวัตกรรมสุขภาพ" },
+                { title: "กลไกการร่วมทุนวิจัย (Matching Fund)", desc: "ส่งเสริมภาคเอกชนที่มีความพร้อมทางเทคโนโลยีร่วมกับมหาวิทยาลัย เพื่อยื่นขอทุนพัฒนาเทคโนโลยีระดับสูง" },
+                { title: "การยกระดับมูลค่าด้วยนวัตกรรม", desc: "ผลักดันให้เกิดการประยุกต์ใช้ AI, การตรวจยีน (Genomics), และการแพทย์เฉพาะเจาะจง (Personalized Medicine)" }
+              ],
+              takeaway: "ทุนวิจัยจาก บพข. มุ่งผลักดันให้เกิดการแปลงงานวิจัยเชิงวิชาการให้เกิดผลประโยชน์ทางธุรกิจและเศรษฐกิจได้จริง"
+            }
+          },
+          {
+            title: "Thailand Medical Tourism Roadmap 2030 (แผนยุทธศาสตร์เวลเนสไทย)",
+            speaker: "คณะทำงาน นพท.",
+            organization: "โครงการผู้นำยุทธศาสตร์นวัตกรรมสุขภาพ (นพท.)",
+            date: "20 พฤษภาคม 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 1 เขาใหญ่/present/Thailand Medical Tourism Roadmap 2030.pdf",
+            summary: {
+              highlight: "แผนภาพและยุทธศาสตร์การพัฒนาประเทศไทยสู่การเป็นศูนย์กลางสุขภาพนานาชาติและเวลเนสระดับโลกภายในปี 2030",
+              points: [
+                { title: "เป้าหมายรายได้เชิงเศรษฐกิจ", desc: "ตั้งเป้ารายได้สะสมจากบริการทางการแพทย์และการท่องเที่ยวเวลเนสทะลุ 4.5 แสนล้านบาทภายในปี 2573" },
+                { title: "การพัฒนา Medical Service Hubs", desc: "จัดแบ่งพื้นที่ภูมิศาสตร์เป้าหมาย (กรุงเทพฯ, ฝั่งทะเลอันดามัน, ภาคตะวันออก) เป็นเขตเศรษฐกิจสุขภาพพิเศษ" },
+                { title: "การปลดล็อกกฎระเบียบราชการ", desc: "การร่วมมือขยายระยะเวลาพำนัก (Medical Visa) และระบบจัดเก็บข้อมูลสุขภาพแลกเปลี่ยนระหว่างสถานบริการ" }
+              ],
+              takeaway: "ความชัดเจนของแผนปฏิบัติการระดับชาติจะช่วยสร้างความมั่นใจแก่ผู้ลงทุนต่างชาติและเร่งรัดการเติบโตของโครงสร้างพื้นฐาน"
+            }
+          },
+          {
+            title: "สัมมนาหลักสูตรนวัตกรรมสุขภาพและการท่องเที่ยวเชิงการแพทย์",
+            speaker: "คณะวิทยากร นพท.",
+            organization: "มหาวิทยาลัยเกษตรศาสตร์ / บพข.",
+            date: "18 พฤษภาคม 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 1 เขาใหญ่/present/นพท. สัมมนา Medical Tourism.pdf",
+            summary: {
+              highlight: "ภาพรวมโครงการและหลักสูตรการจัดสัมมนาผู้นำยุทธศาสตร์นวัตกรรมสุขภาพและการท่องเที่ยวเชิงการแพทย์",
+              points: [
+                { title: "วัตถุประสงค์เชิงเครือข่าย", desc: "สร้างการประสานงานของเครือข่ายผู้นำ (Network Collaboration) จากหน่วยงานรัฐ โรงพยาบาล และสมาคมธุรกิจเวลเนส" },
+                { title: "ขอบเขตการจัดสัมมนา", desc: "แลกเปลี่ยนความรู้ใน 5 มิติยุทธศาสตร์: นโยบาย, กฎระเบียบ, สมุนไพรวิจัย, เทคโนโลยีดิจิทัล และความยั่งยืน" },
+                { title: "การจัดทำข้อเสนอเชิงนโยบาย", desc: "การร่วมระดมความคิดเห็นจากผู้รับการอบรมเพื่อส่งมอบเป็นร่างข้อเสนอแนะแก่รัฐบาลและสภาผู้แทนฯ" }
+              ],
+              takeaway: "หลักสูตรนี้จัดตั้งขึ้นเพื่อปิดช่องว่างความรู้และการทำงานระหว่างภาครัฐ เอกชน และเครือข่ายนวัตกรรมสุขภาพ"
+            }
+          },
+          {
+            title: "อธิบายผลการประเมิน TalentD (ประเมินสมรรถนะบุคลากรสุขภาพ)",
+            speaker: "ทีมประเมินทักษะ TalentD",
+            organization: "สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช. / NSTDA)",
+            date: "19 พฤษภาคม 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 1 เขาใหญ่/present/อธิบายผล ทาเลนท์ดี นพท.pdf",
+            summary: {
+              highlight: "การรายงานผลการประเมินทักษะและศักยภาพผู้เข้ารับการอบรมหลักสูตร นพท. เพื่อพัฒนาทักษะการบริหารจัดการสุขภาพ",
+              points: [
+                { title: "การประเมินสมรรถนะ (Competency)", desc: "การใช้เครื่องมือประเมินระดับสากลวัดความพร้อมในการผลักดันนวัตกรรมและเทคโนโลยีดิจิทัลในองค์กร" },
+                { title: "การวิเคราะห์ศักยภาพผู้บริหาร", desc: "พบว่ากลุ่มผู้นำมีจุดเด่นด้านวิสัยทัศน์และการประสานงาน แต่ต้องการการเสริมทักษะเชิงลึกด้าน Data Analytics" },
+                { title: "แนวทางพัฒนาทักษะเฉพาะบุคคล", desc: "จัดโปรแกรม Upskilling/Reskilling ร่วมกับมหาวิทยาลัยเพื่อสร้างทีมนักพัฒนาระบบสุขภาพในอนาคต" }
+              ],
+              takeaway: "การวัดประเมินทักษะที่ชัดเจนช่วยให้การวางงบประมาณจัดอบรมสร้างกำลังคนมีทิศทางที่ถูกต้องและวัดผลได้ชัดเจน"
+            }
+          }
+        ]
+      },
+      {
+        id: "m2",
+        code: "Binder 2",
+        titleEn: "ครั้งที่ 2 หัวหิน (16 มิ.ย.)",
+        titleTh: "หัวหิน - 16 มิ.ย.",
+        session: "session2",
+        colorClass: "binder-teal",
+        colorHex: "#1D9E75",
+        desc: "เอกสารสัมมนา นพท. ครั้งที่ 2 ณ หัวหิน - วันที่ 16 มิถุนายน 2569",
+        slides: [
+          {
+            title: "Beyond Relaxation: Wellness Tourism ของชีวาศรม",
+            speaker: "ผู้แทนผู้บริหารชีวาศรม (Chiva-Som Team)",
+            organization: "Chiva-Som International Health Resort",
+            date: "16 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/16 June/Beyond Relaxation Chiva-Som.pdf",
+            summary: {
+              highlight: "ถอดบทเรียนความสำเร็จของแบรนด์ชีวาศรม เวลเนสรีสอร์ตระดับไอคอนิกของโลกในด้านมาตรฐานและบริการเฉพาะบุคคล",
+              points: [
+                { title: "ปรัชญา Beyond Relaxation", desc: "ก้าวข้ามการพักผ่อนทั่วไปสู่การเปลี่ยนผ่านวิถีชีวิตบำบัดสุขภาพเชิงลึก (Transformative Wellness Lifestyle)" },
+                { title: "การปรับแต่งโปรแกรมเฉพาะบุคคล", desc: "ผู้รับบริการทุกคนจะได้รับการปรึกษาจากผู้เชี่ยวชาญก่อนจัดทรีตเมนต์ โภชนาการ และการออกกำลังกายที่เหมาะสม" },
+                { title: "ความยั่งยืนและการมีส่วนร่วม", desc: "การใช้วัตถุดิบอินทรีย์ท้องถิ่น การลดคาร์บอนฟุตพริ้นต์ และการจ้างงานพัฒนาชุมชนรอบรีสอร์ต" }
+              ],
+              takeaway: "หัวใจของความลักชัวรีเวลเนสไม่ได้อยู่ที่สถานที่หรูหราเพียงอย่างเดียว แต่อยู่ที่ผลลัพธ์การเปลี่ยนผ่านสุขภาพของลูกค้า"
+            }
+          }
+        ]
+      },
+      {
+        id: "m3",
+        code: "Binder 3",
+        titleEn: "ครั้งที่ 2 หัวหิน (17 มิ.ย.)",
+        titleTh: "หัวหิน - 17 มิ.ย.",
+        session: "session2",
+        colorClass: "binder-purple",
+        colorHex: "#7F77DD",
+        desc: "เอกสารสัมมนา นพท. ครั้งที่ 2 ณ หัวหิน - วันที่ 17 มิถุนายน 2569 (สบส. และ สวรส.)",
+        slides: [
+          {
+            title: "Building Global Trust: การสร้างความน่าเชื่อถือบริการสุขภาพไทย",
+            speaker: "นายแพทย์กรกฤช ลิ้มสมมุติ",
+            organization: "กรมสนับสนุนบริการสุขภาพ (HSS), กระทรวงสาธารณสุข",
+            date: "17 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/17 June/นายแพทย์กรกฤช/รองฯกรกฤช Slide_Building Global Trust.pdf",
+            summary: {
+              highlight: "แนวทางการขับเคลื่อนเพื่อความเชื่อมั่นต่อมาตรฐานบริการและการแพทย์ของไทยแก่ต่างชาติ นำเสนอโดย กรมสนับสนุนบริการสุขภาพ",
+              points: [
+                { title: "การกำกับดูแลกฎหมายสถานพยาบาล", desc: "การตรวจสอบและออกใบอนุญาตการเปิดบริการสถานพยาบาลและสปาเพื่อสุขภาพให้เป็นไปตามเกณฑ์มาตรฐานความปลอดภัย" },
+                { title: "การขยายฐานตลาด Medical Visa", desc: "อำนวยความสะดวกเรื่องการขยายเวลาพำนักสำหรับผู้มารักษาและญาติ เพื่อส่งเสริมรายได้การรักษาตัวต่อเนื่อง" },
+                { title: "นโยบายผลิตภัณฑ์สุขภาพยุทธศาสตร์", desc: "การยกระดับมาตรฐานสมุนไพรควบคุมและกัญชาทางการแพทย์สู่เวชศาสตร์ป้องกันเฉพาะทาง" }
+              ],
+              takeaway: "การรักษาระดับมาตรฐานและการควบคุมอย่างจริงจังคือรากฐานในการสร้างแบรนด์สุขภาพของประเทศไทยในฐานะ Safe Haven"
+            }
+          },
+          {
+            title: "Medical Tourism Ecosystem: ยุทธศาสตร์การท่องเที่ยวระบบนิเวศสุขภาพ",
+            speaker: "ผศ.ดร.จรวยพร ศรีศศลักษณ์",
+            organization: "สถาบันวิจัยระบบสาธารณสุข (สวรส. / HSRI)",
+            date: "17 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/17 June/ผศ.ดร.จรวยพร/17มิย.69_ppt จรวยพร Medical Tourism Ecosystem.pdf",
+            summary: {
+              highlight: "วิเคราะห์จุดแข็ง-จุดอ่อนและความพร้อมทางระบบนิเวศน์อุตสาหกรรมบริการเวลเนสไทย นำเสนอโดย สวรส.",
+              points: [
+                { title: "โครงสร้างระบบนิเวศสุขภาพ", desc: "การประเมินการเชื่อมต่อผู้เล่นในระบบ: ประกันภัย, สมาคมท่องเที่ยว, โรงพยาบาล และผู้ให้บริการสมุนไพร" },
+                { title: "อุปสรรคและปัญหาคอขวดเชิงนโยบาย", desc: "ชี้ให้เห็นประเด็นขาดแคลนข้อมูลแลกเปลี่ยนแบบเรียลไทม์ และมาตรฐานบุคลากรบริบาลผู้สูงอายุที่ยังไม่เพียงพอ" },
+                { title: "การกำหนดกรอบงานวิจัยแห่งอนาคต", desc: "เสนอแนะแนวทางสนับสนุนทุนวิจัยเพื่อช่วยในการปรับกฎระเบียบของภาครัฐให้รองรับโมเดลธุรกิจใหม่" }
+              ],
+              takeaway: "การพัฒนาอุตสาหกรรมต้องขับเคลื่อนแบบองค์รวมผ่านข้อมูลวิจัยเชิงประจักษ์ไม่ใช่การคาดคะเนลอยๆ"
+            }
+          }
+        ]
+      },
+      {
+        id: "m4",
+        code: "Binder 4",
+        titleEn: "ครั้งที่ 2 หัวหิน (18 มิ.ย.)",
+        titleTh: "หัวหิน - 18 มิ.ย.",
+        session: "session2",
+        colorClass: "binder-amber",
+        colorHex: "#BA7517",
+        desc: "เอกสารสัมมนา นพท. ครั้งที่ 2 ณ หัวหิน - วันที่ 18 มิถุนายน 2569 (กรมส่งเสริมฯ, สสว., กรมวิทยาศาสตร์บริการ)",
+        slides: [
+          {
+            title: "Global Market Expansion (แผนการตลาดการขยายบริการสุขภาพไทย)",
+            speaker: "คุณกรกมล อเนกะมัย",
+            organization: "กรมส่งเสริมการค้าระหว่างประเทศ (DITP), กระทรวงพาณิชย์",
+            date: "18 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/18 June/คุณกรกมล/PPT Global Market Expansion 16.06.2026.pdf",
+            summary: {
+              highlight: "เจาะลึกตลาดส่งออกบริการสุขภาพและการจัดกิจกรรมส่งเสริมการขายในต่างประเทศ โดย กรมส่งเสริมการค้าระหว่างประเทศ",
+              points: [
+                { title: "ตลาดเป้าหมายที่มีอัตราเติบโตสูง", desc: "วิเคราะห์ตลาดตะวันออกกลาง (กลุ่มรักษาโรคซับซ้อน) และตลาดจีน/ยุโรป (กลุ่มดูแลชะลอวัยและเวลเนส)" },
+                { title: "กลยุทธ์การจับคู่ธุรกิจการค้า", desc: "การจัดสัมมนาโรดโชว์และการเจรจาการค้าเชิงรุก (Business Matching) ร่วมกับหอการค้าในต่างประเทศ" },
+                { title: "การสื่อสารผ่านทูตพาณิชย์", desc: "ดึงกำลังทูตพาณิชย์ทั่วโลกช่วยอัปเดตกระแสความต้องการบริการสุขภาพและนำเสนอผู้เล่นไทยสู่ตัวแทนส่งต่อคนไข้" }
+              ],
+              takeaway: "การเข้าใจความต้องการของคนไข้แต่ละวัฒนธรรมจะช่วยให้ออกแบบทรีตเมนต์และแคมเปญการสื่อสารได้โดนใจ"
+            }
+          },
+          {
+            title: "SME Wellness Business Model (โมเดลการพัฒนาธุรกิจสุขภาพขนาดย่อม)",
+            speaker: "ดร.ปณิตา พิสุทธิวัชระกุล",
+            organization: "สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม (สสว.)",
+            date: "18 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/18 June/ดร.ปณิตา/SME wellness 140669_0934.pdf",
+            summary: {
+              highlight: "แนวทางการส่งเสริมผู้ประกอบการเวลเนสและธุรกิจบำบัดขนาดย่อมจาก สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม",
+              points: [
+                { title: "การวิเคราะห์โครงสร้างธุรกิจ SMEs", desc: "พบว่าผู้ประกอบการไทยมีความเชี่ยวชาญด้านบริการนวด/สปา แต่ขาดแคลนทักษะการทำตลาดดิจิทัลสากล" },
+                { title: "การเข้าถึงมาตรการช่วยเหลือภาครัฐ", desc: "แนะนำโปรแกรมเงินสนับสนุนช่วยเหลือค่าทดสอบมาตรฐานและการสนับสนุนทุนบ่มเพาะโมเดลธุรกิจนวัตกรรม" },
+                { title: "โมเดลความร่วมมือธุรกิจท่องเที่ยว", desc: "ส่งเสริมการจับคู่สปาท้องถิ่นกับโรงแรมชุมชนเพื่อกระจายรายได้และสร้างทริปเวลเนสชุมชน" }
+              ],
+              takeaway: "SMEs สุขภาพต้องการการยกระดับมาตรฐานการให้บริการและการตลาดออนไลน์เพื่อขยายตัวสู่ฐานลูกค้าระดับสูง"
+            }
+          },
+          {
+            title: "แผนส่งเสริมผู้ประกอบการนวัตกรรมและบริการสุขภาพ",
+            speaker: "คุณอุมาพร สุขม่วง",
+            organization: "รองผู้อำนวยการโครงการ / อดีตอธิบดีกรมวิทยาศาสตร์บริการ",
+            date: "18 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/18 June/power point รองฯ อุมาพร.pdf",
+            summary: {
+              highlight: "การพัฒนานวัตกรรมการบริการและผลิตภัณฑ์สุขภาพเชิงอุตสาหกรรม โดยวิทยากรพิเศษ นพท.",
+              points: [
+                { title: "การยกระดับคุณภาพสารสกัดสมุนไพร", desc: "พัฒนาขั้นตอนการสกัดแบบควบคุมอุณหภูมิและการจัดเก็บสารสำคัญเพื่อให้ได้สารออกฤทธิ์ทางชีวภาพที่เสถียร" },
+                { title: "มาตรฐานห้องปฏิบัติการและการตรวจสอบ", desc: "ส่งเสริมผู้ประกอบการผลิตใช้โรงงานมาตรฐาน GMP/ISO เพื่อเพิ่มความเชื่อมั่นในการส่งออกไปตลาดสหภาพยุโรป/ญี่ปุ่น" },
+                { title: "การแปลงวัตถุดิบท้องถิ่นเป็นพรีเมียม", desc: "นำสมุนไพรเด่น เช่น ขมิ้นชัน กระชายดำ มาพัฒนาเป็นเครื่องสำอางแบรนด์เนมและเวชสำอางบำรุงลึก" }
+              ],
+              takeaway: "การมีหลักฐานทางวิทยาศาสตร์และห้องทดลองรับรองคุณภาพผลิตภัณฑ์คือหัวใจสำคัญในการยกระดับมูลค่าสินค้าสปาไทย"
+            }
+          },
+          {
+            title: "Solar Energy & Eco-friendly Health Infrastructure (โรงพยาบาลโซลาร์)",
+            speaker: "ตัวแทนผู้เข้าร่วมหลักสูตรกลุ่มที่ 4",
+            organization: "ผู้เข้าร่วมสัมมนา นพท. กลุ่มที่ 4",
+            date: "18 มิถุนายน 2569",
+            type: "pdf",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/Present Group/Solar present.pdf",
+            summary: {
+              highlight: "ข้อเสนอแนะโครงการพลังงานแสงอาทิตย์ในการยกระดับโครงสร้างพื้นฐานสถานพยาบาลและรีสอร์ตสุขภาพเพื่อสิ่งแวดล้อม",
+              points: [
+                { title: "แนวคิดการบริการคาร์บอนต่ำ (Net-Zero)", desc: "การลดก๊าซเรือนกระจกของสถานบริการพยาบาลโดยนำเทคโนโลยีแผงโซลาร์เซลล์พลังงานแสงอาทิตย์มาช่วยผลิตไฟ" },
+                { title: "ความคุ้มค่าทางการเงินและการลงทุน", desc: "คำนวณระยะเวลาคืนทุนภายใน 5-6 ปีจากการเปลี่ยนมาใช้พลังงานสะอาดและลดค่าไฟฟ้าช่วงกลางวันซึ่งเป็นช่วงใช้แอร์สูง" },
+                { title: "การดึงดูดนักท่องเที่ยวรักษ์โลก (Eco-wellness)", desc: "ใช้จุดขายความเป็นมิตรต่อสิ่งแวดล้อมเพื่อสร้างแบรนด์ภาพลักษณ์ดึงดูดนักท่องเที่ยวยุโรปที่ให้ความสำคัญกับสังคมและสิ่งแวดล้อม (ESG)" }
+              ],
+              takeaway: "การแพทย์สีเขียว (Green Medicine) และพลังงานสะอาดคือเมกะเทรนด์สำคัญที่จะดึงมูลค่าแบรนด์สุขภาพไทยให้โดดเด่น"
+            }
+          }
+        ]
+      },
+      {
+        id: "m5",
+        code: "Binder 5",
+        titleEn: "ครั้งที่ 2 หัวหิน (กลุ่มยุทธศาสตร์)",
+        titleTh: "หัวหิน - กลุ่มยุทธศาสตร์",
+        session: "session2",
+        colorClass: "binder-navy",
+        colorHex: "#2b3a4a",
+        desc: "ผลงานกลุ่มเชิงยุทธศาสตร์การพัฒนาพื้นที่เชิงนิเวศ บลูโอเชียน และพลังงานสะอาด (นพท. กลุ่ม 1-4)",
+        slides: [
+          {
+            title: "Blue Ocean Strategy & Market Synergy 01 (ภาพสรุป 1)",
+            speaker: "ตัวแทนผู้เข้าร่วมหลักสูตรกลุ่มที่ 1",
+            organization: "ผู้เข้าร่วมสัมมนา นพท. กลุ่มที่ 1",
+            date: "17 มิถุนายน 2569",
+            type: "image",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/Present Group/Blue Ocean New 01.png",
+            summary: {
+              highlight: "โมเดลความคิดสร้างนวัตกรรมน่านน้ำสีน้ำเงินในกลุ่มท่องเที่ยวเชิงการแพทย์ไทยโดยผู้เข้าสัมมนา กลุ่มที่ 1",
+              points: [
+                { title: "กลยุทธ์การตลาดแบบไร้คู่แข่ง", desc: "เน้นหลีกเลี่ยงสงครามตัดราคา (Red Ocean) โดยมองหาโอกาสบริการใหม่ เช่น การบำบัดทางจิตและโปรแกรมลองเจวิตี" },
+                { title: "การผสานการทำงานข้ามอุตสาหกรรม", desc: "เชื่อมโยงภาคการผลิตเกษตรอินทรีย์ อาหารเชิงนวัตกรรม โรงแรมที่พัก และระบบแพทย์เฉพาะทางเข้าด้วยกัน" },
+                { title: "เป้าหมายการเพิ่มมูลค่าบริการ", desc: "การออกแบบเส้นทางผู้บริโภคที่สร้างประสบการณ์ประทับใจตั้งแต่เดินทางมาถึงจนเดินทางกลับเพื่อเพิ่มการมาซ้ำ" }
+              ],
+              takeaway: "บลูโอเชียนเวลเนสไทยต้องสร้างจากเอกลักษณ์วัฒนธรรมที่ลอกเลียนแบบได้ยากผสานเทคโนโลยีทางการแพทย์สมัยใหม่"
+            }
+          },
+          {
+            title: "Blue Ocean Strategy & Market Synergy 02 (ภาพสรุป 2)",
+            speaker: "ตัวแทนผู้เข้าร่วมหลักสูตรกลุ่มที่ 1",
+            organization: "ผู้เข้าร่วมสัมมนา นพท. กลุ่มที่ 1",
+            date: "17 มิถุนายน 2569",
+            type: "image",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/Present Group/Blue Ocean New 02.jpg",
+            summary: {
+              highlight: "แผนภาพสรุปยุทธศาสตร์แคนวาส (Value Canvas) และเกณฑ์การประเมินการแข่งขันในตลาดเวลเนสโลก",
+              points: [
+                { title: "การประเมินจุดชี้ขาดทางธุรกิจ", desc: "วิเคราะห์องค์ประกอบแข่งขัน ได้แก่ ความเร็วบริการ, ความเชี่ยวชาญการแพทย์, ราคา, อัตลักษณ์ไทย, และความน่าเชื่อถือ" },
+                { title: "การปรับเปลี่ยนกลยุทธ์การแข่ง", desc: "เน้นการขยับคะแนนด้าน 'อัตลักษณ์วัฒนธรรมไทยบำบัด' และ 'ความเฉพาะบุคคล' ให้ทิ้งห่างคู่แข่งประเทศอื่น" },
+                { title: "แนวทางการประหยัดค่าใช้จ่าย", desc: "ลดกิจกรรมส่งเสริมการขายที่สิ้นเปลืองแล้วเปลี่ยนไปทุ่มงบพัฒนาเทคโนโลยีตรวจคัดกรองและความสามารถบุคลากร" }
+              ],
+              takeaway: "แผนภาพแคนวาสช่วยให้องค์กรเข้าใจตำแหน่งการตลาดของตนเองและเลือกทิศทางการจัดสรรงบประมาณได้อย่างแม่นยำ"
+            }
+          },
+          {
+            title: "Forest & Ecological Tourism Assets (อุทยานบำบัดสีเขียว)",
+            speaker: "ตัวแทนผู้เข้าร่วมหลักสูตรกลุ่มที่ 2",
+            organization: "ผู้เข้าร่วมสัมมนา นพท. กลุ่มที่ 2",
+            date: "17 มิถุนายน 2569",
+            type: "image",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/Present Group/Forest New.jpg",
+            summary: {
+              highlight: "ข้อเสนอโมเดลการบำบัดด้วยธรรมชาติและป่าไม้เพื่อสุขภาพ (Forest Bathing) ของตัวแทนหลักสูตร นพท. กลุ่มที่ 2",
+              points: [
+                { title: "ศาสตร์การอาบป่า (Forest Bathing)", desc: "นำแนวคิดชินรินโยกุของญี่ปุ่นมาประยุกต์ใช้ในรีสอร์ตธรรมชาติและอุทยานแห่งชาติของไทยเพื่อลดระดับฮอร์โมนความเครียด" },
+                { title: "การออกแบบกิจกรรมบำบัด", desc: "จัดโปรแกรมเดินเท้าสัมผัสธรรมชาติ, การฝึกการหายใจลึก, และการดื่มชาสมุนไพรสกัดสดกลางป่าเขา" },
+                { title: "ผลลัพธ์ทางคลินิกที่วัดผลได้", desc: "การวัดค่าอัตราการเต้นของหัวใจและความดันโลหิตของผู้เข้าร่วมก่อนและหลังเข้าร่วมทริปธรรมชาติบำบัด" }
+              ],
+              takeaway: "การใช้ทรัพยากรธรรมชาติป่าไม้ที่มีอยู่แล้วในประเทศมาเพิ่มมูลค่าการท่องเที่ยวสามารถกระจายรายได้สู่ผู้ดูแลป่าและชุมชนได้โดยตรง"
+            }
+          },
+          {
+            title: "Mountain & Valley Wellness Sanctuary (แหล่งบำบัดเชิงเขา)",
+            speaker: "ตัวแทนผู้เข้าร่วมหลักสูตรกลุ่มที่ 3",
+            organization: "ผู้เข้าร่วมสัมมนา นพท. กลุ่มที่ 3",
+            date: "17 มิถุนายน 2569",
+            type: "image",
+            path: "learning document/ครั้งที่ 2 หัวหิน/Present/Present Group/Mountain.png",
+            summary: {
+              highlight: "โมเดลโครงการพัฒนาสถานพักฟื้นดูแลและบำบัดสุขภาพเชิงเขา (Mountain Wellness) โดยตัวแทน นพท. กลุ่มที่ 3",
+              points: [
+                { title: "การพัฒนา Wellness Sanctuary เชิงเขา", desc: "เน้นพัฒนาสถานพักผ่อนบำบัดในพื้นที่ภูเขาที่มีอากาศบริสุทธิ์และอุณหภูมิเย็นสบายตลอดทั้งปี เช่น เชียงใหม่, เขาใหญ่" },
+                { title: "โภชนาการธรรมชาติเฉพาะบุคคล", desc: "โปรแกรมอาหารชะลอวัยที่ใช้วัตถุดิบอินทรีย์ที่ปลูกในพื้นที่สูงและปรุงตามความต้องการของร่างกายเฉพาะบุคคล" },
+                { title: "สมาธิบำบัดและทริปสงบจิตใจ", desc: "จัดทริปพำนักเพื่อตัดขาดความวุ่นวายทางโลก (Digital Detox) ควบคู่กับการประเมินสุขภาพใจโดยจิตแพทย์ผู้เชี่ยวชาญ" }
+              ],
+              takeaway: "พื้นที่เชิงเขามีศักยภาพสูงในการพัฒนาเป็นสถานบำบัดชะลอวัยระยะยาวเนื่องจากสภาพแวดล้อมที่ส่งเสริมสุขภาพตามธรรมชาติ"
+            }
+          }
+        ]
+      }
+    ];
+
+    // Application State
+    let state = {
+      activeCategory: "all",
+      searchQuery: "",
+      selectedModuleId: null,
+      selectedSlideIndex: 0,
+      progressData: {}, // completion tracking
+      imageZoom: 1.0,
+      sidebarCollapsed: false,
+      activeTab: "summary" // summary or original
+    };
+
+    // DOM Elements cache
+    const elements = {
+      bookshelfGrid: document.getElementById('bookshelf-grid'),
+      viewerWrapper: document.getElementById('viewer-wrapper'),
+      viewModuleCode: document.getElementById('view-module-code'),
+      viewModuleTitle: document.getElementById('view-module-title'),
+      slidesTocList: document.getElementById('slides-toc-list'),
+      mediaCanvas: document.getElementById('media-canvas'),
+      btnSlidePrev: document.getElementById('btn-slide-prev'),
+      btnSlideNext: document.getElementById('btn-slide-next'),
+      btnSlideFullscreen: document.getElementById('btn-slide-fullscreen'),
+      slidePageIndicator: document.getElementById('slide-page-indicator'),
+      slideProgressBar: document.getElementById('slide-progress-bar'),
+      fullscreenTarget: document.getElementById('fullscreen-target'),
+      searchBar: document.getElementById('search-bar'),
+      filterBtns: document.querySelectorAll('.filter-btn'),
+      progressCircle: document.getElementById('progress-circle'),
+      progressPercent: document.getElementById('progress-percent'),
+      searchResultsBanner: document.getElementById('search-results-banner'),
+      searchClearBtn: document.getElementById('search-clear-btn'),
+      mediaTitle: document.getElementById('media-title'),
+      mediaSpeakerOrg: document.getElementById('media-speaker-org'),
+      mediaTypeBadge: document.getElementById('media-type-badge'),
+      mediaDate: document.getElementById('media-date'),
+      btnNewTab: document.getElementById('btn-new-tab'),
+      statModules: document.getElementById('stat-modules'),
+      statSlides: document.getElementById('stat-slides'),
+      pagesLayoutGrid: document.getElementById('pages-layout-grid'),
+      btnToggleSidebar: document.getElementById('btn-toggle-sidebar'),
+      mediaLoader: document.getElementById('media-loader'),
+      tabBtnSummary: document.getElementById('tab-btn-summary'),
+      tabBtnOriginal: document.getElementById('tab-btn-original')
+    };
+
+    // Initialize App
+    function init() {
+      loadProgressFromStorage();
+      renderBookshelf();
+      setupEventListeners();
+      updateOverallProgressWidget();
+
+      // Set total stats
+      elements.statModules.innerText = MODULES.length;
+      let totalSlides = 0;
+      MODULES.forEach(m => totalSlides += m.slides.length);
+      elements.statSlides.innerText = totalSlides;
+    }
+
+    // LocalStorage Helper functions
+    function loadProgressFromStorage() {
+      const stored = localStorage.getItem('npt_media_progress_v2');
+      if (stored) {
+        try {
+          state.progressData = JSON.parse(stored);
+        } catch (e) {
+          state.progressData = {};
+        }
+      } else {
+        state.progressData = {};
+      }
+    }
+
+    function saveProgressToStorage() {
+      localStorage.setItem('npt_media_progress_v2', JSON.stringify(state.progressData));
+    }
+
+    function markSlideAsRead(moduleId, slideIndex) {
+      if (!state.progressData[moduleId]) {
+        state.progressData[moduleId] = [];
+      }
+      if (!state.progressData[moduleId].includes(slideIndex)) {
+        state.progressData[moduleId].push(slideIndex);
+        saveProgressToStorage();
+        updateOverallProgressWidget();
+        updateBookshelfSpineProgress(moduleId);
+      }
+    }
+
+    function getModuleCompletionPercentage(moduleId) {
+      const mod = MODULES.find(m => m.id === moduleId);
+      if (!mod) return 0;
+      const readCount = (state.progressData[moduleId] || []).length;
+      return Math.round((readCount / mod.slides.length) * 100);
+    }
+
+    function updateOverallProgressWidget() {
+      let totalSlides = 0;
+      let readSlides = 0;
+      MODULES.forEach(m => {
+        totalSlides += m.slides.length;
+        readSlides += (state.progressData[m.id] || []).length;
+      });
+
+      const percent = totalSlides > 0 ? Math.round((readSlides / totalSlides) * 100) : 0;
+      elements.progressPercent.innerText = `${percent}%`;
+      elements.progressCircle.setAttribute('stroke-dasharray', `${percent}, 100`);
+    }
+
+    function updateBookshelfSpineProgress(moduleId) {
+      const spineDot = document.querySelector(`.binder-spine[data-id="${moduleId}"] .spine-progress-dot`);
+      if (spineDot) {
+        const percentage = getModuleCompletionPercentage(moduleId);
+        if (percentage === 100) {
+          spineDot.classList.add('completed');
+          spineDot.setAttribute('title', 'Completed 100%');
+        } else {
+          spineDot.classList.remove('completed');
+          spineDot.setAttribute('title', `In Progress: ${percentage}%`);
+        }
+      }
+    }
+
+    // Render Bookshelf Spines ("เอกสารตามสันเรียน")
+    function renderBookshelf() {
+      elements.bookshelfGrid.innerHTML = '';
+
+      const filteredModules = MODULES.filter(m => {
+        if (state.activeCategory !== "all" && m.session !== state.activeCategory) return false;
+        return true;
+      });
+
+      filteredModules.forEach(mod => {
+        let matchesSearch = true;
+        if (state.searchQuery.trim() !== "") {
+          matchesSearch = false;
+          const query = state.searchQuery.toLowerCase();
+
+          if (mod.titleEn.toLowerCase().includes(query) || mod.titleTh.toLowerCase().includes(query) || mod.desc.toLowerCase().includes(query)) {
+            matchesSearch = true;
+          } else {
+            mod.slides.forEach(s => {
+              if (s.title.toLowerCase().includes(query) || s.speaker.toLowerCase().includes(query) || s.organization.toLowerCase().includes(query) || s.date.toLowerCase().includes(query)) {
+                matchesSearch = true;
+              }
+            });
+          }
+        }
+
+        const isCompleted = getModuleCompletionPercentage(mod.id) === 100;
+
+        const spine = document.createElement('div');
+        spine.className = `binder-spine ${mod.colorClass}`;
+        if (!matchesSearch) spine.classList.add('fade-out');
+        if (state.selectedModuleId === mod.id) spine.classList.add('active');
+
+        if (state.searchQuery.trim() !== "" && matchesSearch) {
+          spine.style.borderColor = "var(--amber-400)";
+          spine.style.borderWidth = "2px";
+        } else {
+          spine.style.borderColor = "";
+          spine.style.borderWidth = "";
+        }
+
+        spine.setAttribute('data-id', mod.id);
+        const slideCount = mod.slides.length;
+        const readCount = (state.progressData[mod.id] || []).length;
+        const progressText = `${readCount}/${slideCount} อ่านแล้ว`;
+        
+        spine.innerHTML = `
+          <div class="spine-progress-dot ${isCompleted ? 'completed' : ''}" title="${isCompleted ? 'Completed 100%' : 'Not Completed'}"></div>
+          <div class="spine-label-sticker">
+            <div class="spine-label-header">
+              <span class="spine-label-code">${mod.code}</span>
+              <span style="font-size:0.62rem; color:var(--muted); font-family:var(--mono);">${mod.session === 'session1' ? 'ครั้งที่ 1' : 'ครั้งที่ 2'}</span>
+            </div>
+            <div class="spine-label-title">${mod.titleTh}</div>
+            <div class="spine-label-footer">
+              <span>📂 ${slideCount} ไฟล์</span>
+              <span style="font-weight:600; color:${isCompleted ? 'var(--teal-600)' : 'var(--muted)'};">${readCount > 0 ? progressText : 'ยังไม่อ่าน'}</span>
+            </div>
+          </div>
+        `;
+
+        spine.addEventListener('click', () => {
+          selectModule(mod.id);
+        });
+
+        elements.bookshelfGrid.appendChild(spine);
+      });
+    }
+
+    // Switch Active Module in Viewer
+    function selectModule(moduleId) {
+      state.selectedModuleId = moduleId;
+      state.selectedSlideIndex = 0;
+
+      renderBookshelf();
+      elements.viewerWrapper.classList.add('active');
+
+      const mod = MODULES.find(m => m.id === moduleId);
+      elements.viewModuleCode.innerText = mod.code;
+      elements.viewModuleTitle.innerText = mod.titleEn;
+
+      renderTOC(mod);
+      renderActiveMedia();
+
+      elements.viewerWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render Table of Contents
+    function renderTOC(moduleObj) {
+      elements.slidesTocList.innerHTML = '';
+
+      moduleObj.slides.forEach((slide, idx) => {
+        const isViewed = (state.progressData[moduleObj.id] || []).includes(idx);
+        const isActive = state.selectedSlideIndex === idx;
+
+        const fileIcon = slide.type === "pdf" ? "📄" : "🖼️";
+
+        const li = document.createElement('li');
+        li.className = `slide-index-item ${isActive ? 'active' : ''} ${isViewed ? 'viewed' : ''}`;
+        li.innerHTML = `
+          <div class="toc-item-header">
+            <span class="toc-item-icon">${fileIcon}</span>
+            <span>${slide.title}</span>
+          </div>
+          <div class="toc-item-speaker">ผู้บรรยาย: ${slide.speaker}</div>
+          <div class="toc-item-org">${slide.organization}</div>
+          <div class="toc-item-footer">
+            <span class="toc-item-date">📅 ${slide.date}</span>
+            <span class="toc-item-status">${isViewed ? '✓ อ่านแล้ว' : '○ ยังไม่อ่าน'}</span>
+          </div>
+        `;
+
+        li.addEventListener('click', () => {
+          state.selectedSlideIndex = idx;
+          renderActiveMedia();
+        });
+
+        elements.slidesTocList.appendChild(li);
+      });
+    }
+
+    function updateTOCActiveState() {
+      const items = elements.slidesTocList.querySelectorAll('.slide-index-item');
+      items.forEach((item, idx) => {
+        if (idx === state.selectedSlideIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+
+        const isViewed = (state.progressData[state.selectedModuleId] || []).includes(idx);
+        if (isViewed) {
+          item.classList.add('viewed');
+          const statusSpan = item.querySelector('.toc-item-status');
+          if (statusSpan) statusSpan.innerText = '✓ อ่านแล้ว';
+        }
+      });
+    }
+
+    // Render active media based on active tab state
+    function renderActiveMedia() {
+      const mod = MODULES.find(m => m.id === state.selectedModuleId);
+      if (!mod) return;
+
+      const slide = mod.slides[state.selectedSlideIndex];
+      if (!slide) return;
+
+      markSlideAsRead(mod.id, state.selectedSlideIndex);
+      elements.mediaCanvas.classList.remove('fade-in');
+
+      // Show spinner loader
+      elements.mediaLoader.style.opacity = '1';
+      elements.mediaLoader.style.display = 'flex';
+
+      // Update active class on tab buttons
+      if (state.activeTab === "summary") {
+        elements.tabBtnSummary.classList.add('active');
+        elements.tabBtnOriginal.classList.remove('active');
+        
+        // Add color indicators to active tab
+        if (mod.colorHex === "#1D9E75") {
+          elements.tabBtnSummary.className = "viewer-tab-btn active tab-teal";
+        } else {
+          elements.tabBtnSummary.className = "viewer-tab-btn active";
+        }
+      } else {
+        elements.tabBtnSummary.classList.remove('active');
+        elements.tabBtnOriginal.classList.add('active');
+        
+        if (mod.colorHex === "#1D9E75") {
+          elements.tabBtnOriginal.className = "viewer-tab-btn active tab-teal";
+        } else {
+          elements.tabBtnOriginal.className = "viewer-tab-btn active";
+        }
+      }
+
+      setTimeout(() => {
+        elements.mediaTitle.innerText = slide.title;
+        elements.mediaSpeakerOrg.innerText = `${slide.speaker} | ${slide.organization}`;
+        elements.mediaTypeBadge.innerText = slide.type.toUpperCase();
+        elements.mediaDate.innerText = slide.date;
+        elements.btnNewTab.setAttribute('href', slide.path);
+
+        if (state.activeTab === "summary") {
+          // Render High Fidelity HTML Summary Slide
+          const sData = slide.summary || {
+            highlight: "สรุปการนำเสนอและสาระสำคัญของเอกสารนี้",
+            points: [
+              { title: "หัวข้อบรรยายหลัก", desc: slide.title },
+              { title: "วิทยากรบรรยาย", desc: slide.speaker },
+              { title: "หน่วยงานต้นสังกัด", desc: slide.organization }
+            ],
+            takeaway: "สามารถเข้าดูสไลด์การนำเสนอต้นฉบับได้ในแท็บ 'เอกสารฉบับจริง'"
+          };
+
+          let pointsHTML = '';
+          sData.points.forEach(p => {
+            let dotClass = '';
+            if (mod.colorClass === 'binder-teal') dotClass = 'teal';
+            else if (mod.colorClass === 'binder-purple') dotClass = 'purple';
+            else if (mod.colorClass === 'binder-amber') dotClass = 'amber';
+            else if (mod.colorClass === 'binder-navy') dotClass = 'navy';
+
+            pointsHTML += `
+              <div class="summary-point-card ${dotClass}">
+                <h4><span></span>${p.title}</h4>
+                <p>${p.desc}</p>
+              </div>
+            `;
+          });
+
+          let highlightColorClass = '';
+          if (mod.colorClass === 'binder-teal') highlightColorClass = 'teal';
+          else if (mod.colorClass === 'binder-purple') highlightColorClass = 'purple';
+          else if (mod.colorClass === 'binder-amber') highlightColorClass = 'amber';
+          else if (mod.colorClass === 'binder-navy') highlightColorClass = 'navy';
+
+          elements.mediaCanvas.innerHTML = `
+            <div class="summary-slide-content">
+              <div class="summary-highlight-card ${highlightColorClass}">
+                <div class="summary-highlight-title">🎯 Goal & Strategic Highlight</div>
+                <div class="summary-highlight-text">${sData.highlight}</div>
+              </div>
+              
+              <div class="summary-points-grid">
+                ${pointsHTML}
+              </div>
+              
+              <div class="summary-takeaway-card ${highlightColorClass}">
+                <span>💡</span>
+                <div><strong>Key Takeaway:</strong> ${sData.takeaway}</div>
+              </div>
+              
+              <div style="margin-top:auto; display:flex; justify-content:center;">
+                <button class="btn-action" onclick="switchTab('original')" style="background:var(--surface); border-color:var(--gray-100); height:38px; padding:0 1.5rem; border-radius:30px;">
+                  📄 ดูไฟล์เอกสารนำเสนอต้นฉบับ (View Original File) →
+                </button>
+              </div>
+            </div>
+          `;
+
+          // Summaries load instantly, so hide loader
+          elements.mediaLoader.style.opacity = '0';
+          setTimeout(() => elements.mediaLoader.style.display = 'none', 100);
+
+        } else {
+          // Render Original PDF/Image
+          if (slide.type === "pdf") {
+            elements.mediaCanvas.innerHTML = `
+              <iframe src="${slide.path}" class="pdf-frame" id="pdf-iframe" title="${slide.title}"></iframe>
+            `;
+
+            const iframe = document.getElementById('pdf-iframe');
+            iframe.addEventListener('load', () => {
+              elements.mediaLoader.style.opacity = '0';
+              setTimeout(() => elements.mediaLoader.style.display = 'none', 300);
+              iframe.style.opacity = '1';
+            });
+          } else {
+            state.imageZoom = 1.0;
+
+            elements.mediaCanvas.innerHTML = `
+              <div class="image-viewer-wrapper">
+                <img src="${slide.path}" class="image-element" id="viewer-img" alt="${slide.title}">
+                <div class="image-zoom-controls">
+                  <button class="btn-zoom" id="btn-zoom-in" title="Zoom In">+</button>
+                  <button class="btn-zoom" id="btn-zoom-out" title="Zoom Out">-</button>
+                  <button class="btn-zoom" id="btn-zoom-reset" title="Fit Screen">Reset</button>
+                </div>
+              </div>
+            `;
+
+            const img = document.getElementById('viewer-img');
+            img.addEventListener('load', () => {
+              elements.mediaLoader.style.opacity = '0';
+              setTimeout(() => elements.mediaLoader.style.display = 'none', 300);
+            });
+
+            document.getElementById('btn-zoom-in').addEventListener('click', () => {
+              if (state.imageZoom < 3.0) {
+                state.imageZoom += 0.25;
+                img.style.transform = `scale(${state.imageZoom})`;
+              }
+            });
+            document.getElementById('btn-zoom-out').addEventListener('click', () => {
+              if (state.imageZoom > 0.5) {
+                state.imageZoom -= 0.25;
+                img.style.transform = `scale(${state.imageZoom})`;
+              }
+            });
+            document.getElementById('btn-zoom-reset').addEventListener('click', () => {
+              state.imageZoom = 1.0;
+              img.style.transform = 'scale(1.0)';
+            });
+          }
+        }
+
+        elements.mediaCanvas.classList.add('fade-in');
+        elements.slidePageIndicator.innerText = `File ${state.selectedSlideIndex + 1} of ${mod.slides.length}`;
+
+        const pct = ((state.selectedSlideIndex + 1) / mod.slides.length) * 100;
+        elements.slideProgressBar.style.width = `${pct}%`;
+        elements.slideProgressBar.style.backgroundColor = mod.colorHex;
+
+        elements.btnSlidePrev.disabled = (state.selectedSlideIndex === 0);
+        elements.btnSlideNext.disabled = (state.selectedSlideIndex === mod.slides.length - 1);
+
+        updateTOCActiveState();
+      }, 150);
+    }
+
+    function switchTab(tabName) {
+      state.activeTab = tabName;
+      renderActiveMedia();
+    }
+
+    function nextSlide() {
+      const mod = MODULES.find(m => m.id === state.selectedModuleId);
+      if (mod && state.selectedSlideIndex < mod.slides.length - 1) {
+        state.selectedSlideIndex++;
+        renderActiveMedia();
+      }
+    }
+
+    function prevSlide() {
+      if (state.selectedSlideIndex > 0) {
+        state.selectedSlideIndex--;
+        renderActiveMedia();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        elements.fullscreenTarget.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    function toggleSidebar() {
+      state.sidebarCollapsed = !state.sidebarCollapsed;
+      if (state.sidebarCollapsed) {
+        elements.pagesLayoutGrid.classList.add('sidebar-collapsed');
+        elements.btnToggleSidebar.innerHTML = '📁 Show TOC';
+      } else {
+        elements.pagesLayoutGrid.classList.remove('sidebar-collapsed');
+        elements.btnToggleSidebar.innerHTML = '📁 Sidebar';
+      }
+    }
+
+    // Setup Event Listeners
+    function setupEventListeners() {
+      elements.btnSlidePrev.addEventListener('click', prevSlide);
+      elements.btnSlideNext.addEventListener('click', nextSlide);
+      elements.btnSlideFullscreen.addEventListener('click', toggleFullscreen);
+      elements.btnToggleSidebar.addEventListener('click', toggleSidebar);
+
+      elements.tabBtnSummary.addEventListener('click', () => switchTab('summary'));
+      elements.tabBtnOriginal.addEventListener('click', () => switchTab('original'));
+
+      document.addEventListener('keydown', (e) => {
+        if (state.selectedModuleId) {
+          if (e.key === "ArrowLeft") {
+            prevSlide();
+          } else if (e.key === "ArrowRight") {
+            nextSlide();
+          }
+        }
+      });
+
+      elements.searchBar.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value;
+        renderBookshelf();
+
+        if (state.searchQuery.trim() !== "") {
+          elements.searchResultsBanner.classList.add('active');
+          if (state.selectedModuleId) {
+            const mod = MODULES.find(m => m.id === state.selectedModuleId);
+            renderTOC(mod);
+          }
+        } else {
+          elements.searchResultsBanner.classList.remove('active');
+          if (state.selectedModuleId) {
+            const mod = MODULES.find(m => m.id === state.selectedModuleId);
+            renderTOC(mod);
+          }
+        }
+      });
+
+      elements.searchClearBtn.addEventListener('click', () => {
+        elements.searchBar.value = "";
+        state.searchQuery = "";
+        elements.searchResultsBanner.classList.remove('active');
+        renderBookshelf();
+        if (state.selectedModuleId) {
+          const mod = MODULES.find(m => m.id === state.selectedModuleId);
+          renderTOC(mod);
+        }
+      });
+
+      elements.filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          elements.filterBtns.forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          state.activeCategory = e.target.getAttribute('data-category');
+          renderBookshelf();
+        });
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
